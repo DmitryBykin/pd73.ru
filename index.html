@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HTML Academy: Пинк</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+
+    <header class="header">
+      <nav class="nav">
+        <div class="nav__menu"> <!-- nav__menu--closed -->
+          <a class="nav__logo">  <!-- href на главной странице не указываем -->
+            <img class="nav__img" src="logo.jpg" alt="PINK logo">
+          </a>
+          <a class="nav-btn  nav-btn--close"></a>
+        </div>
+        <ul class="nav__items"> <!-- nav__items--hidden -- спрятать меню -->
+          <li class="nav__item">
+            <a class="nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="photo.html">Фотографии</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="form.html">Конкурс</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="http://www.htmlacademy.ru">HTML academy</a>
+          </li>
+        </ul>
+      </nav>
+
+    </header>
+
+    <section class="download">
+      <div class="download__wrapper">
+        <p class="download__title"> <!-- в мобильной версии прячем -->
+          Взгляните <br>на жизнь<br>иначе!
+        </p>
+        <a class="download__btn" href="url">Скачать приложение</a>
+        <figure class="download__icons">
+          <img class="download__icon  download__icon-mac" src="../../img/logo-apple.svg" alt="icon">
+          <img class="download__icon  download__icon-android" src="./../img/logo-android.svg" alt="icon">
+          <img class="download__icon  download__icon-windows" src="./../img/logo-microsoft.svg" alt="icon">
+          <figcaption class="download__desc">
+              Доступно для iPhone, iPad, Android, Windows Phone, OS X, Windows 8
+          </figcaption>
+        </figure>
+      </div>
+    </section> <!-- end download -->
+
+    <section class="features">
+      <div class="features__header">
+          <p class="features__header-text">Устали от серости мегаполиса?</p>
+          <p class="features__header-text">Нам есть, что вам <br>предложить!</p>
+      </div>
+
+      <div class="features__main">
+        <div class="features__wrapper">
+          <section class="features__block">
+
+            <div class="features__item">
+              <h2 class="features__main-title">Поднимает настроение</h2>
+              <p class="features__main-desc">
+                Приложение позволяет вам победить осеннюю хандру и депрессию
+                буквально в несколько кликов!
+              </p>
+            </div>
+
+            <div class="features__item">
+              <h2 class="features__main-title">Меняет мир вокруг</h2>
+              <p class="features__main-desc">
+                Сделайте снимок и украсьте егосмайликом или текстовой подписью, чтобы
+                усилить эффект
+              </p>
+            </div>
+
+            <div class="features__item">
+              <h2 class="features__main-title">Заводит новых друзей</h2>
+              <p class="features__main-desc">
+                Ставьте лайки, комментируйте, делитесь фотографиями с друзьями и
+                заводите новых
+              </p>
+            </div>
+
+          </section>
+
+          <div class="features__main-logoblock">
+
+            <div class="features__main-logo">
+            </div>
+
+            <div class="features__main-logo">
+            </div>
+
+            <div class="features__main-logo">
+            </div>
+
+          </div>
+
+          <!--<img class="features__main-logo" src="../../img/iphone-screen-mobile@1x.png" width=157 height=320 alt="features logo">
+          -->
+        </div>
+
+      </div> <!-- end features-main -->
+
+    </section> <!-- end features -->
+
+    <section class="effects">
+      <div class="effects__wrapper">
+        <div class="effects__logo"> LOGO
+        </div>
+        <div class="effects__content">
+          <h2 class="effetcs__title">Эффект <br>на 24 часа</h2>
+          <p class="effects__desc">
+            Британские ученые провели исследования
+            и доказали, что положительный эффект
+            от использования приложения длится
+            целые сутки!
+          </p>
+          <a class="effects__learn-more" href="more.html">
+            Узнать больше об исследовании
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <div class="feedback-slider">
+      <div class="feedback__wrapper">
+        <section class="feedback-slider__item">
+          <h2 class="feedback-slider__title">Николай Петров</h2>
+          <p class="feedback-slider__desc">
+            Это приложение перевернуло мой мир и позволило по-новому взглянуть
+            на привычные серые вещи! А еще я познакомился со своей будущей женой в
+            комментариях к выложенной фотографии!
+          </p>
+        </section>
+        <div class="feedback-slider__controls">
+        </div>
+      </div>
+    </div> <!-- end feedback-sliders -->
+
+    <div class="price-slider">
+      <section class="price-slider__items">  <!-- здесь будет таблица -->
+        <div class="price-slider__header price-slider--hit">
+          <h2 class="price-slider__name">
+            стандарт
+          </h2>
+          <p class="price-slider__cy">
+            3,99 USD
+          </p>
+        </div>
+        <ul class="price-slider__list">
+          <li class="price-slider__item icons-yes">
+            Розовый фильтр
+          </li>
+          <li class="price-slider__item icons-yes">
+            Смайлики
+          </li>
+          <li class="price-slider__item icons-no">
+            Комментарии
+          </li>
+        </ul>
+      </section>
+
+      <div class="price-slider__controls">
+      </div>
+    </div> <!-- end price-slider -->
+
+    <div class="callback">
+      <div class="callback__wrapper">
+        <p class="callback__text">
+          Остались вопросы?
+        </p>
+        <p class="callback__text">
+          Свяжитесь с нами!
+        </p>
+
+        <div class="callback__items">
+
+          <div class="callback__item">
+            <p class="callback__title">
+              Звоните:
+            </p>
+            <a href="tel:+78125556666" class="callback__call">+7(812)555-66-66</a>
+          </div>
+
+          <div class="callback__item">
+            <p class="callback__title">
+              Пишите:
+            </p>
+            <a href="mailto:mail@htmlacademy.ru" class="callback__email">mail@htmlacademy.ru</a>
+          </div>
+
+          <div class="callback__item">
+            <p class="callback__title">
+              Приезжайте в гости:
+            </p>
+            <address class="callback__address">
+              ул. Большая Конюшенная, д. 19/8
+            </address>
+          </div>
+
+        </div>
+
+      </div> <!-- callback__wrapper -->
+      <!-- добавить треугольник -->
+      <div class="callback__map">
+      </div>
+    </div>
+
+    <footer class="footer footer--index">
+        <div class="footer__wrapper">
+          <img class="footer__logo" src="index.html" alt="footer logo">
+          <ul class="footer__list">
+            <li class="footer__item">
+              <a class="footer__social  footer__social--tw" href="twitter.com">tw</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__social  footer__social--fb" href="fb.com">fb</a>
+            </li>
+            <li class="footer__item">
+              <a class="footer__social  footer__social--yt" href="youtube.com">yt</a>
+            </li>
+          </ul>
+
+          <a class="footer__link" href="htmlacademy.html">
+            <p class="footer__text">Разработано</p>
+            <img class="footer__img" src="url" alt="htmlacademy logo">
+          </a>
+        </div> <!-- end footer__wrapper -->
+      </div>
+
+    </footer> <!-- end footer -->
+
+  </body>
+</html>
