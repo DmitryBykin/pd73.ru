@@ -5,6 +5,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-browser-sync");
   grunt.loadNpmTasks("grunt-contrib-watch");
   grunt.loadNpmTasks("grunt-postcss");
+  grunt.loadNpmTasks("grunt-csso");
 
   grunt.initConfig({
     less: {
@@ -51,6 +52,17 @@ module.exports = function(grunt) {
       style: {
         files: ["less/**/*.less"],
         tasks: ["less", "postcss"]
+      }
+    },
+    
+    csso: {
+      style: {
+        options: {
+          report: "gzip"
+        },
+        files: {
+          "css/style.min.css": ["css/style.css"]
+        }
       }
     }
   });
