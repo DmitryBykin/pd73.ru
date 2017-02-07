@@ -15,7 +15,7 @@
   },
   "scripts": {
     "test": "editorconfig-cli",
-    "build": "grunt less && grunt postcss && grunt csso && grunt webp",
+    "build": "grunt less && grunt csso",
     "start": "npm run build && grunt serve",
     "webp": "grunt webp"
   },

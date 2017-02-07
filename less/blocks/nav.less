@@ -1,0 +1,76 @@
+@media @mobiles {
+  .nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav__menu {
+    position: relative;
+    min-height: 70px;
+    
+    background-color: @menu-bg;
+    border-bottom: 1px solid @drop-shadow;
+  }
+  .nav__btn--close {
+    position: absolute;
+    
+    top: 20px;
+    right: 20px;
+    
+    width: 25px;
+    height: 25px;
+    
+    cursor: pointer; 
+    
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      
+      top: 10px;
+      
+      width: 25px;
+      height: 3px;
+      
+      background-color: @menu-color;  
+    }
+    &::before {
+      transform: rotate(45deg);
+    }
+    &::after {
+      transform: rotate(-45deg);
+    }
+    &:hover::before,
+    &:hover::after {
+      background-color: @menu-hover-color;  
+    }
+  }
+  .nav__link {
+    display: block;
+    
+    padding-top: 20px;
+    padding-bottom: 20px;
+    
+    text-align: center;
+    .set-font('Open Sans', bold, 18px, @menu-color);
+    
+    background-color: @menu-bg;
+    
+    border-top: 1px solid @inner-shadow;
+    border-bottom: 1px solid @drop-shadow;
+    
+    outline: none;
+    
+    &:hover {
+      color: @menu-hover-color;
+    }
+  }
+  .nav__logo {
+    display: inline-block;
+    
+    margin-top: 20px;
+    margin-left: 20px;
+    
+    .set-font('fjallaone', normal, 18px, @menu-color);    
+  }
+}
