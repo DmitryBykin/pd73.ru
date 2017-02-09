@@ -1,0 +1,35 @@
+@media @mobiles {
+  .footer {    
+    padding: 30px;
+    text-align: center;
+    background-color: @menu-bg; // footer делаем того же цвета что и верхнее меню
+  }
+  .footer__phone {
+    display: block;
+    
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+    color: @menu-color;
+    //border-bottom: 2px dashed @menu-color;
+    &:hover,
+    &:active {
+      color: @menu-hover-color;
+    }
+  }
+  .footer__phone:hover #smartphone,
+  .footer__phone:active #smartphone {
+    stroke: @menu-hover-color;
+  }
+  .footer svg {  
+    padding-top: 10px; 
+    width: 40px;
+    height: 40px;    
+  }
+  .footer #geolocation {
+    stroke: #ffffff;
+  }
+  .footer #smartphone {
+    stroke: #ffffff;
+  }  
+}

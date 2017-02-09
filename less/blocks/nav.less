@@ -61,7 +61,8 @@
     
     outline: none;
     
-    &:hover {
+    &:hover,
+    &:active {
       color: @menu-hover-color;
     }
   }
@@ -72,5 +73,19 @@
     margin-left: 20px;
     
     .set-font('fjallaone', normal, 18px, @menu-color);    
+  }
+  .nav__phone {
+    position: absolute;
+    
+    top: 20px;
+    right: 80px;
+        
+    .set-font('Arial', normal, 18px, @menu-color);    
+    //.set-font('fjallaone', normal, 18px, @menu-color);    
+    border-bottom: 2px dashed @menu-color;
+    &:hover {
+      color: @menu-hover-color;
+      border-bottom: 2px dashed @menu-hover-color;
+    }
   }
 }

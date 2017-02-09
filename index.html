@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PD73.ru - studio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>PD73.ru - studio</title> 
+    <link rel="stylesheet" href="css/style.css">    
   </head>
   <body>
     <svg style="display:none">
@@ -20,24 +20,30 @@
       <symbol viewBox="0 0 800 800" id="social__item--inst">
         <path d="M150 400c0-119 0-166 42-208s88-42 208-42 166 0 208 42 42 89 42 208 0 166-42 208-88 42-208 42-166 0-208-42-42-89-42-208zm455 0c0-114 0-148-29-176-29-29-62-29-176-29s-148 0-176 29c-29 29-29 62-29 176s0 148 29 176c29 29 62 29 176 29s148 0 176-29c29-29 29-62 29-176zM400 272a128 128 0 1 1 0 256 128 128 0 0 1 0-256zm0 211c46 0 83-37 83-83s-37-83-83-83-83 37-83 83 37 83 83 83zm163-216c0 16-13 30-30 30-16 0-30-14-30-30 0-17 14-30 30-30 17 0 30 13 30 30z"/>
       </symbol>
-    </svg>
-    <header class="header">      
-      <!--<picture>
-        <source srcset="images/bear_PNG1184.webp" type="image/webp">
-        <img src="images/bear_PNG1184.png" width="320" height="240" alt="Bear">
-      </picture>
-        
-      <picture>
-        <source srcset="images/apple_PNG12503.webp" type="image/webp">
-        <img src="images/apple_PNG12503.png" width="320" height="240" alt="Apple">
-      </picture>-->
       
+      <symbol viewBox="0 0 64 64" id="geolocation">  
+          <circle fill="none" stroke-width="2" stroke-miterlimit="10" cx="32" cy="22" r="6"/>      
+        	<path fill="none" stroke-width="2" stroke-miterlimit="10" d="M53,22.735C52.948,10.73,43.599,1,32,1
+        		s-21,9.73-21,21.735C11,38.271,31.965,63,31.965,63S53.069,38.271,53,22.735z"/>
+      </symbol>     
+      
+      <symbol viewBox="0 0 64 64" id="smartphone">
+        	<rect x="16" y="1" fill="none" stroke-width="2" stroke-miterlimit="10" width="32" height="62"/>
+        	<line fill="none" stroke-width="2" stroke-miterlimit="10" x1="28" y1="5" x2="36" y2="5"/>
+        	<line fill="none" stroke-width="2" stroke-miterlimit="10" x1="16" y1="51" x2="48" y2="51"/>
+        	<line fill="none" stroke-width="2" stroke-miterlimit="10" x1="16" y1="9" x2="48" y2="9"/>
+        	<circle fill="none" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" cx="32" cy="57" r="2"/>
+      </symbol> 
+    </svg>
+    
+    <header class="header">     
+         
       <nav class="nav">
         <div class="nav__menu">
           <a class="nav__logo">  <!-- href на главной странице не указываем -->
             <!--<img class="nav__img" src="logo.jpg" alt="PINK logo">-->
             Skydance Studio
-          </a>
+          </a>          
           <a class="nav__btn  nav__btn--close"></a>  <!-- по умолчанию открыто -->
         </div>
         <ul class="nav__items"> <!-- nav__items--hidden -- спрятать меню -->
@@ -48,14 +54,13 @@
             <a class="nav__link" href="#teachers">Наши тренеры</a>
           </li>
           <li class="nav__item">
-            <a class="nav__link" href="#shedule">Расписание</a>
+            <a class="nav__link" href="#schedule">Расписание</a>
           </li>          
           <li class="nav__item">
-            <a class="nav__link" href="#contacts">Контакты</a>
+            <a class="nav__link" href="#contacts">Как нас найти</a></a>
           </li>          
         </ul>
       </nav>
-
     </header>
 
     <section class="about" id="about">
@@ -67,7 +72,6 @@
       </p>
     </section> <!-- end download -->
 
-
     <section class="teachers" id="teachers">
       <h2 class="teachers__title">Наши тренеры</h2>
       <div class="teachers__items">
@@ -77,11 +81,11 @@
           </p>
           <picture class="teachers__photo">
             <source srcset="images/kseniya.webp" type="image/webp">
-            <img src="images/kseniya.jpg" width="280" alt="Ксения Кислицина">
+            <img src="images/kseniya.jpg" width="280" alt="Фото Ксения Кислицина">
           </picture>
           <div class="teachers__lessons">
             <strong>Направления:</strong>
-            Pole Dance, Stretching 
+            Pole Dance/Exotic, Stretching 
           </div>
           <ul class="social">
             <li class="social__item">
@@ -118,197 +122,221 @@
             </li>            
           </ul>          
         </article>
-      </div>
-    </section>
-
-
-
-
-    <section class="features">
-      <div class="features__header">
-          <p class="features__header-text">Устали от серости мегаполиса?</p>
-          <p class="features__header-text">Нам есть, что вам <br>предложить!</p>
-      </div>
-
-      <div class="features__main">
-        <div class="features__wrapper">
-          <section class="features__block">
-
-            <div class="features__item">
-              <h2 class="features__main-title">Поднимает настроение</h2>
-              <p class="features__main-desc">
-                Приложение позволяет вам победить осеннюю хандру и депрессию
-                буквально в несколько кликов!
-              </p>
-            </div>
-
-            <div class="features__item">
-              <h2 class="features__main-title">Меняет мир вокруг</h2>
-              <p class="features__main-desc">
-                Сделайте снимок и украсьте егосмайликом или текстовой подписью, чтобы
-                усилить эффект
-              </p>
-            </div>
-
-            <div class="features__item">
-              <h2 class="features__main-title">Заводит новых друзей</h2>
-              <p class="features__main-desc">
-                Ставьте лайки, комментируйте, делитесь фотографиями с друзьями и
-                заводите новых
-              </p>
-            </div>
-
-          </section>
-
-          <div class="features__main-logoblock">
-
-            <div class="features__main-logo">
-            </div>
-
-            <div class="features__main-logo">
-            </div>
-
-            <div class="features__main-logo">
-            </div>
-
-          </div>
-
-          <!--<img class="features__main-logo" src="../../img/iphone-screen-mobile@1x.png" width=157 height=320 alt="features logo">
-          -->
-        </div>
         
-      </div> <!-- end features-main -->
-
-    </section> <!-- end features -->
-
-    <section class="effects">
-      <div class="effects__wrapper">
-        <div class="effects__logo"> LOGO
-        </div>
-        <div class="effects__content">
-          <h2 class="effetcs__title">Эффект <br>на 24 часа</h2>
-          <p class="effects__desc">
-            Британские ученые провели исследования
-            и доказали, что положительный эффект
-            от использования приложения длится
-            целые сутки!
+        <article class="teachers__item">
+          <p class="teachers__name">
+            Мария Быкина
           </p>
-          <a class="effects__learn-more" href="more.html">
-            Узнать больше об исследовании
-          </a>
-        </div>
+          <picture class="teachers__photo">
+            <source srcset="images/mary.webp" type="image/webp">
+            <img src="images/mary.jpg" width="280" alt="Фото Мария Быкина">
+          </picture>
+          <div class="teachers__lessons">
+            <strong>Направления:</strong>
+            Pole Dance, Stretching, ОФП 
+          </div>
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__item  social__item--vk" href="https://vk.com/plaza911">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--vk">
+                  </use>
+                </svg>
+              </a>
+            </li> 
+            <li class="social__item">
+              <a class="social__item  social__item--fb" href="fb.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--fb">
+                  </use>
+                </svg>
+              </a>
+            </li> 
+            <li class="social__item">
+              <a class="social__item  social__item--tw" href="twitter.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--tw">
+                  </use>
+                </svg>
+              </a>
+            </li> 
+            <li class="social__item">
+              <a class="social__item  social__item--inst" href="instagram.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--inst">
+                  </use>
+                </svg>
+              </a>
+            </li>            
+          </ul>          
+        </article>
+        
+        <article class="teachers__item">
+          <p class="teachers__name">
+            Галина Хорольская
+          </p>
+          <picture class="teachers__photo">
+            <source srcset="images/galya.webp" type="image/webp">
+            <img src="images/galya.jpg" width="280" alt="Фото Галина Хорольская">
+          </picture>
+          <div class="teachers__lessons">
+            <strong>Направления:</strong>
+            Pole Dance
+          </div>
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__item  social__item--vk" href="https://vk.com/galina_ho">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--vk">
+                  </use>
+                </svg>
+              </a>
+            </li> 
+            <li class="social__item">
+              <a class="social__item  social__item--fb" href="fb.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--fb">
+                  </use>
+                </svg>
+              </a>
+            </li> 
+            <li class="social__item">
+              <a class="social__item  social__item--tw" href="twitter.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--tw">
+                  </use>
+                </svg>
+              </a>
+            </li> 
+            <li class="social__item">
+              <a class="social__item  social__item--inst" href="instagram.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--inst">
+                  </use>
+                </svg>
+              </a>
+            </li>            
+          </ul>          
+        </article>
+        
+        <article class="teachers__item">
+          <p class="teachers__name">
+            Алла Григоричева
+          </p>
+          <picture class="teachers__photo">
+            <source srcset="images/galya.webp" type="image/webp">
+            <img src="images/alla.jpg" width="280" alt="Фото Алла Григоричева">
+          </picture>
+          <div class="teachers__lessons">
+            <strong>Направления:</strong>
+            Pole Dance, Stretching
+          </div>
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__item  social__item--vk" href="https://vk.com/a.grigoricheva">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--vk">
+                  </use>
+                </svg>
+              </a>
+            </li> 
+            <li class="social__item">
+              <a class="social__item  social__item--fb" href="fb.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--fb">
+                  </use>
+                </svg>
+              </a>
+            </li> 
+            <li class="social__item">
+              <a class="social__item  social__item--tw" href="twitter.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--tw">
+                  </use>
+                </svg>
+              </a>
+            </li> 
+            <li class="social__item">
+              <a class="social__item  social__item--inst" href="instagram.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--inst">
+                  </use>
+                </svg>
+              </a>
+            </li>            
+          </ul>          
+        </article>
       </div>
-
     </section>
 
-    <div class="feedback-slider">
-      <div class="feedback__wrapper">
-        <section class="feedback-slider__item">
-          <h2 class="feedback-slider__title">Николай Петров</h2>
-          <p class="feedback-slider__desc">
-            Это приложение перевернуло мой мир и позволило по-новому взглянуть
-            на привычные серые вещи! А еще я познакомился со своей будущей женой в
-            комментариях к выложенной фотографии!
-          </p>
-        </section>
-        <div class="feedback-slider__controls">
-        </div>
+
+    <section class="schedule">
+      <h2 class="schedule__title" id="schedule">Расписание</h2>            
+      <iframe src="Schedule.html" id="schedule-frame" scrolling="no" frameborder="0" marginheight="0" marginwidth="0">
+        <a href="Schedule.html">Расписание студии</a>
+      </iframe>       
+    </section>
+
+    <section class="contacts" id="contacts">
+      <h2 class="contacts__title">Как нас найти</h2>
+      <div class="contacts__map">
+        <!--<picture>
+          <source srcset="images/map_320x320.webp" type="image/webp">
+          <img src="images/map_320x320.jpg" width="320" height="320" alt="Карта">
+        </picture>-->
       </div>
-    </div> <!-- end feedback-sliders -->
-
-    <div class="price-slider">
-      <section class="price-slider__items">  <!-- здесь будет таблица -->
-        <div class="price-slider__header price-slider--hit">
-          <h2 class="price-slider__name">
-            стандарт
-          </h2>
-          <p class="price-slider__cy">
-            3,99 USD
-          </p>
-        </div>
-        <ul class="price-slider__list">
-          <li class="price-slider__item icons-yes">
-            Розовый фильтр
-          </li>
-          <li class="price-slider__item icons-yes">
-            Смайлики
-          </li>
-          <li class="price-slider__item icons-no">
-            Комментарии
-          </li>
-        </ul>
-      </section>
-
-      <div class="price-slider__controls">
-      </div>
-    </div> <!-- end price-slider -->
-
-    <div class="callback">
-      <div class="callback__wrapper">
-        <p class="callback__text">
-          Остались вопросы?
-        </p>
-        <p class="callback__text">
-          Свяжитесь с нами!
-        </p>
-
-        <div class="callback__items">
-
-          <div class="callback__item">
-            <p class="callback__title">
-              Звоните:
-            </p>
-            <a href="tel:+78125556666" class="callback__call">+7(812)555-66-66</a>
-          </div>
-
-          <div class="callback__item">
-            <p class="callback__title">
-              Пишите:
-            </p>
-            <a href="mailto:mail@htmlacademy.ru" class="callback__email">mail@htmlacademy.ru</a>
-          </div>
-
-          <div class="callback__item">
-            <p class="callback__title">
-              Приезжайте в гости:
-            </p>
-            <address class="callback__address">
-              ул. Большая Конюшенная, д. 19/8
-            </address>
-          </div>
-
-        </div>
-
-      </div> <!-- callback__wrapper -->
-      <!-- добавить треугольник -->
-      <div class="callback__map">
-      </div>
-    </div>
-
-    <footer class="footer footer--index">
-        <div class="footer__wrapper">
-          <img class="footer__logo" src="index.html" alt="footer logo">
-          <ul class="footer__list">
-            <li class="footer__item">
-              <a class="footer__social  footer__social--tw" href="twitter.com">tw</a>
-            </li>
-            <li class="footer__item">
-              <a class="footer__social  footer__social--fb" href="fb.com">fb</a>
-            </li>
-            <li class="footer__item">
-              <a class="footer__social  footer__social--yt" href="youtube.com">yt</a>
-            </li>
-          </ul>
-
-          <a class="footer__link" href="htmlacademy.html">
-            <p class="footer__text">Разработано</p>
-            <img class="footer__img" src="url" alt="htmlacademy logo">
+    </section>
+    
+    <footer class="footer">
+      <address class="footer__address">
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#geolocation">
+          </use>
+        </svg>  
+        г. Ульяновск, 2-ой переулок Мира, д. 24, 2-ой этаж                 
+      </address>
+      <a class="footer__phone" href="tel:+78422700228">        
+        <svg>
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#smartphone">
+          </use>
+        </svg>
+        700-228
+      </a>
+      <ul class="social">
+        <li class="social__item">
+          <a class="social__item  social__item--vk social__item--footer" href="https://vk.com/skydancestudio">
+            <svg>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--vk">
+              </use>
+            </svg>
           </a>
-        </div> <!-- end footer__wrapper -->
-      </div>
-
-    </footer> <!-- end footer -->
-    <div id="contacts">Contacts</div>
-
+        </li> 
+        <li class="social__item">
+          <a class="social__item  social__item--fb social__item--footer" href="fb.com">
+            <svg>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--fb">
+              </use>
+            </svg>
+          </a>
+        </li> 
+        <li class="social__item">
+          <a class="social__item  social__item--tw social__item--footer" href="twitter.com">
+            <svg>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--tw">
+              </use>
+            </svg>
+          </a>
+        </li> 
+        <li class="social__item">
+          <a class="social__item  social__item--inst social__item--footer" href="instagram.com">
+            <svg>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--inst">
+              </use>
+            </svg>
+          </a>
+        </li>            
+      </ul> 
+    </footer>
+  
   </body>
 </html>

@@ -10,7 +10,15 @@
   .social__item:hover #social__item--inst {
     opacity: 0.5;
   }  
+  .social__item {
+    margin-left: 2px;
+    margin-right: 2px;
+  }
   .social__item svg {
+    width: @social-item-size;
+    height: @social-item-size;    
+  }
+  .social__item .social__item--footer svg {
     width: @social-item-size;
     height: @social-item-size;
   }
@@ -26,6 +34,12 @@
   #social__item--inst {
     fill: #080911;
   }
+  .social__item--footer #social__item--vk,
+  .social__item--footer #social__item--fb,
+  .social__item--footer #social__item--tw,
+  .social__item--footer #social__item--inst {
+    fill: #ffffff;
+  } 
   /*.social__item--vk svg {
     width: @social-item-size;
     height: @social-item-size;
