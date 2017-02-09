@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
   }
-
   .nav__menu {
     position: relative;
     min-height: 70px;
@@ -35,9 +34,17 @@
       background-color: @menu-color;  
     }
     &::before {
+      -webkit-transform: rotate(45deg);
+      -moz-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
     &::after {
+      -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
     &:hover::before,
@@ -61,8 +68,7 @@
     
     outline: none;
     
-    &:hover,
-    &:active {
+    &:hover {
       color: @menu-hover-color;
     }
   }
