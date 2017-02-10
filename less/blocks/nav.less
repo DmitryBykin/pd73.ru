@@ -10,6 +10,34 @@
     background-color: @menu-bg;
     border-bottom: 1px solid @drop-shadow;
   }
+  .nav__btn--hamburger {
+    position: absolute;
+    
+    top: 24px;
+    right: 20px;
+    
+    width: 25px;
+    height: 25px;
+    
+    cursor: pointer; 
+    
+    &::before {
+      content: "";
+      position: absolute;
+
+      width: 25px;
+      height: 3px;
+
+      background-color: @menu-color;
+      box-shadow: 0 8px 0 0 @menu-color,
+                  0 16px 0 0 @menu-color;
+    }
+    &:hover::before {
+      background-color: @menu-hover-color;
+      box-shadow: 0 8px 0 0 @menu-hover-color,
+                  0 16px 0 0 @menu-hover-color;
+    }
+  }
   .nav__btn--close {
     position: absolute;
     
@@ -34,17 +62,9 @@
       background-color: @menu-color;  
     }
     &::before {
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
     &::after {
-      -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      -o-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
     &:hover::before,
@@ -92,6 +112,11 @@
     &:hover {
       color: @menu-hover-color;
       border-bottom: 2px dashed @menu-hover-color;
+    }
+  }
+  .nav__items {
+    &--hidden {
+      display: none;
     }
   }
 }

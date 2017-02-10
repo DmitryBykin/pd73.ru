@@ -7,6 +7,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-postcss");
   grunt.loadNpmTasks("grunt-csso");
   grunt.loadNpmTasks("grunt-webp");
+  grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   grunt.initConfig({
     less: {
@@ -52,8 +54,16 @@ module.exports = function(grunt) {
     watch: {
       style: {
         files: ["less/**/*.less"],
-        tasks: ["less", "postcss"]
-      }
+        tasks: ["less", "postcss", "csso"]
+      },
+      js: {
+        files: ["js/**/*.js"],
+        tasks: ["uglify"]
+      },
+      webpack: {
+        files: ["images/**/*.{png,gif,jpg}"],
+        tasks: ["webp"]
+      }       
     },
     
     csso: {
@@ -97,9 +107,27 @@ module.exports = function(grunt) {
         noAlpha: false,
         lossless: false
       }
+    },
+    
+    autoprefixer: {
+        //указывам файл в котором нужно проставить префиксы, он сам его перезапишит
+        no_dest: {
+            src: "css/style.css"
+        }
+    }, 
+    
+    uglify: {
+      options: {
+        mangle: false
+      },
+      my_target: {
+        files: {
+          'js/script.min.js': ['js/*.js']
+        }
+      }
     }
   });
 
-  grunt.registerTask("serve", ["browserSync", "watch", "webp"]);
+  grunt.registerTask("serve", ["browserSync", "watch"]);
   //grunt.registerTask('default', 'webp');
 };
