@@ -6,19 +6,19 @@ if(menuBtn) {
   if(menuBtn.classList.contains('nav__btn--close')) {
     menuBtn.classList.remove('nav__btn--close');
     menuBtn.classList.add('nav__btn--hamburger');
-    menuItems.classList.add('nav__items--hidden');  
+    menuItems.classList.add('nav__items--hidden');
   }
 
   menuBtn.addEventListener("click", function (event) {
     if(menuBtn.classList.contains('nav__btn--close')) {
       menuBtn.classList.remove('nav__btn--close');
       menuBtn.classList.add('nav__btn--hamburger');
-      menuItems.classList.add('nav__items--hidden');  
+      menuItems.classList.add('nav__items--hidden');
     }
     else {
       menuBtn.classList.remove('nav__btn--hamburger');
       menuBtn.classList.add('nav__btn--close');
-      menuItems.classList.remove('nav__items--hidden');  
-    }    
+      menuItems.classList.remove('nav__items--hidden');
+    }
   });
 }
