@@ -1,26 +1,31 @@
 @media @mobiles {
-  .nav {
+  .nav__wrapper {
     display: flex;
     flex-direction: column;
+
+    //.set-wrap(20px, 20px);
+  }
+  .nav {
+    background-color: @menu-bg;
   }
   .nav__menu {
     position: relative;
     min-height: 70px;
-    
-    background-color: @menu-bg;
+
+    //background-color: @menu-bg;
     border-bottom: 1px solid @drop-shadow;
   }
   .nav__btn--hamburger {
     position: absolute;
-    
+
     top: 24px;
     right: 20px;
-    
+
     width: 25px;
-    height: 25px;
-    
-    cursor: pointer; 
-    
+    height: 22px;
+
+    cursor: pointer;
+
     &::before {
       content: "";
       position: absolute;
@@ -40,26 +45,26 @@
   }
   .nav__btn--close {
     position: absolute;
-    
+
     top: 20px;
     right: 20px;
-    
+
     width: 25px;
     height: 25px;
-    
-    cursor: pointer; 
-    
+
+    cursor: pointer;
+
     &::before,
     &::after {
       content: "";
       position: absolute;
-      
+
       top: 10px;
-      
+
       width: 25px;
       height: 3px;
-      
-      background-color: @menu-color;  
+
+      background-color: @menu-color;
     }
     &::before {
       transform: rotate(45deg);
@@ -69,45 +74,45 @@
     }
     &:hover::before,
     &:hover::after {
-      background-color: @menu-hover-color;  
+      background-color: @menu-hover-color;
     }
   }
   .nav__link {
     display: block;
-    
+
     padding-top: 20px;
     padding-bottom: 20px;
-    
+
     text-align: center;
     .set-font('Open Sans', bold, 18px, @menu-color);
-    
-    background-color: @menu-bg;
-    
+
+    //background-color: @menu-bg;
+
     border-top: 1px solid @inner-shadow;
     border-bottom: 1px solid @drop-shadow;
-    
+
     outline: none;
-    
+
     &:hover {
       color: @menu-hover-color;
     }
   }
   .nav__logo {
     display: inline-block;
-    
+
     margin-top: 20px;
     margin-left: 20px;
-    
-    .set-font('fjallaone', normal, 18px, @menu-color);    
+
+    .set-font('fjallaone', normal, 18px, @menu-color);
   }
   .nav__phone {
     position: absolute;
-    
+
     top: 20px;
     right: 80px;
-        
-    .set-font('Arial', normal, 18px, @menu-color);    
-    //.set-font('fjallaone', normal, 18px, @menu-color);    
+
+    .set-font('Arial', normal, 18px, @menu-color);
+    //.set-font('fjallaone', normal, 18px, @menu-color);
     border-bottom: 2px dashed @menu-color;
     &:hover {
       color: @menu-hover-color;

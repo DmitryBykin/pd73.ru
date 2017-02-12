@@ -1,23 +1,26 @@
 @media @mobiles {
   .teachers {
-    padding-left: 20px;
-    padding-right: 20px;
-    
+    //padding-left: 20px;
+    //padding-right: 20px;
+
     text-align: center;
+  }
+  .teachers__wrapper {
+    .set-wrap(20px, 20px);    
   }
   .teachers__title {
     //margin-top: 20px;
     margin-bottom: 20px;
     //text-align: center;
     padding-top: @padding-title;
-  }  
+  }
   .teachers__photo {
     display: block;
   }
   .teachers__name {
     margin-top: 15px;
     margin-bottom: 15px;
-    
+
     //text-align: center;
   }
   .teachers__item {
@@ -26,14 +29,14 @@
     //text-align: center;
     //margin: 0 auto;
     margin-bottom: 30px;
-    
+
     border: 1px solid @teachers-border;
     border-radius: 0 0 10px 10px;
   }
   .teachers__items {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
     justify-content: space-around;
   }
 }
