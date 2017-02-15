@@ -31,12 +31,19 @@
     margin-bottom: 30px;
 
     border: 1px solid @teachers-border;
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px 10px 10px 10px;
   }
   .teachers__items {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+}
+
+@media @desktops {
+  .teachers__wrapper {
+    max-width: @max-width;
+    margin: 0 auto;
   }
 }

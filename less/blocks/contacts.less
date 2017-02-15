@@ -21,4 +21,56 @@
   .contacts img {
     width: 100%;
   }
+  .contacts__map-title, .contacts__street-title {
+    color: @menu-bg;
+  }
+  .contacts__google-map {
+    display: none;
+  }
+}
+
+@media @tablets {
+  .contacts {
+    margin-bottom: 2em;
+  }
+  .contacts__map, 
+  .contacts__street-photo {
+    max-width: 345px;
+  }
+  .contacts__map {
+    margin-right: 30px;
+  }
+  .contacts__flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .contacts__yandex-map {
+    display: none;
+  }
+  .contacts__google-map {
+    display: block;    
+  }  
+}
+
+@media @desktops {
+  .contacts__wrapper {
+    max-width: @max-width;
+    margin: 0 auto;
+  }
+  .contacts__map {
+    max-width: 600px;
+    margin-right: 30px;
+  } 
+  .contacts__street-photo {
+    max-width: 500px;
+  }
+  .contacts__google-map {
+    width: 600px;
+    height: 370px;
+  }
+  .contacts__flex {
+    justify-content: center;
+  }
 }
