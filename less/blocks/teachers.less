@@ -44,6 +44,15 @@
 @media @desktops {
   .teachers__wrapper {
     max-width: @max-width;
-    margin: 0 auto;
+    margin: 0 auto;    
   }
+  .teachers__item:hover {
+    //box-shadow: 0 0 5px #000000;
+    animation: shadows  0.2s ease-in-out forwards;
+  }
+}
+
+@keyframes shadows {
+  from { box-shadow: 0 0 0   #000000; }
+  to   { box-shadow: 0 0 5px #000000; }
 }

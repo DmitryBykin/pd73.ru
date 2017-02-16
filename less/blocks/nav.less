@@ -151,23 +151,30 @@
   }
   .nav__link {
     position: relative;
+    
+    transition-property: color;
+    transition-duration: 0.5s;
+    
     border-top: none;
     border-bottom: none;
-    &::after {
-             
-    }
+    
     &:hover::after {
-      background-color: @backg-color;
+      //background-color: @backg-color;
       
       content: "";
       position: absolute;
+      
+      width: 100%;
       
       left: 0;
       bottom: -7px;      
       height: 5px;
       
-      width: 100%;     
+      animation: border-link  0.3s ease-in-out forwards;
     }
+  }
+  @keyframes border-link {    
+    to   { background-color: @backg-color; }
   }
   .nav__feedback--item {
     text-align: center;
