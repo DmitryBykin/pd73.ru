@@ -59,14 +59,14 @@
       <nav class="nav">
         <div class="nav__wrapper">
           <div class="nav__menu">
-            <a class="nav__logo" href="index.html"> 
+            <a class="nav__logo" href="index.html">  <!-- href на главной странице не указываем -->
               <!--<img class="nav__img" src="logo.jpg" alt="PINK logo">-->
               Skydance Studio
             </a>
             <a class="nav__btn  nav__btn--close"></a>  <!-- по умолчанию открыто -->
           </div>
           <ul class="nav__items"> <!-- потом спрячем меню -->
-            <div class="nav__menu">
+            <!--<div class="nav__menu">-->
               <li class="nav__item">
                 <a class="nav__link" href="index.html#about">О нас</a>
               </li>
@@ -74,82 +74,85 @@
                 <a class="nav__link" href="index.html#teachers">Наши тренеры</a>
               </li>
               <li class="nav__item">
-                <a class="nav__link" href="#schedule">Расписание</a>
+                <a class="nav__link" href="#schedule.html">Расписание</a>
               </li>
               <li class="nav__item">
                 <a class="nav__link" href="index.html#contacts">Как нас найти</a>
               </li>
-            </div>
+            <!--</div>-->
           </ul>
+          <div class="nav__feedback">
+            <p class="nav__feedback--item">Записаться</p>
+            <p class="nav__feedback--item">Перезвоните мне</p>
+          </div>
         </div>
       </nav>
     </header>
 
-    <section class="schedule">
-      <div class="schedule__wrapper">
-        <h2 class="schedule__title" id="schedule">Расписание</h2>
-        <iframe src="Schedule.html" id="schedule-frame" scrolling="no">
-        </iframe>      
-      </div>
-    </section>
+    <main class="schedule-main">
+      
+      <section class="schedule">
+        <div class="schedule__wrapper">
+          <h2 class="schedule__title" id="schedule">Расписание</h2>
+          <iframe src="Schedule.html" id="schedule-frame" scrolling="no">
+          </iframe>      
+        </div>
+      </section>
 
-    <footer class="footer">
-      <div class="footer__wrapper">
-        <address class="footer__address">
-          <svg>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#geolocation">
-            </use>
-          </svg>
-          г. Ульяновск, 2-й переулок Мира, д. 24, 2-й этаж
-        </address>
-        <a class="footer__phone" href="tel:+78422700228">
-          <svg>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#smartphone">
-            </use>
-          </svg>
-          тел. 700-228
-        </a>
-        <ul class="social">
-          <li class="social__item">
-            <a class="social__item  social__item--vk" href="https://vk.com/skydancestudio">
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--vk">
-                </use>
-              </svg>
-            </a>
-          </li>
-          <li class="social__item">
-            <a class="social__item  social__item--fb" href="fb.com">
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--fb">
-                </use>
-              </svg>
-            </a>
-          </li>
-          <li class="social__item">
-            <a class="social__item  social__item--tw" href="twitter.com">
-              <svg>
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--tw">
-                </use>
-              </svg>
-            </a>
-          </li>
-          <li class="social__item">
-            <a class="social__item  social__item--inst" href="instagram.com">
-              <svg class="footer__svg">
-                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--inst">
-                </use>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+      <footer class="footer">
+        <div class="footer__wrapper">
+          <address class="footer__address">
+            <svg>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#geolocation">
+              </use>
+            </svg>
+            г. Ульяновск, 2-й переулок Мира, д. 24, 2-й этаж
+          </address>
+          <a class="footer__phone" href="tel:+78422700228">
+            <svg>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#smartphone">
+              </use>
+            </svg>
+            тел. 700-228
+          </a>
+          <ul class="social">
+            <li class="social__item">
+              <a class="social__item  social__item--vk" href="https://vk.com/skydancestudio">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--vk">
+                  </use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__item  social__item--fb" href="fb.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--fb">
+                  </use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__item  social__item--tw" href="twitter.com">
+                <svg>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--tw">
+                  </use>
+                </svg>
+              </a>
+            </li>
+            <li class="social__item">
+              <a class="social__item  social__item--inst" href="instagram.com">
+                <svg class="footer__svg">
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--inst">
+                  </use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </footer>
+    </main>    
 
   <script src="js/script.js"></script>
-  <script>
-    var frameSchedule = document.querySelector('#schedule-frame');
-    frameSchedule.style.height = "1387"; // если данные не обновятся - расписание будет ролностью развернуто    
-  </script>
   </body>
 </html>

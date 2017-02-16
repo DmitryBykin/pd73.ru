@@ -99,7 +99,7 @@
   .nav__logo {
     display: inline-block;
 
-    margin-top: 20px;
+    margin-top: 23px;
     margin-left: 20px;
 
     .set-font('fjallaone', normal, 18px, @menu-color);
@@ -123,11 +123,64 @@
       display: none;
     }
   }
+  .nav__feedback {
+    display: none;
+  }
 }
 
 @media @desktops {
   .nav__wrapper {
+    flex-direction: row;
+    justify-content: space-around;
+    
     max-width: @max-width;
-    margin: 0 auto;
+    margin: 0 auto;    
+  }
+  .nav__btn {
+    display: none;
+  }
+  .nav__items {
+    display: flex;
+    flex-direction: row;
+  }
+  .nav__item {
+    margin-left: 20px;
+    margin-right: 20px;    
+    //border-top: none;
+    //border-bottom: none;
+  }
+  .nav__link {
+    position: relative;
+    border-top: none;
+    border-bottom: none;
+    &::after {
+             
+    }
+    &:hover::after {
+      background-color: @backg-color;
+      
+      content: "";
+      position: absolute;
+      
+      left: 0;
+      bottom: -7px;      
+      height: 5px;
+      
+      width: 100%;     
+    }
+  }
+  .nav__feedback--item {
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+    border-bottom: 1px dashed #ffffff;
+    &:hover {
+      color: @menu-hover-color;
+    }
+  }
+  .nav__feedback {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
   }
 }

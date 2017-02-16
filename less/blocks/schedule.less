@@ -1,7 +1,7 @@
 @media @mobiles {
   .schedule {
     text-align: center;
-
+    flex: 1 0 auto;
     //padding-left: 20px;
     //padding-right: 20px;
   }
@@ -17,6 +17,11 @@
     //border: 1px solid @iframe-color;
     border: none;
     //height: 1360px;
+  }
+  .schedule-main {
+    display: flex;            // это все для того чтобы футер прижался к низу
+    flex-direction: column;
+    height: 100%; 
   }
 }
 
