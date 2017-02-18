@@ -59,11 +59,12 @@ module.exports = function(grunt) {
       js: {
         files: ["js/**/*.js"],
         tasks: ["uglify"]
-      },
-      webpack: {
-        files: ["images/**/*.{png,gif,jpg}"],
-        tasks: ["webp"]
-      }       
+      }
+      //,
+      //webpack: {
+      //  files: ["images/**/*.{png,gif,jpg}"],
+      //  tasks: ["webp"]
+      //}       
     },
     
     csso: {

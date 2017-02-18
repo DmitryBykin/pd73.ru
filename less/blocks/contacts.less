@@ -25,7 +25,14 @@
     color: @menu-bg;
   }
   .contacts__google-map {
-    display: none;
+    width: 100%;
+    display: block;
+  }
+  .contacts__address {
+    color: @menu-bg;
+    text-align: center;
+    
+    margin-bottom: 2em;
   }
 }
 
@@ -35,10 +42,12 @@
   }
   .contacts__map, 
   .contacts__street-photo {
-    max-width: 345px;
+    //max-width: 345px;
+    width: 100%;
+    max-width: 600px;
   }
   .contacts__map {
-    margin-right: 30px;
+    //margin-right: 30px;
   }
   .contacts__flex {
     display: flex;
@@ -50,7 +59,8 @@
     display: none;
   }
   .contacts__google-map {
-    display: block;    
+    //display: block;    
+    //width: 100%;
   }  
 }
 
@@ -61,7 +71,7 @@
   }
   .contacts__map {
     max-width: 600px;
-    margin-right: 30px;
+    //margin-right: 30px;
   } 
   .contacts__street-photo {
     max-width: 500px;

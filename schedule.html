@@ -59,9 +59,15 @@
       <nav class="nav">
         <div class="nav__wrapper">
           <div class="nav__menu">
-            <a class="nav__logo" href="index.html">  <!-- href на главной странице не указываем -->
+            <a class="nav__logo-text">  <!-- href на главной странице не указываем -->
               <!--<img class="nav__img" src="logo.jpg" alt="PINK logo">-->
               Skydance Studio
+            </a>
+            <a class="nav__logo" href="index.html">                
+              <picture>
+                <source srcset="images/sd_logo_150x83.webp" type="image/webp">
+                <img src="images/sd_logo_150x83.png" width="150" height="83" alt="Логотит студии">
+              </picture>
             </a>
             <a class="nav__btn  nav__btn--close"></a>  <!-- по умолчанию открыто -->
           </div>
@@ -106,7 +112,8 @@
               <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#geolocation">
               </use>
             </svg>
-            г. Ульяновск, 2-й переулок Мира, д. 24, 2-й этаж
+            г. Ульяновск, 2-й переулок Мира, 24 (рядом с ТЦ "Мираж"). <br>
+            Вход со стороны парковки
           </address>
           <a class="footer__phone" href="tel:+78422700228">
             <svg>
@@ -120,14 +127,6 @@
               <a class="social__item  social__item--vk" href="https://vk.com/skydancestudio">
                 <svg>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--vk">
-                  </use>
-                </svg>
-              </a>
-            </li>
-            <li class="social__item">
-              <a class="social__item  social__item--fb" href="fb.com">
-                <svg>
-                  <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--fb">
                   </use>
                 </svg>
               </a>
