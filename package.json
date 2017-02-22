@@ -6,14 +6,15 @@
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "0.1.x",
     "autoprefixer": "6.5.3",
-    "grunt": "1.0.1",
+    "grunt": "^1.0.1",
     "grunt-autoprefixer": "~1.0.1",
     "grunt-browser-sync": "2.2.0",
     "grunt-contrib-less": "1.4.0",
     "grunt-contrib-uglify": "^2.1.0",
     "grunt-contrib-watch": "1.0.0",
     "grunt-postcss": "0.8.0",
-    "grunt-webp": "0.0.4"
+    "grunt-webp": "0.0.4",
+    "multiparty": "latest"
   },
   "scripts": {
     "test": "editorconfig-cli",
