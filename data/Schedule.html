@@ -1,0 +1,1654 @@
+<div style='cursor:default' align='center' onclick='globalClick(this)'>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+    <style type='text/css'>
+        .section_default_DS { padding:5px }
+        .section_mobile_DS { padding:2px; display:none }
+        .tabs_cont_DS { position:relative; -webkit-user-select:none; -khtml-user-select:none; -moz-user-select:none; -o-user-select:none;user-select:none }
+        .tabs_cont_DS > div { left:0px }
+        .table_DS { width:100%; min-width:600px; display:table; table-layout:fixed; font-family:Roboto Condensed,sans-serif; margin-bottom:10px }
+        .table_header_DS { color:#7D7D7D; font-size:18px; font-weigh:bold; font-family:Roboto Condensed,sans-serif; margin:20px auto 0 auto; text-align:center }
+        .tr_DS { font-size:9pt; height:70px; line-height:15px; text-align:center }
+        .td_header_DS { background:#1E90FF; color:#000000; font-size:10pt; line-height:20px; text-align:center; padding:3px 2px 0 2px; position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:middle }
+        .td_time_DS { background:#1E90FF; color:#000000; font-size:11pt }
+        .td_DS { padding:0; vertical-align:top }
+        td:first-child { width:40px }
+        .ul_DS { width:100%; padding:0; margin:0 }
+        .ul_DS li { list-style-type:none }
+        .round { width:10px; height:10px; border-radius:10px; margin-left:46%; margin-bottom:4px }
+        .rectangle { height:5px }
+        .rectangle_vert { height:35px; width:5px }
+        .trim-text { position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+        .main-text { position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:10pt; padding:5px 3px 0 3px; cursor:pointer }
+        .main-text:hover { background:#E3E3E3 }
+        .sub-text { position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:8pt; color:gray; padding:0 3px }
+        .tooltip_DS { color:white; background:rgba(89,89,89,0.9); padding:5px 10px; border:1px solid #949494; border-radius:5px; font:menu; margin:0; min-width:300px; max-width:300px; min-height:50px; text-align:justify; white-space:normal; line-height:20px; position:fixed; z-index:5; visibility:hidden }
+        .select_DS { min-width: 286px; max-width: 212px; padding:8px; font-family:Roboto Condensed,sans-serif; margin:0; color:#000000; border:0; outline:none; display:inline-block; cursor:pointer; appearance:none; -moz-appearance:none; -webkit-appearance:none; background:linear-gradient(45deg, transparent 50%, #000000 50%), linear-gradient(135deg, #000000 50%, transparent 50%), linear-gradient(to right, #1E90FF, #1E90FF); background-position:calc(100% - 21px) 14px, calc(100% - 16px) 14px, 100% 0; background-size:6px 5px, 6px 6px, 999px 999px; background-repeat:no-repeat }
+        .select_DS > option { background:white; color:#6E6E6E }
+        .combo_DS { cursor: pointer; display:inline-block; vertical-align:middle; font-family:Roboto Condensed,sans-serif; user-select:none; -khtml-user-select:none; -o-user-select:none; -moz-user-select:-moz-none; -webkit-user-select:none }
+        .combo_header_table_DS { background:#1E90FF; color:#000000; padding:7px 10px 3px 10px }
+        .combo_header_text_DS { padding:0 5px 0 0; font-size:14px; position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+        .combo_header_arrow_DS { -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -o-transform: rotate(90deg); -ms-transform: rotate(90deg); transform: rotate(90deg); font-size:16px }
+        .combo_menu_DS { position:absolute; display:none; background:#FFFFFF; border:1px 0 solid #B8B8B8 solid #B8B8B8; padding:0; margin-top:0px; list-style-type:none; z-index:999; -webkit-box-shadow:4px 4px 10px 1px #D6D6D6; -moz-box-shadow:4px 4px 10px 1px #D6D6D6; box-shadow:4px 4px 10px 1px #D6D6D6; overflow:scroll; overflow-y:auto; overflow-x:hidden }
+        .combo_menu_DS > li { padding:10px; font-size:14px; position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+        .combo_menu_DS > li:not(.combo_disabled_item_DS):hover { background:#1E90FF; color:#000000 }
+        .combo_disabled_item_DS { background:transparent; color:#C4C4C4 }
+        .btn_DS { display:inline-block; border:1px solid #bababa; -webkit-border-radius:3px; -moz-border-radius:3px; border-radius:3px; padding:3px 8px; background-color:#fcfcfc; background-image:-webkit-gradient(linear, left top, left bottom, from(#fcfcfc), to(#f4f4f4)); background-image:-webkit-linear-gradient(top, #fcfcfc, #f4f4f4); background-image:-moz-linear-gradient(top, #fcfcfc, #f4f4f4); background-image:-ms-linear-gradient(top, #fcfcfc, #f4f4f4); background-image:-o-linear-gradient(top, #fcfcfc, #f4f4f4); background-image:linear-gradient(to bottom, #fcfcfc, #f4f4f4); cursor:pointer }
+        .btn_DS:hover{ border:1px solid #ababab; background-color:#e2e2e2; background-image:-webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#e7e7e7)); background-image:-webkit-linear-gradient(top, #f8f8f8, #e7e7e7); background-image:-moz-linear-gradient(top, #f8f8f8, #e7e7e7); background-image:-ms-linear-gradient(top, #f8f8f8, #e7e7e7); background-image:-o-linear-gradient(top, #f8f8f8, #e7e7e7); background-image:linear-gradient(to bottom, #f8f8f8, #e7e7e7) }
+        .list_DS { width:100%; list-style-type:none; margin:0; padding:0; white-space:nowrap; font-family:Roboto Condensed,sans-serif; margin-bottom:10px }
+        .list_DS > lh { min-width:297px; max-width:297px; list-style-type:none; display:inline-block; background:#1E90FF; color:#000000; font-size:10pt; line-height:20px; text-align:center; padding:7px 0 3px 0; position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:middle }
+        .list_DS > li { min-width:297px; max-width:297px; height:35px; list-style-type:none; display:block; background:#F2F2F2; margin:3px 0; vertical-align:top }
+        .list_DS table { width:100%; height:25px; margin:4px 0 2px 0 }
+        .list_DS .list-main-text { font-size:10pt; position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+        .list_DS .list-sub-text { min-width:230px; max-width:230px; font-size:8pt; color:gray; position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+        .clickable_text { color:#008BC9; background:none; border:none; cursor:pointer; color:gray; font-family:Roboto Condensed,sans-serif }
+        .clickable_text:hover { text-decoration:underline }
+    </style>
+    <section class='section_default_DS'>
+        <div class='tooltip_DS'>Подсказка</div>
+        <table style='width:100%'>
+            <col width='140px'/>
+            <col width='45px'/>
+            <col width='150px'/>
+            <col width='45px'/>
+            <col width='150px'/>
+            <col width='100%'/>
+            <tr>
+                <td>
+                    <div class='combo_DS'>
+                        <table class='combo_header_table_DS' cellpadding=0 cellspacing=0 onclick='listHeaderClick(this)'><tr><td><div class='combo_header_text_DS' style='min-width:110px; max-width:110px' tag='age' id=''>Любой возраст</div></td><td><div class='combo_header_arrow_DS'>&#10095;</div></td></tr></table>
+                        <ul class='combo_menu_DS' style='max-height:400px' onclick='listItemClick(event, this)'>
+                            <li id=''>Любой возраст</li><li id='1'>1</li><li id='2'>2</li><li id='3'>3</li><li id='4'>4</li><li id='5'>5</li><li id='6'>6</li><li id='7'>7</li><li id='8'>8</li><li id='9'>9</li><li id='10'>10</li><li id='11'>11</li><li id='12'>12</li><li id='13'>13</li><li id='14'>14</li><li id='15'>15</li><li id='16'>16</li><li id='17'>17</li><li id='18'>18</li><li id='19'>19</li><li id='20'>20</li><li id='21'>21</li><li id='22'>22</li><li id='23'>23</li><li id='24'>24</li><li id='25'>25</li><li id='26'>26</li><li id='27'>27</li><li id='28'>28</li><li id='29'>29</li><li id='30'>30</li><li id='31'>31</li><li id='32'>32</li><li id='33'>33</li><li id='34'>34</li><li id='35'>35</li><li id='36'>36</li><li id='37'>37</li><li id='38'>38</li><li id='39'>39</li><li id='40'>40</li><li id='41'>41</li><li id='42'>42</li><li id='43'>43</li><li id='44'>44</li><li id='45'>45</li><li id='46'>46</li><li id='47'>47</li><li id='48'>48</li><li id='49'>49</li><li id='50'>50</li><li id='51'>51</li><li id='52'>52</li><li id='53'>53</li><li id='54'>54</li><li id='55'>55</li><li id='56'>56</li><li id='57'>57</li><li id='58'>58</li><li id='59'>59</li><li id='60'>60</li><li id='61'>61</li><li id='62'>62</li><li id='63'>63</li><li id='64'>64</li><li id='65'>65</li><li id='66'>66</li><li id='67'>67</li><li id='68'>68</li><li id='69'>69</li><li id='70'>70</li><li id='71'>71</li><li id='72'>72</li><li id='73'>73</li><li id='74'>74</li><li id='75'>75</li>
+                        </ul>
+                    </div>
+                </td>
+                <td align='center'>
+                    <img height='15' src='data:image/png;base64,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'/>
+                </td>
+                <td>
+                    <div class='combo_DS'>
+                        <table class='combo_header_table_DS' cellpadding=0 cellspacing=0 onclick='listHeaderClick(this)'><tr><td><div class='combo_header_text_DS' style='min-width:150px; max-width:150px' tag='style' id=''>Все направления</div></td><td><div class='combo_header_arrow_DS'>&#10095;</div></td></tr></table>
+                        <ul class='combo_menu_DS' style='max-height:400px' onclick='listItemClick(event, this)'>
+                            <li id=''>Все направления</li>
+                            <li id='ff92f661-34d0-4a5e-ba05-0c546400dcf9'>Pole Dance</li>
+                            <li id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4'>Pole Exotic</li>
+                            <li id='fb16f9f5-df1b-400b-8ced-825b4b292b90'>Stretching</li>
+                            <li id='bba966cb-4865-4f79-861b-008ce87891fb'>ОФП</li>
+                            <li id='0012220e-227a-49e3-b88c-6ab8497fd96f'>Преподаватели</li>
+                        </ul>
+                    </div>
+                </td>
+                <td align='center'>
+                    <img height='15' src='data:image/png;base64,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'/>
+                </td>
+                <td>
+                    <div class='combo_DS'>
+                        <table class='combo_header_table_DS' cellpadding=0 cellspacing=0 onclick='listHeaderClick(this)'><tr><td><div class='combo_header_text_DS' style='min-width:150px; max-width:150px' tag='hall' id=''>Все залы</div></td><td><div class='combo_header_arrow_DS'>&#10095;</div></td></tr></table>
+                        <ul class='combo_menu_DS' style='max-height:400px' onclick='listItemClick(event, this)'>
+                            <li id=''>Все залы</li>
+                            <li id='6f249c37-aaac-4d82-8b08-ae00b607ab5e'>Зал №1</li>
+                            <li id='bd379cdc-b1d7-49ad-b401-d725c3587bd4'>Зал №2</li>
+                        </ul>
+                    </div>
+                </td>
+                <td />
+                <td>
+                    <img width='30' height='30' title='Печать' onClick='window.print()' style='cursor:pointer; padding:3px 10px' src='data:image/png;base64,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'/>
+                </td>
+                <td>
+                    <img id='clearFilterButton' width='25' height='25' title='Очистить фильтр' onClick='clearFilters()' style='cursor:pointer; margin-right:2px' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsSAAALEgHS3X78AAAI2UlEQVR4nO2beaxcUxzHP/PmvdKFamhJxb7vIlVbEbtaQyyxRhNiSZGIPUiQoPb6w5Igat8SFEEqCGKvpfYlaJNXqqpRr6XezBt//M6358yde+/cO3OnT8M3uWnfmXPPOb/f+W3nd363NG3aNP7L6B6keUsJ7bXlugqWDwNKQBee6CrJhIZ9a8BASt9W0OXGXIZOMaAElLHFV90TnXeY64Nb1BKgP6Zvl3vSGJcFXe59MXfZQoqEFltxD8AoYAdgR2BbYENgNLBKMH8F6APmAz8AnwHvAx8AC/C7JqbW7WITSKqqwHnAo8Bc114rigGaZAAjZiRwCHAsMAFjQjOMBjYAxrv3AH4H3gKeAJ4BfqNeupoxQn0rwE3AmcA9YYciGBCK+jrA2cApGEESuYFgsaXgCVELHjCGjgQOBCZixD8I3IpJSZebO6oyQkj8ddjuz3fvLUNX43uZUcIYWAVGANcAXwIXAGvgdb/m5ul2Txlv6MJHBKmfdHbAjTMKOAf4Apjq/q66vlFmhsRPAS5y7eVIv5YZEOr6YcDnwCXAULzui5gkl5cFIkQLrwBD8Iw43rWJgeE72vkLgb+D3xoIyYsytitl4E5MN9cOFtIu0UkIx65gUvYQphbD3JokYRXgamznK9Sret3a8jJAOjcWeB043U1QIxvhMpJ6qsETtqW5OzEC1/8E4G1go2CMq4HL8MRrXd1ATzhYHiMo4jcDXgLWw/x2T9pLeAMo3c/KdBm3Br11CNVwa8xb7AscRT3xqcjKABG/OfAyXuTTiK/idbMLY9bXwEfu315gEbbbw4G1gI2B7RxBI9w48jBJa5UhHgO869ZUS+nf8HIzKIhYG3je/Zu2IFlu7dzHwH3u3e/JFsSsCewFnAjshxk+vRcnQbJLK7m/M9ugZuIoHz4EeAyL4ioki6Vi9zIWyU3EosCpwHf4nQldYjnSVgLmufkOwaLHB/DuNMnvy7XmsmvNOuv3G4HdSNerquu/BDgL2Al4EW+05NfjjGDYpuBJzPkGOBnYFZhF8+AnF9IYoIkOxaK7NLGXVHwKjAPuwAc2svx54ncxSnakG3gPO0/cHYzbNpIYUMJHeDcEbXGQVMzAdulr97ciuHYhBoro0zArn6YOmZG0oxr8XMztJYm+pGIGpq9/4wORohGeEzZ2/7YdcMURpd0fg4k+xBs9WfpZwNEY8YXsSgxkP8rYyfBIN387Z5llA0chYk/B3JFC3BCyyIsxA/U7BeplzBrlPZ7EiO+nAOI1eBQS32NT+ojQK4BP8MFI0VCOYQh25jicbNFnEhrsUpQ47fRq2Nk+bAsHKQMfArfhDydFQ8QPBaZjMUU7xEMGBgh9wEL3/+jBRLt/M0Z4IaIYgYgfhhG/P0Z8N/WJkzxPHC0Ni5ehqQBPuzYlKquYoesGfgSedb8XrfeKPlfFDl37url7aEyi5HkgxmvEeQERdBXm1ye4NkVnS7Hc2iJi0sxtQhnblTGDN8HNowNOVjujtQo1N8af0Y5xDFAouhgTvTMx4zMUc3m3YBmgoomPrmsy8AeeEEWHWaAoNIoBzGNpPEopV2MSnSiRSe0rJNKOw7WgT3jKCzO8nUSccc1zMZIUJea6GYqKXSfcXRLaZXImZnXCha1Q+J8Bg72Awcb/DBjsBQw2kvIBncDyqP4IawnCa/HEuZMiwRURYdIVfHpegVssXVEGlLAr6aKkQEfl4VhY21fQuFEoLF8XOB/LSA8Ar2Gn1vkkMEEM0I8jsXP+GtgpsF1G9AOrAzOxe/5wrqIg4rfFbq1Ul1ADdgaOAfYGZhNzfomTgNWw8hUdilqFcnZfYTnDhXELKABi5u0Y8UrMgp1cN8SKKo6Iezkt3m418VDD5+xmAXsCc+gM8apOmYhd3FSx9JkuVYa4fvtgN9oNidQoA3rwKadWEw9KXnzoJv6FziVMtVkXJ/wuCR6BSXYDknKCrUL3B+9gmZxfSb/Kagc6pZ4K7OHmiOYAxKBfgJ8ibUCxgZCIfwM4ANP5ThGvtN0mwPWuLY4Wzf1IsJ6OMEDlKa8CB+HTZZ1KlVexDNWD+GKpuLuLbreWqUFbw2DtQoZlOkZ8H51Ll2kHu7CCx/HEiz545t+JJXFj7VARDBBXPwf+onNFUrp8WQl4CqtOS6pVkETOwatI7IYUwQBx9hLg/mChqgkoYnzp/PqYjRHxaVUqYCVyC4jRfaEoGyC9PAmL+lRMERZJ5pEKvaNxq8AkrL5oHNlqFe7FqkxSDXErDEgKYzXRllgJ3cPAFvjrKEWWWUpkwqKKvYA3HUGrkqzz4KViJlZMCU1sUV4GKDucNGhoaI7DLk5fwCo6x5KtRAYsfJ2MVYW8go/yohceISQVvVjovRh/QkxEnjpB3cwsxSKrpJ0QUyWKB7pnCVYGPwv4FvgZ8xglbGfHApsC22OSo4g0TMknQTu/ADgYK6bOFINkZYAmmAJMw3ZlHdJvazW2FjEMc1vjc8yZtuPRtc3F3PAn5AjAsqiAJrgeuBwrd9sFE88emhdASc8lQc1UQDsuG5EE2YlurBZxV3ISD80ZEBJ/UUBMLxZ/30V9AXOzGt+owYszguH3RXGQHZFBvQ+zEbNpIfROY0CU+LDySzW6Z2AXp734u/u8JXFZobElHfOwZMckzC61FHrH1Qfo6aGe+DC5GBZATwe2Aq7Frp8lERLtdrI/Yb0gbuyl2OcvW2IFU23dV0YZ0O8mKOG/tIgSHy5OnqAPuBQrpp6C5eAk3qFfFzHS8/CRdIW2IKwY/dURvgWW91NhVltfk0W9wACWDrsFSzIkER8i9M+97r1rMHd0DLA7lhfMUpccxUIs9H0ceA4jWnMVcksdZcBw4ErsU5M83+pJGlSYsAg7gz+CJVr12dw2WJAzBmO0Ulb91H829ynmZWbia5W03qIqUIHGAomwlqYd7mqXkspaylhcEMYKS4i/fpcatfvhZCyiEqDDSxF38yJGNzRirnz/HzHvhYFPaBc6hrQiqaIQJwVJfj5PHVAhGKyvx/8112//ANDnvyrBXkFNAAAAAElFTkSuQmCC'/>
+                </td>
+            </tr>
+        </table>
+        <div style='clear:both'></div>
+        <div class='tabs_cont_DS' align='left'>
+            <div id='groupCountLabel' style='display:inline; color:gray; font-family:Roboto Condensed,sans-serif; vertical-align:top; line-height:25px; margin:0 0 0 5px'></div>
+            <table align='right' style='width:355px; font-size:14px; font-family:Roboto Condensed,sans-serif; padding:0 5px 10px 0' cellspacing='0' cellpadding='0'>
+                <tr>
+                    <td>
+                        <div id='admissionActiveText' style='border-color:gray; border-style:dotted; border-width:0 0 1px 0; width:140px; padding:3px 10px 2px 5px; cursor:pointer' onclick='admissionLegendClick(0)' onmouseover='admissionLegendEnter(0)' onmouseout='admissionLegendLeave(0)'>
+                            <div class='round' style='margin:0; background:#1E90FF; cursor:pointer; border:2px solid white'/>
+                            <div style='display:inline-block; width:160px; margin:-2px 0 0 15px; cursor:pointer'>- идет набор в группу</div>
+                        </div>
+                    </td>
+                    <td width='10'/>
+                    <td>
+                        <div id='admissionStopText' style='border-color:gray; border-style:dotted; border-width:0 0 1px 0; width:155px; padding:3px 10px 2px 5px; cursor:pointer' onclick='admissionLegendClick(1)' onmouseover='admissionLegendEnter(1)' onmouseout='admissionLegendLeave(1)'>
+                            <div class='round' style='margin:0; background:#A8A8A8; border:2px solid white'/>
+                            <div style='display:inline-block; width:170px; margin:-2px 0 0 15px; cursor:pointer'>- набор в группу закрыт</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><div id='admissionActiveRect' class='rectangle' style='background:#1E90FF; height:3px; visibility:hidden'/></td>
+                    <td/>
+                    <td><div id='admissionStopRect' class='rectangle' style='background:#1E90FF; height:3px; visibility:hidden'/></td>
+                </tr>
+            </table>
+            <div style='position:absolute; right:0; top:55px' align='right'>
+                <button class='clickable_text' onclick='updateFilters(false, true)'>показать расписание по дням</button>
+            </div>
+            <div style='clear:both'></div>
+            <div id='tab_DS_c1'>
+                <p class='table_header_DS' id='6f249c37-aaac-4d82-8b08-ae00b607ab5e'>ЗАЛ №1</p>
+                <table class='table_DS' cellspacing=4>
+                    <tr>
+                        <td class='td_header_DS' style='background:#fff'></td>
+                        <td class='td_header_DS'>ПОНЕДЕЛЬНИК<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>6 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>ВТОРНИК<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>7 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>СРЕДА<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>8 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>ЧЕТВЕРГ<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>9 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>ПЯТНИЦА<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>10 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>СУББОТА<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>11 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>ВОСКРЕСЕНЬЕ<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>12 ФЕВРАЛЯ</DIV></td>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>12:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>13:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='14250e24-a24d-49f3-8969-71fe31a24e13' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (12)' age='' teacher='Кислицина К.' time='13:00-14:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (12)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (12)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>13:00-14:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='14250e24-a24d-49f3-8969-71fe31a24e13' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (12)' age='' teacher='Кислицина К.' time='13:00-14:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (12)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (12)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>13:00-14:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>14:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>15:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS' style='background:#F2F2F2' day='7' group_id='937d4d0d-0e0a-4dc7-a3b9-3132bbaac20c' style_id='0012220e-227a-49e3-b88c-6ab8497fd96f' style_str='ПРЕПОДАВАТЕЛИ (1)' age='' teacher='Кислицина К.' time='15:00-16:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#DC143C'/></li><li><div class='main-text' tooltip='<b>ПРЕПОДАВАТЕЛИ (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>ПРЕПОДАВАТЕЛИ (1)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>15:00-16:00</div></li></ul></td>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>16:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS' style='background:#F2F2F2' day='7' group_id='937d4d0d-0e0a-4dc7-a3b9-3132bbaac20c' style_id='0012220e-227a-49e3-b88c-6ab8497fd96f' style_str='ПРЕПОДАВАТЕЛИ (1)' age='' teacher='Кислицина К.' time='16:00-17:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#DC143C'/></li><li><div class='main-text' tooltip='<b>ПРЕПОДАВАТЕЛИ (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>ПРЕПОДАВАТЕЛИ (1)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>16:00-17:00</div></li></ul></td>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>17:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='2af5ec5c-a1ee-45ae-8ee8-4ea1f92d4076' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (4)' age='' teacher='Кислицина К.' time='17:00-18:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (4)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (4)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>17:00-18:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='2' group_id='6d619c07-9200-4ca4-93fe-34627d081de9' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (7)' age='' teacher='Кислицина К.' time='17:00-18:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (7)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (7)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>17:00-18:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='2af5ec5c-a1ee-45ae-8ee8-4ea1f92d4076' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (4)' age='' teacher='Кислицина К.' time='17:00-18:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (4)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (4)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>17:00-18:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='4' group_id='6d619c07-9200-4ca4-93fe-34627d081de9' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (7)' age='' teacher='Кислицина К.' time='17:00-18:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (7)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (7)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>17:00-18:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS' style='background:#F2F2F2' day='6' group_id='16c4d3ab-34be-4976-b904-25d09bec844c' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Хорольская Г.' time='17:00-18:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#A9A9A9'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (1)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Хорольская Г.</div></li><li><div class='sub-text' style='margin-top:-2'>17:00-18:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='7' group_id='16c4d3ab-34be-4976-b904-25d09bec844c' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Хорольская Г.' time='17:00-18:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#A9A9A9'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (1)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Хорольская Г.</div></li><li><div class='sub-text' style='margin-top:-2'>17:00-18:00</div></li></ul></td>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>18:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='c1638cd9-4c4a-4746-bbad-7c7179e26c79' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (2)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (2)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (2)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='2' group_id='2a88de2c-7ccc-40f0-beb5-814ea55d98f9' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (5)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (5)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (5)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='89133a03-f5b4-4287-afd0-91793d220105' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (3)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (3)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (3)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='4' group_id='2a88de2c-7ccc-40f0-beb5-814ea55d98f9' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (5)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (5)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (5)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='5' group_id='89133a03-f5b4-4287-afd0-91793d220105' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (3)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (3)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (3)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>19:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='95251fac-e986-4986-918e-3de3e6f38f7d' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (8)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (8)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (8)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>19:00-20:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='2' group_id='69d3d772-8595-4ba5-991c-0d04d1783c05' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (9)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (9)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (9)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>19:00-20:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='c1638cd9-4c4a-4746-bbad-7c7179e26c79' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (2)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (2)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (2)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>19:00-20:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='4' group_id='69d3d772-8595-4ba5-991c-0d04d1783c05' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (9)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (9)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (9)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>19:00-20:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='5' group_id='95251fac-e986-4986-918e-3de3e6f38f7d' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (8)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (8)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (8)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>19:00-20:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>20:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='79765dba-405f-4e75-8711-a1c8733525a1' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (1)' age='' teacher='Кислицина К.' time='20:00-21:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (1)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>20:00-21:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='2' group_id='7473e8e4-cc65-4b83-9c18-bc271831253b' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (10)' age='' teacher='Кислицина К.' time='20:00-21:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (10)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (10)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>20:00-21:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='79765dba-405f-4e75-8711-a1c8733525a1' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (1)' age='' teacher='Кислицина К.' time='20:00-21:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (1)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>20:00-21:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='4' group_id='7473e8e4-cc65-4b83-9c18-bc271831253b' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (10)' age='' teacher='Кислицина К.' time='20:00-21:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (10)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (10)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>20:00-21:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>21:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='ef5d1f7b-09f0-49b4-ab3c-f8c60bf6408c' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (11)' age='' teacher='Кислицина К.' time='21:00-22:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (11)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (11)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>21:00-22:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='2' group_id='d064ed65-8721-4793-8712-98a0da95263a' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (6)' age='' teacher='Кислицина К.' time='21:00-22:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (6)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (6)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>21:00-22:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='ef5d1f7b-09f0-49b4-ab3c-f8c60bf6408c' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (11)' age='' teacher='Кислицина К.' time='21:00-22:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (11)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (11)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>21:00-22:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='4' group_id='d064ed65-8721-4793-8712-98a0da95263a' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (6)' age='' teacher='Кислицина К.' time='21:00-22:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>POLE EXOTIC (6)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE EXOTIC (6)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>21:00-22:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                </table>
+            </div>
+            <div id='tab_DS_c2' style='display:none'>
+                <p class='table_header_DS' id='bd379cdc-b1d7-49ad-b401-d725c3587bd4'>ЗАЛ №2</p>
+                <table class='table_DS' cellspacing=4>
+                    <tr>
+                        <td class='td_header_DS' style='background:#fff'></td>
+                        <td class='td_header_DS'>ПОНЕДЕЛЬНИК<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>6 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>ВТОРНИК<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>7 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>СРЕДА<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>8 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>ЧЕТВЕРГ<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>9 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>ПЯТНИЦА<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>10 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>СУББОТА<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>11 ФЕВРАЛЯ</DIV></td>
+                        <td class='td_header_DS'>ВОСКРЕСЕНЬЕ<DIV STYLE='FONT-SIZE:8PT; LINE-HEIGHT:10PX'>12 ФЕВРАЛЯ</DIV></td>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>12:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>13:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS' style='background:#F2F2F2' day='7' group_id='4702bc28-a2b8-4ab5-9a0e-0e7ec0390a5a' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (1)' age='' teacher='Кислицина К.' time='13:00-14:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>STRETCHING (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>STRETCHING (1)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>13:00-14:00</div></li></ul></td>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>14:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS' style='background:#F2F2F2' day='7' group_id='06f8793d-141b-499a-8a99-9979ec7689b3' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (2)' age='' teacher='Кислицина К.' time='14:00-15:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#6495ED'/></li><li><div class='main-text' tooltip='<b>STRETCHING (2)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>STRETCHING (2)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Кислицина К.</div></li><li><div class='sub-text' style='margin-top:-2'>14:00-15:00</div></li></ul></td>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>15:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>16:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>17:00</td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS' style='background:#F2F2F2' day='7' group_id='a9841970-8f67-4487-817a-c01b6d78dbb0' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (4)' age='' teacher='Быкина М.' time='17:00-18:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#40E0D0'/></li><li><div class='main-text' tooltip='<b>STRETCHING (4)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>STRETCHING (4)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Быкина М.</div></li><li><div class='sub-text' style='margin-top:-2'>17:00-18:00</div></li></ul></td>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>18:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='b83bbe9e-dc40-409e-a31b-5c115a6cfbc6' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (5)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#9370DB'/></li><li><div class='main-text' tooltip='<b>STRETCHING (5)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>STRETCHING (5)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Григоричева А.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='2' group_id='a8b28c13-0cf7-45c4-b194-41a71a60c81e' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#9370DB'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (1)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Григоричева А.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='b83bbe9e-dc40-409e-a31b-5c115a6cfbc6' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (5)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#9370DB'/></li><li><div class='main-text' tooltip='<b>STRETCHING (5)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>STRETCHING (5)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Григоричева А.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='4' group_id='a8b28c13-0cf7-45c4-b194-41a71a60c81e' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#9370DB'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (1)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Григоричева А.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='5' group_id='b83bbe9e-dc40-409e-a31b-5c115a6cfbc6' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (5)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#9370DB'/></li><li><div class='main-text' tooltip='<b>STRETCHING (5)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>STRETCHING (5)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Григоричева А.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS' style='background:#F2F2F2' day='7' group_id='58efe1f5-831e-4d99-8b12-5fafb868f6e0' style_id='bba966cb-4865-4f79-861b-008ce87891fb' style_str='ОФП (1)' age='' teacher='Быкина М.' time='18:00-19:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#40E0D0'/></li><li><div class='main-text' tooltip='<b>ОФП (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>ОФП (1)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Быкина М.</div></li><li><div class='sub-text' style='margin-top:-2'>18:00-19:00</div></li></ul></td>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>19:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='5d9ebc67-d85f-4513-a0ee-bf5207664dda' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Быкина М.' time='19:00-20:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#40E0D0'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (1)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Быкина М.</div></li><li><div class='sub-text' style='margin-top:-2'>19:00-20:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='2' group_id='995b904e-f04c-42a8-9763-656767eea15d' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (2)' age='' teacher='Хорольская Г.' time='19:00-20:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#A9A9A9'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (2)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (2)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Хорольская Г.</div></li><li><div class='sub-text' style='margin-top:-2'>19:00-20:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='5d9ebc67-d85f-4513-a0ee-bf5207664dda' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Быкина М.' time='19:00-20:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#40E0D0'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (1)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (1)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Быкина М.</div></li><li><div class='sub-text' style='margin-top:-2'>19:00-20:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='4' group_id='995b904e-f04c-42a8-9763-656767eea15d' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (2)' age='' teacher='Хорольская Г.' time='19:00-20:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#A9A9A9'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (2)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (2)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Хорольская Г.</div></li><li><div class='sub-text' style='margin-top:-2'>19:00-20:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>20:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='3ec35096-27b6-4153-9b87-e8021a2ffbf8' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (2)' age='' teacher='Быкина М.' time='20:00-21:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#40E0D0'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (2)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (2)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Быкина М.</div></li><li><div class='sub-text' style='margin-top:-2'>20:00-21:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='2' group_id='6aa87ba3-a510-4f0c-8ec5-331525016298' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (3)' age='' teacher='Хорольская Г.' time='20:00-21:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#A9A9A9'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (3)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (3)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Хорольская Г.</div></li><li><div class='sub-text' style='margin-top:-2'>20:00-21:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='3ec35096-27b6-4153-9b87-e8021a2ffbf8' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (2)' age='' teacher='Быкина М.' time='20:00-21:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#40E0D0'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (2)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (2)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Быкина М.</div></li><li><div class='sub-text' style='margin-top:-2'>20:00-21:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='4' group_id='6aa87ba3-a510-4f0c-8ec5-331525016298' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (3)' age='' teacher='Хорольская Г.' time='20:00-21:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#A9A9A9'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (3)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (3)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Хорольская Г.</div></li><li><div class='sub-text' style='margin-top:-2'>20:00-21:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                    <tr class='tr_DS' style='background:#FAFAFA'>
+                        <td class='td_time_DS'>21:00</td>
+                        <td class='td_DS' style='background:#F2F2F2' day='1' group_id='8644e1ab-0e10-4dcc-aaf3-c43e4d13fd32' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (3)' age='' teacher='Быкина М.' time='21:00-22:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#40E0D0'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (3)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (3)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Быкина М.</div></li><li><div class='sub-text' style='margin-top:-2'>21:00-22:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='2' group_id='57540674-b25f-4d24-8cc6-0b190e849ae2' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (4)' age='' teacher='Хорольская Г.' time='21:00-22:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#A9A9A9'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (4)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (4)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Хорольская Г.</div></li><li><div class='sub-text' style='margin-top:-2'>21:00-22:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='3' group_id='8644e1ab-0e10-4dcc-aaf3-c43e4d13fd32' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (3)' age='' teacher='Быкина М.' time='21:00-22:00' group_status='1' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#40E0D0'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (3)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (3)</div></li><li><div class='round' style='background:#A8A8A8; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Быкина М.</div></li><li><div class='sub-text' style='margin-top:-2'>21:00-22:00</div></li></ul></td>
+                        <td class='td_DS' style='background:#F2F2F2' day='4' group_id='57540674-b25f-4d24-8cc6-0b190e849ae2' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (4)' age='' teacher='Хорольская Г.' time='21:00-22:00' group_status='0' onmouseover='groupEnter(this)' onmouseout='groupLeave(this)'><ul class='ul_DS'><li><div class='rectangle' style='background:#A9A9A9'/></li><li><div class='main-text' tooltip='<b>POLE DANCE (4)</b>' onclick='mainTextClick(this)' onmouseout='mainTextLeave(this)'>POLE DANCE (4)</div></li><li><div class='round' style='background:#1E90FF; margin-top:3px; margin-bottom:3px'/></li><li><div class='sub-text'>Хорольская Г.</div></li><li><div class='sub-text' style='margin-top:-2'>21:00-22:00</div></li></ul></td>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                        <td class='td_DS'/>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section class='section_mobile_DS' align='left'>
+        <div style='margin-bottom:5px' align='right'>
+            <button class='clickable_text' onclick='updateFilters(true)'>показать полное расписание</button>
+        </div>
+        <div style='margin-bottom:5px'>
+                    <div class='combo_DS'>
+                        <table class='combo_header_table_DS' cellpadding=0 cellspacing=0 onclick='listHeaderClick(this)'><tr><td><div class='combo_header_text_DS' style='min-width:263px; max-width:263px' tag='age' id=''>Любой возраст</div></td><td><div class='combo_header_arrow_DS'>&#10095;</div></td></tr></table>
+                        <ul class='combo_menu_DS' style='max-height:300px' onclick='listItemClick(event, this)'>
+                            <li id=''>Любой возраст</li><li id='1'>1</li><li id='2'>2</li><li id='3'>3</li><li id='4'>4</li><li id='5'>5</li><li id='6'>6</li><li id='7'>7</li><li id='8'>8</li><li id='9'>9</li><li id='10'>10</li><li id='11'>11</li><li id='12'>12</li><li id='13'>13</li><li id='14'>14</li><li id='15'>15</li><li id='16'>16</li><li id='17'>17</li><li id='18'>18</li><li id='19'>19</li><li id='20'>20</li><li id='21'>21</li><li id='22'>22</li><li id='23'>23</li><li id='24'>24</li><li id='25'>25</li><li id='26'>26</li><li id='27'>27</li><li id='28'>28</li><li id='29'>29</li><li id='30'>30</li><li id='31'>31</li><li id='32'>32</li><li id='33'>33</li><li id='34'>34</li><li id='35'>35</li><li id='36'>36</li><li id='37'>37</li><li id='38'>38</li><li id='39'>39</li><li id='40'>40</li><li id='41'>41</li><li id='42'>42</li><li id='43'>43</li><li id='44'>44</li><li id='45'>45</li><li id='46'>46</li><li id='47'>47</li><li id='48'>48</li><li id='49'>49</li><li id='50'>50</li><li id='51'>51</li><li id='52'>52</li><li id='53'>53</li><li id='54'>54</li><li id='55'>55</li><li id='56'>56</li><li id='57'>57</li><li id='58'>58</li><li id='59'>59</li><li id='60'>60</li><li id='61'>61</li><li id='62'>62</li><li id='63'>63</li><li id='64'>64</li><li id='65'>65</li><li id='66'>66</li><li id='67'>67</li><li id='68'>68</li><li id='69'>69</li><li id='70'>70</li><li id='71'>71</li><li id='72'>72</li><li id='73'>73</li><li id='74'>74</li><li id='75'>75</li>
+                        </ul>
+                    </div>
+        </div>
+        <div style='margin-bottom:5px'>
+                    <div class='combo_DS'>
+                        <table class='combo_header_table_DS' cellpadding=0 cellspacing=0 onclick='listHeaderClick(this)'><tr><td><div class='combo_header_text_DS' style='min-width:263px; max-width:263px' tag='style' id=''>Все направления</div></td><td><div class='combo_header_arrow_DS'>&#10095;</div></td></tr></table>
+                        <ul class='combo_menu_DS' style='max-height:300px' onclick='listItemClick(event, this)'>
+                            <li id=''>Все направления</li>
+                            <li id='ff92f661-34d0-4a5e-ba05-0c546400dcf9'>Pole Dance</li>
+                            <li id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4'>Pole Exotic</li>
+                            <li id='fb16f9f5-df1b-400b-8ced-825b4b292b90'>Stretching</li>
+                            <li id='bba966cb-4865-4f79-861b-008ce87891fb'>ОФП</li>
+                            <li id='0012220e-227a-49e3-b88c-6ab8497fd96f'>Преподаватели</li>
+                        </ul>
+                    </div>
+        </div>
+        <div style='margin-bottom:5px'>
+                    <div class='combo_DS'>
+                        <table class='combo_header_table_DS' cellpadding=0 cellspacing=0 onclick='listHeaderClick(this)'><tr><td><div class='combo_header_text_DS' style='min-width:263px; max-width:263px' tag='hall' id=''>Все залы</div></td><td><div class='combo_header_arrow_DS'>&#10095;</div></td></tr></table>
+                        <ul class='combo_menu_DS' style='max-height:300px' onclick='listItemClick(event, this)'>
+                            <li id=''>Все залы</li>
+                            <li id='6f249c37-aaac-4d82-8b08-ae00b607ab5e'>Зал №1</li>
+                            <li id='bd379cdc-b1d7-49ad-b401-d725c3587bd4'>Зал №2</li>
+                        </ul>
+                    </div>
+        </div>
+        <div style='clear:both'></div>
+        <div class='tabs_cont_DS'>
+        <div>
+            <div id='groupCountLabel' style='display:inline; color:gray; font-family:Roboto Condensed,sans-serif; vertical-align:top; line-height:25px; margin:0 0 0 5px'></div>
+            <img id='clearFilterButton' width='20' height='20' title='Очистить фильтр' onClick='clearFilters()' style='cursor:pointer; margin-left:10px' src='data:image/png;base64,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'/>
+        </div>
+        <table style='font-size:14px; font-family:Roboto Condensed,sans-serif; padding:0 5px 10px 0' cellspacing='0' cellpadding='0'>
+            <tr>
+                <td>
+                    <div id='admissionActiveText' style='border-color:gray; border-style:dotted; border-width:0 0 1px 0; width:140px; padding:3px 10px 2px 5px; cursor:pointer' onclick='admissionLegendClick(0)'>
+                        <div class='round' style='margin:0; background:#1E90FF; cursor:pointer; border:2px solid white'/>
+                        <div style='display:inline-block; width:160px; margin:-2px 0 0 15px; cursor:pointer'>- идет набор в группу</div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id='admissionStopText' style='border-color:gray; border-style:dotted; border-width:0 0 1px 0; width:155px; padding:3px 10px 2px 5px; cursor:pointer' onclick='admissionLegendClick(1)'>
+                        <div class='round' style='margin:0; background:#A8A8A8; border:2px solid white'/>
+                        <div style='display:inline-block; width:170px; margin:-2px 0 0 15px; cursor:pointer'>- набор в группу закрыт</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div style='clear:both'></div>
+            <div id='tab_DS_c1'>
+                <p class='table_header_DS' id='6f249c37-aaac-4d82-8b08-ae00b607ab5e'>ЗАЛ №1</p>
+                <ul class='list_DS'>
+                    <lh>ПОНЕДЕЛЬНИК
+6 ФЕВРАЛЯ</lh>
+                    <li group_id='14250e24-a24d-49f3-8969-71fe31a24e13' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (12)' age='' teacher='Кислицина К.' time='13:00-14:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (12)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 13:00-14:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='2af5ec5c-a1ee-45ae-8ee8-4ea1f92d4076' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (4)' age='' teacher='Кислицина К.' time='17:00-18:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (4)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 17:00-18:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='c1638cd9-4c4a-4746-bbad-7c7179e26c79' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (2)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (2)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='95251fac-e986-4986-918e-3de3e6f38f7d' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (8)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (8)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 19:00-20:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='79765dba-405f-4e75-8711-a1c8733525a1' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (1)' age='' teacher='Кислицина К.' time='20:00-21:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 20:00-21:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='ef5d1f7b-09f0-49b4-ab3c-f8c60bf6408c' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (11)' age='' teacher='Кислицина К.' time='21:00-22:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (11)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 21:00-22:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>ВТОРНИК
+7 ФЕВРАЛЯ</lh>
+                    <li group_id='6d619c07-9200-4ca4-93fe-34627d081de9' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (7)' age='' teacher='Кислицина К.' time='17:00-18:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (7)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 17:00-18:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='2a88de2c-7ccc-40f0-beb5-814ea55d98f9' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (5)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (5)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='69d3d772-8595-4ba5-991c-0d04d1783c05' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (9)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (9)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 19:00-20:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='7473e8e4-cc65-4b83-9c18-bc271831253b' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (10)' age='' teacher='Кислицина К.' time='20:00-21:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (10)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 20:00-21:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='d064ed65-8721-4793-8712-98a0da95263a' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (6)' age='' teacher='Кислицина К.' time='21:00-22:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (6)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 21:00-22:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>СРЕДА
+8 ФЕВРАЛЯ</lh>
+                    <li group_id='14250e24-a24d-49f3-8969-71fe31a24e13' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (12)' age='' teacher='Кислицина К.' time='13:00-14:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (12)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 13:00-14:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='2af5ec5c-a1ee-45ae-8ee8-4ea1f92d4076' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (4)' age='' teacher='Кислицина К.' time='17:00-18:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (4)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 17:00-18:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='89133a03-f5b4-4287-afd0-91793d220105' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (3)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (3)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='c1638cd9-4c4a-4746-bbad-7c7179e26c79' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (2)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (2)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 19:00-20:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='79765dba-405f-4e75-8711-a1c8733525a1' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (1)' age='' teacher='Кислицина К.' time='20:00-21:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 20:00-21:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='ef5d1f7b-09f0-49b4-ab3c-f8c60bf6408c' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (11)' age='' teacher='Кислицина К.' time='21:00-22:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (11)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 21:00-22:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>ЧЕТВЕРГ
+9 ФЕВРАЛЯ</lh>
+                    <li group_id='6d619c07-9200-4ca4-93fe-34627d081de9' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (7)' age='' teacher='Кислицина К.' time='17:00-18:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (7)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 17:00-18:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='2a88de2c-7ccc-40f0-beb5-814ea55d98f9' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (5)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (5)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='69d3d772-8595-4ba5-991c-0d04d1783c05' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (9)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (9)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 19:00-20:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='7473e8e4-cc65-4b83-9c18-bc271831253b' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (10)' age='' teacher='Кислицина К.' time='20:00-21:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (10)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 20:00-21:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='d064ed65-8721-4793-8712-98a0da95263a' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (6)' age='' teacher='Кислицина К.' time='21:00-22:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (6)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 21:00-22:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>ПЯТНИЦА
+10 ФЕВРАЛЯ</lh>
+                    <li group_id='89133a03-f5b4-4287-afd0-91793d220105' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (3)' age='' teacher='Кислицина К.' time='18:00-19:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (3)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='95251fac-e986-4986-918e-3de3e6f38f7d' style_id='ff3c2d5c-0ea8-465a-87c6-27a482a054d4' style_str='POLE EXOTIC (8)' age='' teacher='Кислицина К.' time='19:00-20:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE EXOTIC (8)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 19:00-20:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>СУББОТА
+11 ФЕВРАЛЯ</lh>
+                    <li group_id='16c4d3ab-34be-4976-b904-25d09bec844c' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Хорольская Г.' time='17:00-18:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Хорольская Г., 17:00-18:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#A9A9A9'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>ВОСКРЕСЕНЬЕ
+12 ФЕВРАЛЯ</lh>
+                    <li group_id='937d4d0d-0e0a-4dc7-a3b9-3132bbaac20c' style_id='0012220e-227a-49e3-b88c-6ab8497fd96f' style_str='ПРЕПОДАВАТЕЛИ (1)' age='' teacher='Кислицина К.' time='15:00-16:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>ПРЕПОДАВАТЕЛИ (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 15:00-16:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#DC143C'/></li>
+                    <li group_id='937d4d0d-0e0a-4dc7-a3b9-3132bbaac20c' style_id='0012220e-227a-49e3-b88c-6ab8497fd96f' style_str='ПРЕПОДАВАТЕЛИ (1)' age='' teacher='Кислицина К.' time='16:00-17:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>ПРЕПОДАВАТЕЛИ (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 16:00-17:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#DC143C'/></li>
+                    <li group_id='16c4d3ab-34be-4976-b904-25d09bec844c' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Хорольская Г.' time='17:00-18:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Хорольская Г., 17:00-18:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#A9A9A9'/></li>
+                </ul>
+            </div>
+            <div id='tab_DS_c2' style='display:none'>
+                <p class='table_header_DS' id='bd379cdc-b1d7-49ad-b401-d725c3587bd4'>ЗАЛ №2</p>
+                <ul class='list_DS'>
+                    <lh>ПОНЕДЕЛЬНИК
+6 ФЕВРАЛЯ</lh>
+                    <li group_id='b83bbe9e-dc40-409e-a31b-5c115a6cfbc6' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (5)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>STRETCHING (5)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Григоричева А., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#9370DB'/></li>
+                    <li group_id='5d9ebc67-d85f-4513-a0ee-bf5207664dda' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Быкина М.' time='19:00-20:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Быкина М., 19:00-20:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#40E0D0'/></li>
+                    <li group_id='3ec35096-27b6-4153-9b87-e8021a2ffbf8' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (2)' age='' teacher='Быкина М.' time='20:00-21:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (2)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Быкина М., 20:00-21:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#40E0D0'/></li>
+                    <li group_id='8644e1ab-0e10-4dcc-aaf3-c43e4d13fd32' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (3)' age='' teacher='Быкина М.' time='21:00-22:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (3)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Быкина М., 21:00-22:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#40E0D0'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>ВТОРНИК
+7 ФЕВРАЛЯ</lh>
+                    <li group_id='a8b28c13-0cf7-45c4-b194-41a71a60c81e' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Григоричева А., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#9370DB'/></li>
+                    <li group_id='995b904e-f04c-42a8-9763-656767eea15d' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (2)' age='' teacher='Хорольская Г.' time='19:00-20:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (2)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Хорольская Г., 19:00-20:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#A9A9A9'/></li>
+                    <li group_id='6aa87ba3-a510-4f0c-8ec5-331525016298' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (3)' age='' teacher='Хорольская Г.' time='20:00-21:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (3)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Хорольская Г., 20:00-21:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#A9A9A9'/></li>
+                    <li group_id='57540674-b25f-4d24-8cc6-0b190e849ae2' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (4)' age='' teacher='Хорольская Г.' time='21:00-22:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (4)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Хорольская Г., 21:00-22:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#A9A9A9'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>СРЕДА
+8 ФЕВРАЛЯ</lh>
+                    <li group_id='b83bbe9e-dc40-409e-a31b-5c115a6cfbc6' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (5)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>STRETCHING (5)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Григоричева А., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#9370DB'/></li>
+                    <li group_id='5d9ebc67-d85f-4513-a0ee-bf5207664dda' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Быкина М.' time='19:00-20:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Быкина М., 19:00-20:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#40E0D0'/></li>
+                    <li group_id='3ec35096-27b6-4153-9b87-e8021a2ffbf8' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (2)' age='' teacher='Быкина М.' time='20:00-21:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (2)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Быкина М., 20:00-21:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#40E0D0'/></li>
+                    <li group_id='8644e1ab-0e10-4dcc-aaf3-c43e4d13fd32' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (3)' age='' teacher='Быкина М.' time='21:00-22:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (3)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Быкина М., 21:00-22:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#40E0D0'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>ЧЕТВЕРГ
+9 ФЕВРАЛЯ</lh>
+                    <li group_id='a8b28c13-0cf7-45c4-b194-41a71a60c81e' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (1)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Григоричева А., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#9370DB'/></li>
+                    <li group_id='995b904e-f04c-42a8-9763-656767eea15d' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (2)' age='' teacher='Хорольская Г.' time='19:00-20:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (2)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Хорольская Г., 19:00-20:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#A9A9A9'/></li>
+                    <li group_id='6aa87ba3-a510-4f0c-8ec5-331525016298' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (3)' age='' teacher='Хорольская Г.' time='20:00-21:00' group_status='1'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#A8A8A8; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (3)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Хорольская Г., 20:00-21:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#A9A9A9'/></li>
+                    <li group_id='57540674-b25f-4d24-8cc6-0b190e849ae2' style_id='ff92f661-34d0-4a5e-ba05-0c546400dcf9' style_str='POLE DANCE (4)' age='' teacher='Хорольская Г.' time='21:00-22:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>POLE DANCE (4)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Хорольская Г., 21:00-22:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#A9A9A9'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>ПЯТНИЦА
+10 ФЕВРАЛЯ</lh>
+                    <li group_id='b83bbe9e-dc40-409e-a31b-5c115a6cfbc6' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (5)' age='' teacher='Григоричева А.' time='18:00-19:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>STRETCHING (5)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Григоричева А., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#9370DB'/></li>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>СУББОТА
+11 ФЕВРАЛЯ</lh>
+                </ul>
+                <ul class='list_DS'>
+                    <lh>ВОСКРЕСЕНЬЕ
+12 ФЕВРАЛЯ</lh>
+                    <li group_id='4702bc28-a2b8-4ab5-9a0e-0e7ec0390a5a' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (1)' age='' teacher='Кислицина К.' time='13:00-14:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>STRETCHING (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 13:00-14:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='06f8793d-141b-499a-8a99-9979ec7689b3' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (2)' age='' teacher='Кислицина К.' time='14:00-15:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>STRETCHING (2)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Кислицина К., 14:00-15:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#6495ED'/></li>
+                    <li group_id='a9841970-8f67-4487-817a-c01b6d78dbb0' style_id='fb16f9f5-df1b-400b-8ced-825b4b292b90' style_str='STRETCHING (4)' age='' teacher='Быкина М.' time='17:00-18:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>STRETCHING (4)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Быкина М., 17:00-18:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#40E0D0'/></li>
+                    <li group_id='58efe1f5-831e-4d99-8b12-5fafb868f6e0' style_id='bba966cb-4865-4f79-861b-008ce87891fb' style_str='ОФП (1)' age='' teacher='Быкина М.' time='18:00-19:00' group_status='0'>                        <table align='left' cellpadding='0' cellspacing='0'>
+                            <tr>
+                                <td rowspan='2' style='width:15px'><div class='round' style='background:#1E90FF; margin:0 5px 0 13px; padding:0'/></td>
+                                <td><div class='list-main-text'>ОФП (1)</div></td>
+                            </tr>
+                            <tr>
+                                <td><div class='list-sub-text'>Быкина М., 18:00-19:00</div></td>
+                            </tr>
+                        </table>
+                        <div class='rectangle_vert' style='background:#40E0D0'/></li>
+                </ul>
+            </div>
+    </section>
+    <script type='text/javascript'>
+        var d = document;
+        var offsetFromCursorY = 15;
+        var ie = d.all && !window.opera;
+        var ns6 = d.getElementById && !d.all;
+        var tipObj, op;
+        var admissionLegendSelected = [0, 1];
+        var sectionFullInnerHTML;
+        var sectionMobileInnerHTML;
+
+        window.onload = function(){
+            /// Если идет прослушка сообщения от фрейма расписания, то отправим реальную высоту
+            if(parent.postMessage && document.children.length > 0) {
+                parent.postMessage(d.children[0].clientHeight, '*');
+            }
+            parent.document.getElementById('schedule-frame').height = d.children[0].clientHeight;        
+        }
+
+        function globalClick(elm) {
+            /// Закроем все открытые комбики
+            var combos = d.getElementsByClassName('combo_menu_DS');
+            for (var ii = 0; ii < combos.length; ++ii) {
+                combos[ii].style.display = '';
+            }
+        }
+
+        function groupEnter(obj) {
+           var elms = d.querySelectorAll('[group_id="' + obj.attributes.group_id.value + '"]');
+           for (var ii = 0; ii < elms.length; ++ii)
+               elms[ii].style.background = '#D6D6D6';
+        }
+
+        function groupLeave(obj) {
+           var elms = d.querySelectorAll('[group_id="' + obj.attributes.group_id.value + '"]');
+           for (var ii = 0; ii < elms.length; ++ii)
+               elms[ii].style.background = '#EDEDED';
+        }
+
+        function mainTextClick(obj) {
+           /// Остановка всплытия события
+           event.stopPropagation ? event.stopPropagation() : (event.cancelBubble = true);
+           tipObj = d.getElementsByClassName('tooltip_DS')[0];
+           var text = obj.attributes.tooltip.value;
+           if (text.length > 700)
+               text = text.substr(0, 700 - 3) + '...';
+           tipObj.innerHTML = text;
+           op = 0.1;
+           tipObj.style.opacity = op;
+           tipObj.style.visibility = 'visible';
+
+           /// Настроим расположение на экране подсказки
+           var winWidth = ie ? ietruebody().clientWidth : window.innerWidth;
+           var winHeight = ie ? ietruebody().clientHeight : window.innerHeight;
+           var rect = obj.getBoundingClientRect();
+           tipObj.style.left = rect.right + 2 + 'px';
+           if (tipObj.offsetLeft + tipObj.offsetWidth > winWidth)
+               tipObj.style.left = rect.left - tipObj.offsetWidth - 2 + 'px';
+           tipObj.style.top = rect.top - 10 + 'px';
+           if (tipObj.offsetTop + tipObj.offsetHeight > winHeight)
+               tipObj.style.top = winHeight - tipObj.offsetHeight - 50 + 'px';
+
+           appear();
+        }
+
+        function mainTextLeave(obj) {
+           tipObj = d.getElementsByClassName('tooltip_DS')[0];
+           tipObj.style.visibility = 'hidden';
+           obj.onmousemove = '';
+        }
+
+        function ietruebody(){
+            return (d.compatMode && d.compatMode != 'BackCompat') ? d.documentElement : d.body;
+        }
+
+        function appear() {
+            if(op < 1) {
+                op += 0.1;
+                tipObj.style.opacity = op;
+                tipObj.style.filter = 'alpha(opacity=' + op * 100 +')';
+                t = setTimeout('appear()', 30);
+            }
+        }
+
+        function getEventTarget(e) {
+            e = e || window.event;
+            return e.target || e.srcElement;
+        }
+
+        function admissionLegendClick(index) {
+            var selected = admissionLegendSelected.indexOf(index);
+            var textElm = d.getElementById(index == 0 ? 'admissionActiveText' : 'admissionStopText');
+            if (selected > -1) {
+                textElm.style.borderColor = 'transparent';
+                admissionLegendSelected.splice(selected, 1);
+            }
+            else {
+                textElm.style.borderColor = 'gray';
+                admissionLegendSelected.push(index);
+            }
+            updateFilters();
+        }
+
+        function admissionLegendEnter(index) {
+            var rect = d.getElementById(index == 0 ? 'admissionActiveRect' : 'admissionStopRect');
+            rect.style.visibility = 'visible';
+        }
+
+        function admissionLegendLeave(index) {
+            var rect = d.getElementById(index == 0 ? 'admissionActiveRect' : 'admissionStopRect');
+            rect.style.visibility = 'hidden';
+        }
+
+        function listHeaderClick(listHeader) {
+            content = listHeader.parentElement.children[1];
+            var oldDisplay = content.style.display;
+            setTimeout(function() {
+                content.style.display = oldDisplay ? '' : 'block';
+                content.style.width = listHeader.clientWidth + 'px';
+            }, 10);
+        }
+
+        function listItemClick(event, list) {
+           var item = getEventTarget(event);
+           if (item.className == 'combo_disabled_item_DS' || !item.attributes.id)
+               return;
+           list.style.display = '';
+           var listHeader = list.previousElementSibling.rows[0].cells[0].children[0];
+           listHeader.innerHTML = item.innerHTML;
+           listHeader.setAttribute('id', item.attributes.id.value);
+           updateFilters();
+        }
+
+        function isAgeBelong(age, ageText) {
+            var digits = ageText.match(/[0-9]+/g);
+            /// Возраст не указан или нечитабелен
+            if (digits == null || digits.length <= 0 || digits.length > 2)
+                return true;
+            var ageBegin = -999, ageEnd = 999;
+            /// Указан период возраста
+            if (digits.length == 2) {
+                ageBegin = digits[0];
+                ageEnd = digits[1];
+            }
+            else { /// Указано либо начало возраста, либо окончание
+                if (ageText.indexOf('до') > -1)
+                    ageEnd = digits[0];
+                else
+                    ageBegin = digits[0];
+            }
+            /// Возраст подходит
+            if (parseInt(ageBegin) <= age && age <= parseInt(ageEnd))
+                return true;
+            return false;
+        }
+
+        function activateHall(hallId) {
+           var tables = d.getElementsByClassName(isMobileMode() ? 'list_DS' : 'table_DS');
+           /// Пройдем по всем залам и спрячем/отобразим их
+           for (var ii = 1; ii <= tables.length; ++ii) {
+               var tab = d.getElementById('tab_DS_c' + ii);
+               if (tab == null)
+                   continue;
+               tab.style.display = !hallId || tab.children[0].attributes.id.value == hallId ? '' : 'none';
+               //tab.style.position = hallId ? 'absolute' : '';
+               tab.style.top = isMobileMode() ? '80px' : '33px';
+           }
+        }
+
+        function activateStyle(styleId) {
+            /// Если выбраны все стили, то ничего не фильтруем
+            if (!styleId)
+                return;
+            var tables = d.getElementsByClassName('table_DS');
+            for (var kk = 0; kk < tables.length; ++kk) {
+                var table = tables[kk];
+                if (table.parentElement.style.display == 'none')
+                    continue;
+                /// Пройдем по всем строкам (кроме первой) таблицы
+                for (var ii = 1; ii < table.rows.length; ++ii) {
+                    var row = table.rows[ii];
+                    /// Пройдем по ячейкам текущей строки
+                    for (var jj = 0; jj < row.cells.length; ++jj) {
+                        var cell = row.cells[jj];
+                        if (cell.className != 'td_DS' || cell.childElementCount == 0 || cell.style.display == 'none')
+                            continue;
+                        if (cell.attributes.style_id && cell.attributes.style_id.value == styleId)
+                            continue;
+                        removeCell(table, row, cell);
+                    }
+                }
+            }
+        }
+
+        function activateAge(age) {
+            /// Если выбраны все возраста, то ничего не фильтруем
+            if (!age)
+                return;
+            var tables = d.getElementsByClassName('table_DS');
+            for (var kk = 0; kk < tables.length; ++kk) {
+                var table = tables[kk];
+                if (table.parentElement.style.display == 'none')
+                    continue;
+                /// Пройдем по всем строкам (кроме первой) таблицы
+                for (var ii = 1; ii < table.rows.length; ++ii) {
+                    var row = table.rows[ii];
+                    /// Пройдем по ячейкам текущей строки
+                    for (var jj = 0; jj < row.cells.length; ++jj) {
+                        var cell = row.cells[jj];
+                        if (cell.className != 'td_DS' || cell.childElementCount == 0 || cell.style.display == 'none')
+                            continue;
+                        if (cell.attributes.age && isAgeBelong(age, cell.attributes.age.value)) {
+                            continue;
+                        }
+                        removeCell(table, row, cell);
+                    }
+                }
+            }
+        }
+
+        function activateStatus(status) {
+            /// Если выбраны все статусы, то ничего не фильтруем
+            if (admissionLegendSelected.length == 2)
+                return;
+            var tables = d.getElementsByClassName('table_DS');
+            for (var kk = 0; kk < tables.length; ++kk) {
+                var table = tables[kk];
+                if (table.parentElement.style.display == 'none')
+                    continue;
+                /// Пройдем по всем строкам (кроме первой) таблицы
+                for (var ii = 1; ii < table.rows.length; ++ii) {
+                    var row = table.rows[ii];
+                    /// Пройдем по ячейкам текущей строки
+                    for (var jj = 0; jj < row.cells.length; ++jj) {
+                        var cell = row.cells[jj];
+                        if (cell.className != 'td_DS' || cell.childElementCount == 0 || cell.style.display == 'none')
+                            continue;
+                        if (cell.attributes.group_status) {
+                            if (admissionLegendSelected.indexOf(0) > -1 && cell.attributes.group_status.value == '0')
+                                 continue;
+                            if (admissionLegendSelected.indexOf(1) > -1 && cell.attributes.group_status.value != '0')
+                                 continue;
+                        }
+                        removeCell(table, row, cell);
+                    }
+                }
+            }
+        }
+
+        function activateMobileStyle(styleId) {
+            /// Если выбраны все стили, то ничего не фильтруем
+            if (!styleId)
+                return;
+            var headers = d.getElementsByClassName('table_header_DS');
+            for (var ii = 0; ii < headers.length; ++ii) {
+                var header = headers[ii];
+                if (header.parentElement.style.display == 'none')
+                    continue;
+                var items = headers[ii].parentElement.querySelectorAll('li');
+                /// Пройдем по всем занятиям
+                for (var jj = 0; jj < items.length; ++jj) {
+                    var item = items[jj];
+                    if (item.childElementCount == 0 || item.style.display == 'none')
+                        continue;
+                    if (item.attributes.style_id && item.attributes.style_id.value == styleId)
+                        continue;
+                    item.style.display = 'none';
+                }
+            }
+        }
+
+        function activateMobileAge(age) {
+            /// Если выбраны все возраста, то ничего не фильтруем
+            if (!age)
+                return;
+            var headers = d.getElementsByClassName('table_header_DS');
+            for (var ii = 0; ii < headers.length; ++ii) {
+                var header = headers[ii];
+                if (header.parentElement.style.display == 'none')
+                    continue;
+                var items = headers[ii].parentElement.querySelectorAll('li');
+                /// Пройдем по всем занятиям
+                for (var jj = 0; jj < items.length; ++jj) {
+                    var item = items[jj];
+                    if (item.childElementCount == 0 || item.style.display == 'none')
+                        continue;
+                    if (item.attributes.age && isAgeBelong(age, item.attributes.age.value))
+                        continue;
+                    item.style.display = 'none';
+                }
+            }
+        }
+
+        function activateMobileStatus(status) {
+            /// Если выбраны все статусы, то ничего не фильтруем
+            if (admissionLegendSelected.length == 2)
+                return;
+            var headers = d.getElementsByClassName('table_header_DS');
+            for (var ii = 0; ii < headers.length; ++ii) {
+                var header = headers[ii];
+                if (header.parentElement.style.display == 'none')
+                    continue;
+                var items = headers[ii].parentElement.querySelectorAll('li');
+                /// Пройдем по всем занятиям
+                for (var jj = 0; jj < items.length; ++jj) {
+                    var item = items[jj];
+                    if (item.childElementCount == 0 || item.style.display == 'none')
+                        continue;
+                    if (item.attributes.group_status) {
+                        if (admissionLegendSelected.indexOf(0) > -1 && item.attributes.group_status.value == '0')
+                             continue;
+                        if (admissionLegendSelected.indexOf(1) > -1 && item.attributes.group_status.value != '0')
+                             continue;
+                    }
+                    item.style.display = 'none';
+                }
+            }
+        }
+
+        function cellClick(cell) {
+           var style = cell.attributes.style_str.value;
+           var time = cell.attributes.time.value;
+           var teacher = cell.attributes.teacher.value;
+           var age = cell.attributes.age.value;
+           ;
+        }
+
+        function removeCell(table, row, cell) {
+            var nextRow = row;
+            var day = cell.attributes.day.value;
+            var rowSpan = cell.parentElement && cell.parentElement.nextElementSibling ? cell.rowSpan : 1;
+            for (var ii = 0; ii < rowSpan; ++ii) {
+                /// Добавляем временную пустую ячейку
+                var newCellIndex = nextRow.cells.length <= cell.cellIndex + 1 ? nextRow.cells.length : cell.cellIndex + 1;
+                /// Пройдем по всем ячейкам строки, чтобы определить место, куда вставить временную пустую ячейку
+                for (var jj = 0; jj < nextRow.cells.length; ++jj) {
+                    var nrcDay = nextRow.cells[jj].attributes.day;
+                    if (nrcDay && nrcDay.value == day) {
+                        newCellIndex = jj + 1;
+                        break;
+                    }
+                    if (nrcDay && nrcDay.value > day) {
+                        newCellIndex = jj;
+                        break;
+                    }
+                }
+                var newCell = nextRow.insertCell(Math.max(newCellIndex, 1));
+                newCell.setAttribute('class', 'td_DS');
+                newCell.setAttribute('tmp', 'true');
+                if (table.rows.length <= nextRow.rowIndex + 1)
+                    continue;
+                nextRow = table.rows[nextRow.rowIndex + 1];
+            }
+            /// Скрываем ячейку
+            cell.style.display = 'none';
+        }
+
+        function clearFilters() {
+            var hallComboHeader = d.querySelectorAll('div[tag="hall"]')[0];
+            var styleComboHeader = d.querySelectorAll('div[tag="style"]')[0];
+            var ageComboHeader = d.querySelectorAll('div[tag="age"]')[0];
+            hallComboHeader.innerHTML = 'Все залы';
+            hallComboHeader.setAttribute('id', '');
+            styleComboHeader.innerHTML = 'Все направления';
+            styleComboHeader.setAttribute('id', '');
+            ageComboHeader.innerHTML = 'Любой возраст';
+            ageComboHeader.setAttribute('id', '');
+            var admissionActiveTextElm = d.getElementById('admissionActiveText');
+            var admissionStopTextElm = d.getElementById('admissionStopText');
+            admissionActiveTextElm.style.borderColor = admissionStopTextElm.style.borderColor = 'gray';
+            admissionLegendSelected = [0, 1];
+            updateFilters();
+        }
+
+        function clearEmptyHalls() {
+           var tables = d.getElementsByClassName('table_DS');
+           /// Пройдем по всем залам и спрячем/отобразим их
+           for (var ii = 0; ii < tables.length; ++ii) {
+               var hasVisibleRows = false;
+               var rows = tables[ii].querySelectorAll('tr[class="tr_DS"]');
+               for (var jj = 0; jj < rows.length; ++jj) {
+                  if (!rows[jj].style.display) {
+                     hasVisibleRows = true;
+                     break;
+                  }
+               }
+               if (!hasVisibleRows)
+                  tables[ii].parentElement.style.display = 'none';
+           }
+        }
+
+        function clearMobileEmptyHalls() {
+           var headers = d.getElementsByClassName('table_header_DS');
+           /// Пройдем по всем залам и спрячем/отобразим их
+           for (var ii = 0; ii < headers.length; ++ii) {
+               var hasVisibleRows = false;
+               var rows = headers[ii].parentElement.querySelectorAll('li');
+               for (var jj = 0; jj < rows.length; ++jj) {
+                  if (!rows[jj].style.display) {
+                     hasVisibleRows = true;
+                     break;
+                  }
+               }
+               if (hasVisibleRows) {
+                  var days = headers[ii].parentElement.querySelectorAll('ul');
+                  for (var kk = 0; kk < days.length; ++kk) {
+                     var items = days[kk].querySelectorAll('li');
+                     var hasVisibleItem = false;
+                     for (var nn = 0; nn < items.length; ++nn) {
+                        if (!items[nn].style.display) {
+                            hasVisibleItem = true;
+                            break;
+                        }
+                     }
+                     if (!hasVisibleItem)
+                        days[kk].style.display = 'none';
+                  }
+               }
+               else {
+                  headers[ii].parentElement.style.display = 'none';
+               }
+           }
+        }
+
+        function clearHallEmptyRows(table) {
+            var hourRows = [];
+            var hourRowEmptyCellsCount = 0;
+            /// Пройдем по всем строкам (кроме первой) таблицы
+            for (var ii = 1; ii < table.rows.length; ++ii) {
+                var row = table.rows[ii];
+                var isHourBegin = row.cells.length > 0 && row.cells[0].attributes.class.value == 'td_time_DS';
+                if (isHourBegin) { /// Начало часа
+                    hourRows = [];
+                    hourRowEmptyCellsCount = 0;
+                }
+                hourRows.push(row);
+                /// Пройдем по всем ячейкам строки и посчитаем кол-во пустых
+                for (var jj = isHourBegin ? 1 : 0; jj < row.cells.length; ++jj) {
+                    if (row.cells[jj].childElementCount == 0)
+                        hourRowEmptyCellsCount++;
+                }
+                var isHourEnd = table.rows.length == ii + 1 || (table.rows[ii + 1].cells.length > 0 && table.rows[ii + 1].cells[0].attributes.class.value == 'td_time_DS')
+                if (isHourEnd && hourRowEmptyCellsCount == 7 * hourRows.length) {
+                    /// Скрываем все строки часа
+                    for (var kk = 0; kk < hourRows.length; ++kk) {
+                        hourRows[kk].style.display = 'none';
+                    }
+                }
+            }
+        }
+
+        function recoverHalls() {
+            var tables = d.getElementsByClassName('table_DS');
+            /// Пройдем по всем залам и отобразим все строки
+            for (var ii = 0; ii < tables.length; ++ii) {
+                /// Пройдем по всем строкам, чтобы отобразить их
+                for (var jj = 1; jj < tables[ii].rows.length; ++jj)
+                    tables[ii].rows[jj].style.display = '';
+            }
+            var cells = d.querySelectorAll('td[class="td_DS"]');
+            for (var ii = 0; ii < cells.length; ++ii) {
+                var cell = cells[ii];
+                if (cell.attributes.tmp)
+                    cell.parentElement.removeChild(cell);
+                if (cell.style.display == 'none') 
+                    cell.style.display = '';
+            }
+        }
+
+        function recoverMobileHalls() {
+            var headers = d.getElementsByClassName('table_header_DS');
+            /// Пройдем по всем залам и отобразим все дни и занятия
+            for (var ii = 0; ii < headers.length; ++ii) {
+                var rows = headers[ii].parentElement.querySelectorAll('ul');
+                for (var jj = 0; jj < rows.length; ++jj) {
+                    rows[jj].style.display = '';
+                }
+                var items = headers[ii].parentElement.querySelectorAll('li');
+                for (var jj = 0; jj < items.length; ++jj) {
+                    items[jj].style.display = '';
+                }
+            }
+        }
+
+        function getGroupsCount(style_id, hall_id, age) {
+           var count = 0;
+           var groupIDs = [];
+           var tables = d.getElementsByClassName('table_DS');
+           /// Пройдем по всем залам
+           for (var ii = 0; ii < tables.length; ++ii) {
+               if (tables[ii].parentElement.style.display == 'none')
+                  continue;
+               if (hall_id && tables[ii].previousElementSibling.id != hall_id)
+                  continue;
+               var rows = tables[ii].querySelectorAll('tr[class="tr_DS"]');
+               /// Пройдем по всем строкам
+               for (var jj = 0; jj < rows.length; ++jj) {
+                  if (rows[jj].style.display == 'none')
+                     continue;
+                  var cells = rows[jj].querySelectorAll('td[class="td_DS"]');
+                  /// Пройдем по всем ячейкам
+                  for (var kk = 0; kk < cells.length; ++kk) {
+                     var cell = cells[kk];
+                     if (cell.style.display == 'none' || cell.childElementCount == 0)
+                        continue;
+                     if (!cell.attributes.group_id)
+                        continue;
+                     var groupID = cell.attributes.group_id.value;
+                     if (groupID == '11111111-1111-1111-1111-111111111111' || groupID == '00000000-0000-0000-0000-000000000000')
+                        continue;
+                     if (groupIDs.indexOf(groupID) > -1)
+                        continue;
+                     if (style_id && cell.attributes.style_id && cell.attributes.style_id.value != style_id)
+                        continue;
+                     if (age && cell.attributes.age && !isAgeBelong(age, cell.attributes.age.value))
+                        continue;
+                     groupIDs.push(groupID);
+                     count++;
+                  }
+               }
+           }
+           return count;
+        }
+
+        function getMobileGroupsCount(style_id, hall_id, age) {
+           var count = 0;
+           var groupIDs = [];
+           var headers = d.getElementsByClassName('table_header_DS');
+           /// Пройдем по всем залам
+           for (var ii = 0; ii < headers.length; ++ii) {
+               if (headers[ii].parentElement.style.display == 'none')
+                  continue;
+               if (hall_id && headers[ii].id != hall_id)
+                  continue;
+               var items = headers[ii].parentElement.querySelectorAll('li');
+               /// Пройдем по всем занятиям
+               for (var jj = 0; jj < items.length; ++jj) {
+                 var item = items[jj];
+                 if (item.style.display == 'none' || item.childElementCount == 0)
+                    continue;
+                 if (!item.attributes.group_id)
+                    continue;
+                 var groupID = item.attributes.group_id.value;
+                 if (groupIDs.indexOf(groupID) > -1)
+                    continue;
+                 if (style_id && item.attributes.style_id && item.attributes.style_id.value != style_id)
+                    continue;
+                 if (age && item.attributes.age && !isAgeBelong(age, item.attributes.age.value))
+                    continue;
+                 groupIDs.push(groupID);
+                 count++;
+               }
+           }
+           return count;
+        }
+
+        function updateComboGrayItems() {
+            var hallComboHeader = d.querySelectorAll('div[tag="hall"]')[0];
+            var styleComboHeader = d.querySelectorAll('div[tag="style"]')[0];
+            var ageComboHeader = d.querySelectorAll('div[tag="age"]')[0];
+            if (!styleComboHeader.attributes.id.value) {
+                var comboList = styleComboHeader.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+                for (var ii = 0; ii < comboList.childElementCount; ++ii) {
+                    var item = comboList.children[ii];
+                    var count = isMobileMode() ? getMobileGroupsCount(item.id) : getGroupsCount(item.id);
+                    item.setAttribute('class', count == 0 ? 'combo_disabled_item_DS' : '');
+                }
+            }
+            if (!hallComboHeader.attributes.id.value) {
+                var comboList = hallComboHeader.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+                for (var ii = 0; ii < comboList.childElementCount; ++ii) {
+                    var item = comboList.children[ii];
+                    var count = isMobileMode() ? getMobileGroupsCount(null, item.id) : getGroupsCount(null, item.id);
+                    item.setAttribute('class', count == 0 ? 'combo_disabled_item_DS' : '');
+                }
+            }
+            if (!ageComboHeader.attributes.id.value) {
+                var comboList = ageComboHeader.parentElement.parentElement.parentElement.parentElement.nextElementSibling;
+                for (var ii = 0; ii < comboList.childElementCount; ++ii) {
+                    var item = comboList.children[ii];
+                    var count = isMobileMode() ? getMobileGroupsCount(null, null, item.id) : getGroupsCount(null, null, item.id);
+                    item.setAttribute('class', count == 0 ? 'combo_disabled_item_DS' : '');
+                }
+            }
+        }
+
+        var isMobile = {
+            Android: function() {
+                return navigator.userAgent.match(/Android/i);
+            },
+            BlackBerry: function() {
+                return navigator.userAgent.match(/BlackBerry/i);
+            },
+            iOS: function() {
+                return navigator.userAgent.match(/iPhone|iPod/i);
+            },
+            Opera: function() {
+                return navigator.userAgent.match(/Opera Mini/i);
+            },
+            Windows: function() {
+                return navigator.userAgent.match(/IEMobile/i);
+            },
+            any: function() {
+                var winWidth = ie ? ietruebody().clientWidth : window.innerWidth;
+                if (winWidth >= 1024)
+                    return false;
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+            }
+        };
+
+        function isMobileMode() {
+            return d.getElementsByClassName('section_default_DS')[0].style.display == 'none';
+        }
+
+        function updateFilters(fullForce = false, mobileForce = false, init = false) {
+            var mb = init ? isMobile.any() : (isMobileMode() && !fullForce && !mobileForce);
+
+            /// Просмотр с мобильного устройства
+            if(mobileForce || (mb && !fullForce)){
+               if (!sectionFullInnerHTML) sectionFullInnerHTML = d.getElementsByClassName('section_default_DS')[0].innerHTML;
+               d.getElementsByClassName('section_default_DS')[0].style.display = 'none';
+               d.getElementsByClassName('section_default_DS')[0].innerHTML = '';
+               d.getElementsByClassName('section_mobile_DS')[0].style.display = 'inline-block';
+               if (sectionMobileInnerHTML && (fullForce || mobileForce)) d.getElementsByClassName('section_mobile_DS')[0].innerHTML = sectionMobileInnerHTML;
+
+               var hallComboHeader = d.querySelectorAll('div[tag="hall"]')[0];
+               var styleComboHeader = d.querySelectorAll('div[tag="style"]')[0];
+               var ageComboHeader = d.querySelectorAll('div[tag="age"]')[0];
+               /// Восстановить все занятия
+               recoverMobileHalls();
+               /// Применяем все фильтры по очереди
+               activateHall(hallComboHeader.attributes.id.value);
+               activateMobileAge(parseInt(ageComboHeader.attributes.id.value));
+               activateMobileStyle(styleComboHeader.attributes.id.value);
+               activateMobileStatus();
+               /// Удалим все пустые залы
+               clearMobileEmptyHalls();
+               /// Обновим лэйбл количества групп
+               d.getElementById('groupCountLabel').innerHTML = 'Количество групп: ' + getMobileGroupsCount();
+               /// Обновим содержимое комбиков
+               updateComboGrayItems();
+               return;
+            }
+
+            if (!sectionMobileInnerHTML) sectionMobileInnerHTML = d.getElementsByClassName('section_mobile_DS')[0].innerHTML;
+            d.getElementsByClassName('section_default_DS')[0].style.display = 'inline-block';
+            d.getElementsByClassName('section_mobile_DS')[0].style.display = 'none';
+            d.getElementsByClassName('section_mobile_DS')[0].innerHTML = '';
+            if (sectionFullInnerHTML && (fullForce || mobileForce)) d.getElementsByClassName('section_default_DS')[0].innerHTML = sectionFullInnerHTML;
+
+            var tables = d.getElementsByClassName('table_DS');
+            var hallComboHeader = d.querySelectorAll('div[tag="hall"]')[0];
+            var styleComboHeader = d.querySelectorAll('div[tag="style"]')[0];
+            var ageComboHeader = d.querySelectorAll('div[tag="age"]')[0];
+            /// Восстановить все занятия
+            recoverHalls();
+            /// Применяем все фильтры по очереди
+            activateHall(hallComboHeader.attributes.id.value);
+            activateAge(parseInt(ageComboHeader.attributes.id.value));
+            activateStyle(styleComboHeader.attributes.id.value);
+            activateStatus();
+            /// Пройдем по всем залам и удалим пустые строки
+            for (var ii = 0; ii < tables.length; ++ii) {
+                clearHallEmptyRows(tables[ii]);
+            }
+            /// Удалим все пустые залы
+            clearEmptyHalls();
+            /// Обновим лэйбл количества групп
+            d.getElementById('groupCountLabel').innerHTML = 'Количество групп: ' + getGroupsCount();
+            /// Обновим содержимое комбиков
+            updateComboGrayItems();
+            // меняем размер фрейма при изменении фильтра
+            parent.document.getElementById('schedule-frame').height = parent.document.getElementById('schedule-frame').height = d.children[0].clientHeight;          
+        }
+
+        /// Обновляем все фильтры
+        updateFilters(false, false, true);      
+        
+    </script>
+</div>
