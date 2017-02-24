@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PD73.ru - studio</title>
+    <script type="text/javascript" src="//vk.com/js/api/openapi.js?139"></script>
     <link rel="stylesheet" href="css/style.min.css">
   </head>
   <body>
@@ -67,7 +68,7 @@
             <a class="nav__logo" href="index.html">
               <picture>
                 <source srcset="images/logo_sky_dance.webp" type="image/webp">
-                <img src="images/logo_sky_dance.png" width="150" height="83" alt="Логотит студии">
+                <img src="images/logo_sky_dance.png" width="130" height="70" alt="Логотит студии">
               </picture>
             </a>
             <a class="nav__btn  nav__btn--close"></a>  <!-- по умолчанию открыто -->
@@ -89,8 +90,13 @@
             <!--</div>-->
           </ul>
           <div class="nav__feedback">
-            <p class="nav__feedback--item">Записаться</p>
-            <p class="nav__feedback--item">Перезвоните мне</p>
+            <!--<p class="nav__feedback--item">Записаться</p>
+            <p class="nav__feedback--item">Перезвоните мне</p>-->
+            <!— VK Widget —>
+            <div id="nav__feedback-vk"></div>
+              <script type="text/javascript">
+              VK.Widgets.CommunityMessages("nav__feedback-vk", 54275923, {tooltipButtonText: "Есть вопрос?"});
+              </script>
           </div>
         </div>
       </nav>
@@ -171,9 +177,9 @@
       easingType: 'linear'
       };
       */
-       
+
       $().UItoTop({ easingType: 'easeOutQuart' });
-       
+
       });
     </script>
   </body>
