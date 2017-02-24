@@ -11,14 +11,29 @@
   .social__item:hover #social__item-footer--tw,
   .social__item:hover #social__item-footer--inst {
     opacity: 0.5;
-  }  
+  }
   .social__item {
     margin-left: 2px;
     margin-right: 2px;
   }
   .social__item svg {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
     width: @social-item-size;
-    height: @social-item-size;    
+    height: @social-item-size;
+  }
+  .social__item {
+    position: relative;
+    //z-index: -1;
+
+    width: @social-item-size;
+    height: @social-item-size + 1;
+  }
+  .social__item:active svg {
+    top: 1px;
   }
   #social__item--vk {
     fill: blue;

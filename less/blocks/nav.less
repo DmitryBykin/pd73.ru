@@ -96,6 +96,10 @@
       color: @menu-hover-color;
     }
   }
+  .nav__link:active {
+    padding-top: 21px;
+    padding-bottom: 19px;
+  }
   .nav__logo {
     display: none;
   }
@@ -134,6 +138,7 @@
 @media @desktops {
   .nav {
     position: fixed;
+    z-index: 1;
     width: 100%;
     top: 0;
 
@@ -219,6 +224,10 @@
       margin-bottom: 10px;
     }
   }
+  .nav__feedback--tel {
+    //@menu-desktop-color
+    .set-font('Open Sans', bold, 20px, #605d5c);
+  }
   .nav__feedback {
     display: flex;
     flex-direction: column;
@@ -227,6 +236,8 @@
   }
   #nav__feedback-vk {
     //position: relative !important;
-    top: 15px;
+    //top: 15px;
+    right: 10px;
+    bottom: 10px;
   }
 }
