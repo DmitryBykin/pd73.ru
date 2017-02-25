@@ -16,6 +16,13 @@
   }
   .teachers__photo {
     display: block;
+    .set-wrap(15px, 15px);
+  }
+  .teachers__lessons {
+    .set-wrap(15px, 15px);
+  }
+  .teachers__photo img {
+    width: 100%;
   }
   .teachers__name {
     margin-top: 15px;
@@ -25,7 +32,8 @@
   }
   .teachers__item {
     //width: 80%;
-    width: 300px;
+    //min-width: 300px;
+    width: 100%;
     //text-align: center;
     //margin: 0 auto;
     margin-bottom: 30px;
@@ -41,6 +49,17 @@
   }
 }
 
+@media @middle-tablets {
+  .teachers__item {
+    width: 48%;
+  }
+}
+@media @tablets {
+  .teachers__item {
+    width: 32%;
+  }
+}
+
 @media @desktops {
   .teachers {
     padding-top: 50px;
@@ -48,6 +67,9 @@
   .teachers__wrapper {
     max-width: @max-width;
     margin: 0 auto;
+  }
+  .teachers__item {
+    width: 23%;
   }
   .teachers__item:hover {
     //box-shadow: 0 0 5px #000000;
