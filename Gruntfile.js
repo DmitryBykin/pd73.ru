@@ -55,18 +55,19 @@ module.exports = function(grunt) {
       style: {
         files: ["less/**/*.less"],
         tasks: ["less", "postcss", "csso"]
-      },
-      js: {
-        files: ["js/**/*.js"],
-        tasks: ["uglify"]
       }
+      //,
+      //js: {
+      //  files: ["js/**/*.js"],
+      //  tasks: ["uglify"]
+      //}
       //,
       //webpack: {
       //  files: ["images/**/*.{png,gif,jpg}"],
       //  tasks: ["webp"]
-      //}       
+      //}
     },
-    
+
     csso: {
       style: {
         options: {
@@ -77,10 +78,10 @@ module.exports = function(grunt) {
         }
       }
     },
-    
+
     webp: {
       files: {
-        expand: true,        
+        expand: true,
         src: 'images/*.{png,gif,jpg}'
         //dest: 'images/*'
         //cwd: 'source-images/*.png'
@@ -109,14 +110,14 @@ module.exports = function(grunt) {
         lossless: false
       }
     },
-    
+
     autoprefixer: {
         //указывам файл в котором нужно проставить префиксы, он сам его перезапишит
         no_dest: {
             src: "css/style.css"
         }
-    }, 
-    
+    },
+
     uglify: {
       options: {
         mangle: false
