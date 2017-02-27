@@ -37,9 +37,10 @@
                   0 16px 0 0 @menu-color;
     }
     &:hover::before {
-      background-color: @menu-hover-color;
+      /*background-color: @menu-hover-color;
       box-shadow: 0 8px 0 0 @menu-hover-color,
-                  0 16px 0 0 @menu-hover-color;
+                  0 16px 0 0 @menu-hover-color;*/
+      opacity: 0.5;
     }
   }
   .nav__btn--close {
@@ -73,7 +74,8 @@
     }
     &:hover::before,
     &:hover::after {
-      background-color: @menu-hover-color;
+      //background-color: @menu-hover-color;
+      opacity: 0.5;
     }
   }
   .nav__tel {
