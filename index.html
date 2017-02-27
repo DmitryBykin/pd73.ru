@@ -60,21 +60,24 @@
       <nav class="nav">
         <div class="nav__wrapper">
           <div class="nav__menu">
-            <a class="nav__logo-text">  <!-- href на главной странице не указываем -->
-              <!--<img class="nav__img" src="logo.jpg" alt="PINK logo">-->
-              Skydance Studio
-            </a>
-            <a class="nav__logo">  <!-- href на главной странице не указываем -->
-              <!--<img class="nav__img" src="logo.jpg" alt="PINK logo">-->
+            <a class="nav__btn  nav__btn--close"></a>  <!-- по умолчанию открыто -->
+            <a class="nav__tel" href="tel:+78422700228">700-228</a>
+          </div>
+          
+          <div class="nav__menu-footer">
+            <a class="nav__logo">  <!-- href на главной странице не указываем -->              
               <picture>
                 <source srcset="images/logo_sky_dance.webp" type="image/webp">
                 <img src="images/logo_sky_dance.png" width="130" height="70" alt="Логотит студии">
               </picture>
             </a>
-            <a class="nav__btn  nav__btn--close"></a>  <!-- по умолчанию открыто -->
+            <a class="nav__logo-text">  <!-- href на главной странице не указываем -->              
+              Sky Dance Studio
+            </a>
           </div>
+                      
           <ul class="nav__items"> <!-- потом спрячем меню -->
-            <!--<div class="nav__menu">-->
+          
               <li class="nav__item">
                 <a class="nav__link" href="#about">О нас</a>
               </li>
@@ -87,11 +90,11 @@
               <li class="nav__item">
                 <a class="nav__link" href="#contacts">Контакты</a>
               </li>
-            <!--</div>-->
+          
           </ul>
           <div class="nav__feedback">
-            <p class="nav__feedback--tel">тел. 700-228</p>
-            <a class="nav__feedback--callme" href="/#callme">перезвоните мне</a>
+            <p class="nav__feedback-item nav__feedback--tel">тел. 700-228</p>
+            <a class="nav__feedback-item nav__feedback--callme" href="#callme">перезвоните мне</a>
             <!-- VK Widget -->
             <div id="nav__feedback-vk"></div>
               <script type="text/javascript">
@@ -131,7 +134,7 @@
             </div>
             <ul class="social">
               <li class="social__item">
-                <a class="social__item  social__item--vk" href="https://vk.com/k.kislitsina" target="_blank">
+                <a class="social__item--vk" href="https://vk.com/k.kislitsina" target="_blank">
                   <svg>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--vk">
                     </use>
@@ -139,7 +142,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__item  social__item--inst" href="instagram.com" target="_blank">
+                <a class="social__item--inst" href="instagram.com" target="_blank">
                   <svg>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--inst">
                     </use>
@@ -163,7 +166,7 @@
             </div>
             <ul class="social">
               <li class="social__item">
-                <a class="social__item  social__item--vk" href="https://vk.com/plaza911" target="_blank">
+                <a class="social__item--vk" href="https://vk.com/plaza911" target="_blank">
                   <svg>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--vk">
                     </use>
@@ -171,7 +174,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__item  social__item--inst" href="instagram.com" target="_blank">
+                <a class="social__item--inst" href="instagram.com" target="_blank">
                   <svg>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--inst">
                     </use>
@@ -195,7 +198,7 @@
             </div>
             <ul class="social">
               <li class="social__item">
-                <a class="social__item  social__item--vk" href="https://vk.com/galina_ho" target="_blank">
+                <a class="social__item--vk" href="https://vk.com/galina_ho" target="_blank">
                   <svg>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--vk">
                     </use>
@@ -203,7 +206,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__item  social__item--inst" href="instagram.com" target="_blank">
+                <a class="social__item--inst" href="instagram.com" target="_blank">
                   <svg>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--inst">
                     </use>
@@ -227,7 +230,7 @@
             </div>
             <ul class="social">
               <li class="social__item">
-                <a class="social__item  social__item--vk" href="https://vk.com/a.grigoricheva" target="_blank">
+                <a class="social__item--vk" href="https://vk.com/a.grigoricheva" target="_blank">
                   <svg>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--vk">
                     </use>
@@ -235,7 +238,7 @@
                 </a>
               </li>
               <li class="social__item">
-                <a class="social__item  social__item--inst" href="instagram.com" target="_blank">
+                <a class="social__item--inst" href="instagram.com" target="_blank">
                   <svg>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item--inst">
                     </use>
@@ -251,55 +254,22 @@
     <section class="contacts" id="contacts">
       <div class="contacts__wrapper">
         <h2 class="contacts__title">Как нас найти</h2>
-        <div class="contacts__flex">  <!-- flex для изменения расположения на планшетах и десктоп -->
-          <div class="contacts__map">
-            <!--<h3 class="contacts__map-title">На карте</h3>-->
-            <address class="contacts__address">
-              г. Ульяновск, 2-й переулок Мира, 24 (рядом с ТЦ "Мираж"). <br>
-              Вход со стороны парковки
-            </address>
-            <!-- Google map только на планшетах и десктопах -->
-            <iframe class="contacts__google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2327.0447081718435!2d48.39535431549522!3d54.32084098019481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415d3769a88a2963%3A0x18063174b6a45017!2sSkyDance+studio!5e0!3m2!1sru!2sru!4v1487415900789" width="345" height="300" style="border:0" allowfullscreen></iframe>
-            <!--
-            <picture class="contacts__yandex-map">
-              <source srcset="images/map_320x240.webp" type="image/webp">
-              <img src="images/map_320x240.jpg" alt="Карта">
-            </picture>
-          -->
-          </div>
-          <!--
-          <div class="contacts__street-photo">
-            <h3 class="contacts__street-title">С улицы 2-й переулок Мира</h3>
-            <picture>
-              <source srcset="images/sky-street.webp" type="image/webp">
-              <img src="images/sky-street.jpg" alt="С улицы">
-            </picture>
-          </div>
-        -->
+        <div class="contacts__map">
+          <address class="contacts__address">
+            г. Ульяновск, 2-й переулок Мира, 24 (рядом с ТЦ "Мираж"). <br>
+            Вход со стороны парковки
+          </address>
+          <!-- Google map только на планшетах и десктопах -->
+          <iframe class="contacts__google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2327.0447081718435!2d48.39535431549522!3d54.32084098019481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415d3769a88a2963%3A0x18063174b6a45017!2sSkyDance+studio!5e0!3m2!1sru!2sru!4v1487415900789" width="345" height="300" style="border:0" allowfullscreen></iframe>
         </div>
       </div>
     </section>
 
     <footer class="footer">
       <div class="footer__wrapper">
-        <address class="footer__address">
-          <svg>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#geolocation">
-            </use>
-          </svg>
-          г. Ульяновск, 2-й переулок Мира, 24 (рядом с ТЦ "Мираж"). <br>
-          Вход со стороны парковки
-        </address>
-        <a class="footer__phone" href="tel:+78422700228">
-          <svg>
-            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#smartphone">
-            </use>
-          </svg>
-          тел. 700-228
-        </a>
         <ul class="social">
           <li class="social__item">
-            <a class="social__item  social__item--vk" href="https://vk.com/skydancestudio" target="_blank">
+            <a class="social__item--vk" href="https://vk.com/skydancestudio" target="_blank">
               <svg>
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--vk">
                 </use>
@@ -307,7 +277,7 @@
             </a>
           </li>
           <li class="social__item">
-            <a class="social__item  social__item--tw" href="twitter.com" target="_blank">
+            <a class="social__item--tw" href="twitter.com" target="_blank">
               <svg>
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--tw">
                 </use>
@@ -315,7 +285,7 @@
             </a>
           </li>
           <li class="social__item">
-            <a class="social__item  social__item--inst" href="instagram.com" target="_blank">
+            <a class="social__item--inst" href="instagram.com" target="_blank">
               <svg class="footer__svg">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--inst">
                 </use>
