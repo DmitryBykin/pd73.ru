@@ -12,7 +12,7 @@
     			min: 200,
     			inDelay:600,
     			outDelay:400,
-      			containerID: 'toTop',
+      		containerID: 'toTop',
     			containerHoverID: 'toTopHover',
     			scrollSpeed: 1200,
     			easingType: 'linear'
@@ -46,10 +46,22 @@
 					'top': sd + $(window).height() - 50
 				});
 			}
-			if ( sd > settings.min ) 
-				$(containerIDhash).fadeIn(settings.inDelay);
-			else 
+			if ( sd > settings.min ) {
+				    $(containerIDhash).fadeIn(settings.inDelay);
+            $('.nav__logo').css({ 'display': 'none'});
+            $('.nav__feedback--tel').css({ 'display': 'none'});
+            //$('.nav__feedback').css({ 'align-self': 'center'});
+            $('.nav__link').css({'padding-top' : '5px', 'padding-bottom' : '5px'});
+            $('.nav__feedback-item:first-of-type').css({'margin-bottom': '0'});
+        }
+			else {
 				$(containerIDhash).fadeOut(settings.Outdelay);
+        $('.nav__logo').css({ 'display': 'block'});
+        $('.nav__feedback--tel').css({ 'display': 'block'});
+        $('.nav__link').css({'padding-top' : '20px', 'padding-bottom' : '20px'});
+        //$('.nav__feedback').css({ 'align-self': 'stretch'});
+        $('.nav__feedback-item:first-of-type').css({'margin-bottom': '10px'});
+      }
 		});
 };
 })(jQuery);
