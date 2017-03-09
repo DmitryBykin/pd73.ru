@@ -57,49 +57,54 @@
     </svg>
 
     <div class="schedule-main">
-    <header class="header">
-      <nav class="nav">
-        <div class="nav__wrapper">
-          <div class="nav__menu">
-            <a class="nav__logo-text" href="index.html">
-              Skydance Studio
-            </a>
-            <a class="nav__logo" href="index.html">
-              <picture>
-                <source srcset="images/logo_sky_dance.webp" type="image/webp">
-                <img src="images/logo_sky_dance.png" width="130" height="70" alt="Логотит студии">
-              </picture>
-            </a>
-            <a class="nav__btn  nav__btn--close"></a>  <!-- по умолчанию открыто -->
+      <header class="header">
+        <nav class="nav">
+          <div class="nav__wrapper">
+            <div class="nav__menu">
+              <a class="nav__btn  nav__btn--close"></a>  <!-- по умолчанию открыто -->
+              <a class="nav__tel" href="tel:+78422700228">тел. 700-228</a>
+            </div>
+            
+            <div class="nav__menu-footer">
+              <a class="nav__logo" href="/index.html">  <!-- href на главной странице не указываем -->              
+                <picture>
+                  <source srcset="images/logo_sky_dance.webp" type="image/webp">
+                  <img src="images/logo_sky_dance.png" width="130" height="70" alt="Логотит студии">
+                </picture>
+              </a>
+              <a class="nav__logo-text" href="/index.html">  <!-- href на главной странице не указываем -->              
+                Sky Dance Studio
+              </a>
+            </div>
+                        
+            <ul class="nav__items"> <!-- потом спрячем меню -->
+            
+                <li class="nav__item">
+                  <a class="nav__link" href="/index.html#about">О нас</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="/news.html">Новости</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="/sched.html">Расписание</a>
+                </li>
+                <li class="nav__item">
+                  <a class="nav__link" href="/index.html#contacts">Контакты</a>
+                </li>
+            
+            </ul>
+            <div class="nav__feedback">
+              <p class="nav__feedback-item nav__feedback--tel">тел. 700-228</p>
+              <a class="nav__feedback-item nav__feedback--callme" href="#callme">перезвоните мне</a>
+              <!-- VK Widget -->
+              <div id="nav__feedback-vk"></div>
+                <script type="text/javascript">
+                  VK.Widgets.CommunityMessages("nav__feedback-vk", 54275923, {tooltipButtonText: "Есть вопрос?"});
+                </script>
+            </div>
           </div>
-          <ul class="nav__items"> <!-- потом спрячем меню -->
-            <!--<div class="nav__menu">-->
-              <li class="nav__item">
-                <a class="nav__link" href="index.html#about">О нас</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="index.html#teachers">Наши тренеры</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="#sched.html">Расписание</a>
-              </li>
-              <li class="nav__item">
-                <a class="nav__link" href="index.html#contacts">Контакты</a>
-              </li>
-            <!--</div>-->
-          </ul>
-          <div class="nav__feedback">
-            <p class="nav__feedback--tel">тел. 700-228</p>
-            <a class="nav__feedback--callme" href="/#callme">перезвоните мне</a>
-            <!-- VK Widget -->
-            <div id="nav__feedback-vk"></div>
-              <script type="text/javascript">
-                VK.Widgets.CommunityMessages("nav__feedback-vk", 54275923, {tooltipButtonText: "Есть вопрос?"});
-              </script>
-          </div>
-        </div>
-      </nav>
-    </header>
+        </nav>
+      </header>
 
 
 
@@ -113,24 +118,9 @@
 
       <footer class="footer">
         <div class="footer__wrapper">
-          <address class="footer__address">
-            <svg>
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#geolocation">
-              </use>
-            </svg>
-            г. Ульяновск, 2-й переулок Мира, 24 (рядом с ТЦ "Мираж"). <br>
-            Вход со стороны парковки
-          </address>
-          <a class="footer__phone" href="tel:+78422700228">
-            <svg>
-              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#smartphone">
-              </use>
-            </svg>
-            тел. 700-228
-          </a>
           <ul class="social">
             <li class="social__item">
-              <a class="social__item  social__item--vk" href="https://vk.com/skydancestudio">
+              <a class="social__item--vk" href="https://vk.com/skydancestudio" target="_blank">
                 <svg>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--vk">
                   </use>
@@ -138,7 +128,7 @@
               </a>
             </li>
             <li class="social__item">
-              <a class="social__item  social__item--tw" href="twitter.com">
+              <a class="social__item--tw" href="twitter.com" target="_blank">
                 <svg>
                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--tw">
                   </use>
@@ -146,7 +136,7 @@
               </a>
             </li>
             <li class="social__item">
-              <a class="social__item  social__item--inst" href="instagram.com">
+              <a class="social__item--inst" href="instagram.com" target="_blank">
                 <svg class="footer__svg">
                   <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#social__item-footer--inst">
                   </use>
