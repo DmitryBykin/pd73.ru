@@ -312,8 +312,12 @@
           и наш консультант свяжется с вами в ближайшее время
         </p>  
       </div>      
-      <form class="feedback__form">
-        
+      <form class="feedback__form" action="feedback" method="post">
+        <div class="feedback__form-block">        
+          <input type="text" id="username" name="username" placeholder="Ваше имя"/>        
+          <input type="text" id="phone" name="phone" placeholder="Телефон"/>
+          <button class="feedback__form-submit" type="submit">Заказать</button>
+        </div>        
       </form>
     </section>
 
