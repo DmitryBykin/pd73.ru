@@ -1,5 +1,10 @@
-var menuBtn = document.querySelector('.nav__btn');
-var menuItems = document.querySelector('.nav__items');
+try {
+  var menuBtn = document.querySelector('.nav__btn');
+  var menuItems = document.querySelector('.nav__items');
+  var feedbackButton = document.querySelector('.nav__feedback--callme');
+  var feedbackContainer = document.querySelector('.feedback');
+  var feedbackBtnClose = document.querySelector('.feedback__btn--close');
+} catch(e){}
 
 if(menuBtn) {
   // меню по умолчанию открыто, если js включен, то меню закроется
@@ -22,3 +27,27 @@ if(menuBtn) {
     }
   });
 }
+
+if(feedbackButton) {
+  feedbackButton.addEventListener("click", function (event) {
+    if(feedbackContainer.classList.contains('feedback--hidden')) {
+      feedbackContainer.classList.remove('feedback--hidden');
+    }
+  });
+}
+
+if(feedbackBtnClose) {
+  feedbackBtnClose.addEventListener("click", function (event) {    
+      if(!feedbackContainer.classList.contains('feedback--hidden')){
+        feedbackContainer.classList.add('feedback--hidden');
+      };    
+  });
+}
+window.addEventListener("keydown", function(event){
+  console.log('ESC');
+  if(event.keyCode === 27){    
+    if(!feedbackContainer.classList.contains('feedback--hidden')){
+      feedbackContainer.classList.add('feedback--hidden');
+    }; 
+  }
+});
