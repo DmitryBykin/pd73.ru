@@ -106,11 +106,12 @@
       //color: @menu-hover-color;
       opacity: 0.5;
     }
+    &:active {
+      padding-top: 21px;
+      padding-bottom: 19px;  
+    }
   }
-  .nav__link:active {
-    padding-top: 21px;
-    padding-bottom: 19px;
-  }
+  
   .nav__logo {
     //display: none;
     margin-right: 30px;
@@ -179,6 +180,10 @@
   .nav--small .nav__link {
     padding-top: 5px;
     padding-bottom: 5px;
+  }
+  .nav--small .nav__link:active {
+    padding-top: 6px;
+    padding-bottom: 4px;
   }
   .nav--small .nav__feedback-item:first-of-type {
     margin-bottom: 0;
