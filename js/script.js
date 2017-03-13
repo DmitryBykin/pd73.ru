@@ -4,6 +4,7 @@ try {
   var feedbackButton = document.querySelector('.nav__feedback--callme');
   var feedbackContainer = document.querySelector('.feedback');
   var feedbackBtnClose = document.querySelector('.feedback__btn--close');
+  var body = document.querySelector('body');
 } catch(e){}
 
 if(menuBtn) {
@@ -32,6 +33,7 @@ if(feedbackButton) {
   feedbackButton.addEventListener("click", function (event) {
     if(feedbackContainer.classList.contains('feedback--hidden')) {
       feedbackContainer.classList.remove('feedback--hidden');
+      body.classList.add('overlay');
     }
   });
 }
@@ -40,6 +42,7 @@ if(feedbackBtnClose) {
   feedbackBtnClose.addEventListener("click", function (event) {    
       if(!feedbackContainer.classList.contains('feedback--hidden')){
         feedbackContainer.classList.add('feedback--hidden');
+        body.classList.remove('overlay');
       };    
   });
 }
@@ -48,6 +51,7 @@ window.addEventListener("keydown", function(event){
   if(event.keyCode === 27){    
     if(!feedbackContainer.classList.contains('feedback--hidden')){
       feedbackContainer.classList.add('feedback--hidden');
+      body.classList.remove('overlay');
     }; 
   }
 });

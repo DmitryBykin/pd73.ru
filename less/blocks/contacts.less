@@ -20,9 +20,35 @@
     min-height: 300px;
     
     text-align: center; 
-    margin-bottom: 0.2em;  
+    margin-bottom: 0.2em; 
+    padding-left: 10px;
+    padding-right: 10px;
   }
-  .contacts__address-map {
+  .contacts__address-title {
+    .set-font('Arial', 'bold', 14px, @address-title);    
+    text-decoration: underline;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  .contacts__address-text {
+    .set-font('Arial', 'normal', 12px, @address-text);    
+  }
+  .contacts__address-title-taxi {
+    .set-font('Arial', 'normal', 12px, @address-title);    
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    padding-left: 20px;
+  }
+  .contacts__address-text-taxi {
+    .set-font('Arial', 'normal', 10px, @address-text);    
+    padding-left: 20px;
+  }
+  
+  /*.contacts__address-map {
     position: absolute;    
     z-index: 1;
     
@@ -48,10 +74,7 @@
     cursor: pointer;
     transition-property: opacity;
     transition-duration: 0.5s;
-    &:hover {
-      opacity: 0.2;  
-    }
-  }
+  }*/
 }
 
 @media @tablets {
@@ -74,7 +97,10 @@
   .contacts__address {  
     box-sizing: border-box;
     padding: 30px;
+    padding-top: 0;
     margin-right: 20px;
+    
+    text-align: left;
     //margin-bottom: 0;       
   }   
 }
