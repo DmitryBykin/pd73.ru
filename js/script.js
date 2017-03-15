@@ -47,7 +47,6 @@ if(feedbackBtnClose) {
   });
 }
 window.addEventListener("keydown", function(event){
-  console.log('ESC');
   if(event.keyCode === 27){    
     if(!feedbackContainer.classList.contains('feedback--hidden')){
       feedbackContainer.classList.add('feedback--hidden');

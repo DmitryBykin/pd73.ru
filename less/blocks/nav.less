@@ -84,7 +84,7 @@
     top: 16px;
     right: 20px;
     
-    .set-font('Open Sans', bold, 22px, @menu-color);
+    .set-font('Open Sans', bold, 22px, @menu-color);    
   }
   .nav__link {
     display: block;
@@ -152,6 +152,9 @@
     padding-bottom: 20px;
     border-bottom: 1px solid #376fac;
   }
+  #nav__feedback-vk {
+    display: none;
+  }
 }
 
 @media @tablets {
@@ -159,8 +162,14 @@
     //display: none;
     margin-right: 60px;
   }
-  
+  #nav__feedback-vk {
+    display: block;
+        
+    right: 10px;
+    bottom: 10px;
+  }
 }
+
 @media @desktops {
   .nav {
     position: fixed;
@@ -293,12 +302,6 @@
     //align-self: stretch;
     align-self: center;    
     text-align: right;
-  }
-  #nav__feedback-vk {
-    //position: relative !important;
-    //top: 15px;
-    right: 10px;
-    bottom: 10px;
   }
 }
 
