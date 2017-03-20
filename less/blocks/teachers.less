@@ -34,26 +34,31 @@
     //width: 80%;
     //min-width: 300px;
     width: 100%;
+    max-width: 450px;
     //text-align: center;
     //margin: 0 auto;
     margin-bottom: 30px;
 
     border: 1px solid @teachers-border;
     border-radius: 10px 10px 10px 10px;
+    &:nth-of-type(2n) {
+      //margin-right: auto;
+    }
+    
   }
   .teachers__items {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-around;    
   }
 }
 
-@media @middle-tablets {
+/*@media @middle-tablets {
   .teachers__item {
     width: 48%;
   }
-}
+}*/
 @media @tablets {
   .teachers__item {
     width: 48%;
