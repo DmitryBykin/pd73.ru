@@ -75,14 +75,29 @@
   }
   .teachers__item {
     width: 23%;
+    &:hover {
+      animation: shadows  0.2s ease-in-out forwards;  
+    }    
+  }
+  @keyframes shadows {
+    from { box-shadow: 0 0 0   #000000; }
+    to   { box-shadow: 0 0 5px #000000; }
   }
   .teachers__item:hover {
     //box-shadow: 0 0 5px #000000;
-    animation: shadows  0.2s ease-in-out forwards;
+    //animation: shadows  0.2s ease-in-out forwards;  
+  }
+  .teachers__photo {
+    overflow: hidden;
+    //height: 200px;
+    margin-bottom: 15px;
+  }
+  .teachers__photo:hover img {
+    animation: scalePhoto 500ms forwards;
+  }
+  @keyframes scalePhoto {
+    to { transform: scale(1.2); }
   }
 }
 
-@keyframes shadows {
-  from { box-shadow: 0 0 0   #000000; }
-  to   { box-shadow: 0 0 5px #000000; }
-}
+
