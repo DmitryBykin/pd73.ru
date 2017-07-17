@@ -44,13 +44,13 @@
     &:nth-of-type(2n) {
       //margin-right: auto;
     }
-    
+
   }
   .teachers__items {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;    
+    justify-content: space-around;
   }
 }
 
@@ -76,8 +76,8 @@
   .teachers__item {
     width: 23%;
     &:hover {
-      animation: shadows  0.2s ease-in-out forwards;  
-    }    
+      animation: shadows  200ms ease-in-out forwards;
+    }
   }
   @keyframes shadows {
     from { box-shadow: 0 0 0   #000000; }
@@ -85,19 +85,29 @@
   }
   .teachers__item:hover {
     //box-shadow: 0 0 5px #000000;
-    //animation: shadows  0.2s ease-in-out forwards;  
+    //animation: shadows  0.2s ease-in-out forwards;
   }
   .teachers__photo {
     overflow: hidden;
-    //height: 200px;
+    height: 195px;
     margin-bottom: 15px;
   }
-  .teachers__photo:hover img {
+  @scale_size: 1.2;                 // масштаб картинки
+  .teachers__photo--scale_min img {
+    transform: scale(@scale_size);
+    animation: scalePhotoMin 500ms forwards;
+  }
+  /*.teachers__photo:hover img {
+    animation: scalePhoto 500ms forwards;
+  }*/
+  .teachers__photo--scale_max img {
+    transform: scale(1);
     animation: scalePhoto 500ms forwards;
   }
   @keyframes scalePhoto {
-    to { transform: scale(1.2); }
+    to { transform: scale(@scale_size); }
+  }
+  @keyframes scalePhotoMin {
+    to {transform: scale(1); }
   }
 }
-
-

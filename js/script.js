@@ -5,6 +5,7 @@ try {
   var feedbackContainer = document.querySelector('.feedback');
   var feedbackBtnClose = document.querySelector('.feedback__btn--close');
   var body = document.querySelector('body');
+  var teachersPhotos = document.querySelectorAll('.teachers__photo');
 } catch(e){}
 
 if(menuBtn) {
@@ -39,18 +40,37 @@ if(feedbackCallMeButton) {
 }
 
 if(feedbackBtnClose) {
-  feedbackBtnClose.addEventListener("click", function (event) {    
+  feedbackBtnClose.addEventListener("click", function (event) {
       if(!feedbackContainer.classList.contains('feedback--hidden')){
         feedbackContainer.classList.add('feedback--hidden');
         body.classList.remove('overlay');
-      };    
+      };
   });
 }
 window.addEventListener("keydown", function(event){
-  if(event.keyCode === 27){    
+  if(event.keyCode === 27){
     if(!feedbackContainer.classList.contains('feedback--hidden')){
       feedbackContainer.classList.add('feedback--hidden');
       body.classList.remove('overlay');
-    }; 
+    };
   }
 });
+
+if(teachersPhotos) {
+    teachersPhotos.forEach(function(teachersPhoto) {
+      if(teachersPhoto) {
+        teachersPhoto.addEventListener("mouseleave", function(event) {
+          if(teachersPhoto.classList.contains('teachers__photo--scale_max')) {
+            teachersPhoto.classList.remove('teachers__photo--scale_max');
+          }
+          teachersPhoto.classList.add('teachers__photo--scale_min');
+        });
+        teachersPhoto.addEventListener("mouseover", function(event) {
+          if(teachersPhoto.classList.contains('teachers__photo--scale_min')) {
+            teachersPhoto.classList.remove('teachers__photo--scale_min');
+          }
+          teachersPhoto.classList.add('teachers__photo--scale_max');
+        });
+      }
+    });
+}
