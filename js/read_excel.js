@@ -1,36 +1,50 @@
 var fs = require('fs');
 var xlsx = require('xlsx');
-const workSheetsFromFile = xlsx.readFile('shedule.xlsx');
-//console.log(workSheetsFromFile.Sheets.Sheet1['A3'].w);
-console.log(workSheetsFromFile);
+var path = "/home/web/pd73.ru/test/";
+
+const workSheetsFromFile = xlsx.readFile(path + 'shedule.xlsx');
 
 var resultData;
-var data = fs.readFileSync("template.html", 'utf-8');
+var data = fs.readFileSync(path + "template.html", 'utf-8');
 
 resultData = data.toString();
-//resultData+= workSheetsFromFile.Sheets.Sheet1['A3'].w;
 
 var strToChange = "";
 var numColumns = 11;
-var numRows = 20;
+var numRows = 100;
 var fields = ['A','B','C','D','E','F','G','H','I','J','K'];
-
+var deleteEmpty;
 for(var row = 1; row <= numRows; row++) {
-  strToChange+= "<tr>"+"\n";
+  strToChange+= "<tr>";
   for(var curColumn = 0; curColumn < numColumns; curColumn++) {
-    strToChange+="<td>";
-
-    if(workSheetsFromFile.Sheets.Лист1[fields[curColumn]+row]) { // если поле не пустое
-      var par = "Лист1";
-      strToChange+= workSheetsFromFile.Sheets[par][fields[curColumn]+row].w;
+    if(row === 1) strToChange+="<th>";
+    else strToChange+="<td>";
+    
+    var par = 'Лист1';
+    if(workSheetsFromFile.Sheets[par] != undefined) 
+      if(workSheetsFromFile.Sheets[par][fields[curColumn]+row]) { // если поле не пустое      
+        strToChange+= workSheetsFromFile.Sheets[par][fields[curColumn]+row].w;
     }
-    strToChange+="</td>"+"\n";
+    par = "Sheet1";
+    if(workSheetsFromFile.Sheets[par] != undefined)
+      if(workSheetsFromFile.Sheets[par][fields[curColumn]+row]) { // если поле не пустое      
+        strToChange+= workSheetsFromFile.Sheets[par][fields[curColumn]+row].w;
+    }
+    if(row === 1) strToChange+="</th>";
+    else strToChange+="</td>";
   }
-  strToChange+="</tr>"+"\n";
+  strToChange+="</tr>";
 }
 resultData = resultData.replace("{!change_here}", strToChange);
 
-fs.writeFile("result.html", resultData, function(err) {
+deleteEmpty = "<tr>";
+for(var i = 0;i<numColumns;i++) 
+  deleteEmpty+="<td></td>";
+deleteEmpty+="</tr>";
+
+resultData = resultData.replace(new RegExp(deleteEmpty,'g'), "");
+
+fs.writeFile(path + "shedule-excel.html", resultData, function(err) {
   if (err) throw err;
   }
 );
