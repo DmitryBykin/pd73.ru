@@ -35,7 +35,7 @@ for(var row = 1; row <= numRows; row++) {
   }
   strToChange+="</tr>";
 }
-resultData = resultData.replace("{!change_here}", strToChange);
+resultData = resultData.replace(new RegExp("{!change_here}",'g') , strToChange);
 
 deleteEmpty = "<tr>";
 for(var i = 0;i<numColumns;i++) 
