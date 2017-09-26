@@ -21,13 +21,45 @@
   .schedule-main {
     display: flex;            // это все для того чтобы футер прижался к низу
     flex-direction: column;
-    height: 100%; 
+    height: 100%;
   }
+  .schedule__table th {
+    font-size: 13px;
+    font-weight: normal;
+    background: #b9c9fe;
+    border-top: 4px solid #aabcfe;
+    border-bottom: 1px solid #fff;
+    color: #039;
+    padding: 8px;
+  }
+  .schedule__table td {
+    background: #e8edff;
+    border-bottom: 1px solid #fff;
+    color: #669;
+    border-top: 1px solid transparent;
+    padding: 8px;
+  }
+  .schedule__table tr:nth-child(2n+1) td {
+    background: #a9ddfe;
+  }
+  .schedule__table tr:nth-child(2n) td {
+    //background: #ffc9fe;
+  }
+
+  .schedule__table tr:hover td {background: #ccddff;}
 }
 
 @media @desktops {
+  .schedule {
+    padding-top: 70px;
+  }
+
   .schedule__wrapper {
     max-width: @max-width;
-    margin: 0 auto;
+    width: 850px;
+
+    margin: 30px auto;
+
+    padding-left: 30px;
   }
 }
