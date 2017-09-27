@@ -1,6 +1,6 @@
 var fs = require('fs');
 var xlsx = require('xlsx');
-var path = "/home/web/pd73.ru/test/";
+var path = "/home/web/pd73.ru/";
 
 const workSheetsFromFile = xlsx.readFile(path + 'schedule.xlsx');
 
