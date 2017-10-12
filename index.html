@@ -104,6 +104,23 @@
       </nav>
     </header>
 
+    <div class="slider">
+      <ul class="slider__items">
+        <li class="slider__item  slider__item--active">
+          <picture>
+            <source srcset="images/slide1.webp" type="image/webp">
+            <img src="images/slide1.jpg" alt="Slide1">
+          </picture>        
+        </li>
+        <li class="slider__item">
+          <picture>
+            <source srcset="images/slide2.webp" type="image/webp">
+            <img src="images/slide2.jpg" alt="Slide2">
+          </picture>      
+        </li>      
+      </ul>  
+    </div>    
+    
     <section class="about" id="about">
       <div class="about__wrapper">
         <h2 class="about__title">О нас</h2>
@@ -400,6 +417,18 @@
         return false;
       });
     });
+  </script>
+  
+  <script type="text/javascript">  <!-- слайдер -->
+    var slides = document.querySelectorAll('.slider__items .slider__item');
+    var currentSlide = 0;
+    var slideInterval = setInterval(nextSlide,4000);
+
+    function nextSlide() {
+     slides[currentSlide].className = 'slider__item';
+     currentSlide = (currentSlide+1)%slides.length;
+     slides[currentSlide].className = 'slider__item  slider__item--active';
+    }
   </script>
 
   <script>
