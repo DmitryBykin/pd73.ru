@@ -1,6 +1,6 @@
 .slider {
   position: relative;
-  
+
   margin-top: 1.5em;
 
   margin-left: 20px;    // делаем небольшие отступы для слайдов
@@ -62,25 +62,32 @@
 
 .slider__btn {       // блоки для будущих кнопок
   position: absolute;
-  
+
   top: 50%;
-  
+
   margin-top: -25px; // поднимаем кнопку немного вверх
-  
-  width: 25px;
+
+  width: 60px;
   height: 60px;
-  
-  background-color: transparent;
-  
+
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 50%;
+
   z-index: 2;
-  
-  cursor: pointer;  
+
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(0,0,0,0.3);
+  }
+  &:active {
+    background-color: rgba(0,0,0,0.2);
+  }
 }
-.slider__btn--prev.slider__btn {    
+.slider__btn--prev.slider__btn {
   left: 3%;  // кнопку Назад (prev) отодвигаем от левого края
 }
-.slider__btn--next.slider__btn {     
-  right: 3%; // кнопку Вперед (prev) отодвигаем от правого края   
+.slider__btn--next.slider__btn {
+  right: 3%; // кнопку Вперед (prev) отодвигаем от правого края
 }
 
 .slider__btn--prev,        // общие свойства для всех элементов, которые формируют кнопки
@@ -89,51 +96,48 @@
   &::after {
     position: absolute;
     content: '';
-    
-    height: 5px;
-    width: 30px;
-    
+
+    height: 8px;
+    width: 25px;
+
     background-color: white;
-    z-index: 2;  
+    z-index: 2;
+    border-radius: 4px;
   }
-  &:hover::before,
+  /*&:hover::before,
   &:hover::after {
     background-color: @menu-desktop-color; // при наведении на стрелки делаем их таким же цветом, как при наведении на пункты меню
-  }
-  &:active::before,
-  &:active::after {
-    height: 4px;
-  }
+  } */
   &::before {
-    top: 37px;   
+    top: 33px;
   }
   &::after {
-    top: 13px;    
+    top: 19px;
   }
 }
 .slider__btn--prev {
-  &::before, 
+  &::before,
   &::after {
-    left: -5px;       // при повороте стрелочки немного "уплывают", сдвигом возвращаем на место
+    left: 15px;       // при повороте стрелочки немного "уплывают", сдвигом возвращаем на место
   }
-  &::before {    
-    transform: rotate(60deg); 
+  &::before {
+    transform: rotate(45deg);
   }
   &::after {
-    transform: rotate(-60deg);  
+    transform: rotate(-45deg);
   }
 }
 
-.slider__btn--next { 
+.slider__btn--next {
   &::before,
   &::after {
-    right: -5px;    // при повороте стрелочки немного "уплывают", сдвигом возвращаем на место
-  } 
-  &::before {    
-    transform: rotate(-60deg);    
+    right: 15px;    // при повороте стрелочки немного "уплывают", сдвигом возвращаем на место
+  }
+  &::before {
+    transform: rotate(-45deg);
   }
   &::after {
-    transform: rotate(60deg);  
+    transform: rotate(45deg);
   }
 }
 
@@ -141,13 +145,13 @@
   .slider {
     width: 70%;
 
-    margin-left: auto;   // центрируем контейнер со 
+    margin-left: auto;   // центрируем контейнер со
     margin-right: auto;  // слайдами
   }
 }
 
 @media @desktops {
-  .slider {    
+  .slider {
     max-width: @max-width; // ограничиваем размер контейнера для слайдов
 
     margin-top: 130px;
