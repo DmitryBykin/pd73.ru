@@ -117,8 +117,10 @@
             <source srcset="images/slide2.webp" type="image/webp">
             <img src="images/slide2.jpg" alt="Slide2">
           </picture>      
-        </li>      
-      </ul>  
+        </li>              
+      </ul>        
+      <button class="slider__btn  slider__btn--prev"></button>
+      <button class="slider__btn  slider__btn--next"></button>
     </div>    
     
     <section class="about" id="about">
@@ -423,10 +425,32 @@
     var slides = document.querySelectorAll('.slider__items .slider__item');
     var currentSlide = 0;
     var slideInterval = setInterval(nextSlide,4000);
+    var prev = document.querySelector('.slider__btn--prev');
+    var next = document.querySelector('.slider__btn--next');
 
+    next.onclick = function() {
+      clearInterval(slideInterval);  // сбрасываем счётчик
+      slideInterval = setInterval(nextSlide,4000);
+      nextSlide();
+    }
+    
+    prev.onclick = function() {
+      clearInterval(slideInterval);  // сбрасываем счётчик
+      slideInterval = setInterval(nextSlide,4000);
+      prevSlide();
+    }
+    
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+    
     function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+    
+    function goToSlide(n) {
      slides[currentSlide].className = 'slider__item';
-     currentSlide = (currentSlide+1)%slides.length;
+     currentSlide = (n + slides.length) % slides.length;
      slides[currentSlide].className = 'slider__item  slider__item--active';
     }
   </script>
