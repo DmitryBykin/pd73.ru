@@ -67,8 +67,8 @@
 
   margin-top: -25px; // поднимаем кнопку немного вверх
 
-  width: 60px;
-  height: 60px;
+  width: 54px;
+  height: 54px;
 
   background-color: rgba(0,0,0,0.1);
   border-radius: 50%;
@@ -100,6 +100,8 @@
     height: 8px;
     width: 25px;
 
+    margin-top: -4px;             // = height/2
+    
     background-color: white;
     z-index: 2;
     border-radius: 4px;
@@ -109,16 +111,18 @@
     background-color: @menu-desktop-color; // при наведении на стрелки делаем их таким же цветом, как при наведении на пункты меню
   } */
   &::before {
-    top: 33px;
+    //top: 50%;
+    margin-top: 2px;
   }
   &::after {
-    top: 19px;
+    //top: 50%;
+    margin-top: -10px;
   }
 }
 .slider__btn--prev {
   &::before,
   &::after {
-    left: 15px;       // при повороте стрелочки немного "уплывают", сдвигом возвращаем на место
+    left: 12px;       // при повороте стрелочки немного "уплывают", сдвигом возвращаем на место
   }
   &::before {
     transform: rotate(45deg);
@@ -131,7 +135,7 @@
 .slider__btn--next {
   &::before,
   &::after {
-    right: 15px;    // при повороте стрелочки немного "уплывают", сдвигом возвращаем на место
+    right: 12px;    // при повороте стрелочки немного "уплывают", сдвигом возвращаем на место
   }
   &::before {
     transform: rotate(-45deg);
@@ -139,6 +143,32 @@
   &::after {
     transform: rotate(45deg);
   }
+}
+.slider__control-items {
+  position: absolute;  
+  
+  bottom: 3%;
+  
+  width: 100%;
+  
+  text-align: center;
+  
+  z-index: 2;
+}
+.slider__control-item {
+  display: inline-block;
+  
+  width: 10px;
+  height: 10px;
+  
+  margin: 1px;
+  
+  border-radius: 50%;
+    
+  background-color: rgba(255,255,255,0.2);
+}
+.slider__control--active {
+  background-color: rgba(255,255,255,1);
 }
 
 @media @middle-tablets {

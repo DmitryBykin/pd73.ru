@@ -118,6 +118,12 @@
             <img src="images/slide2.jpg" alt="Slide2">
           </picture>      
         </li>              
+      </ul>
+      <ul class="slider__control-items">
+        <li class="slider__control-item  slider__control--active">   
+        </li>
+        <li class="slider__control-item">   
+        </li>
       </ul>        
       <button class="slider__btn  slider__btn--prev"></button>
       <button class="slider__btn  slider__btn--next"></button>
@@ -423,6 +429,8 @@
   
   <script type="text/javascript">  <!-- слайдер -->
     var slides = document.querySelectorAll('.slider__items .slider__item');
+    var controls = document.querySelectorAll('.slider__control-items .slider__control-item');
+    
     var currentSlide = 0;
     var slideInterval = setInterval(nextSlide,4000);
     var prev = document.querySelector('.slider__btn--prev');
@@ -450,8 +458,10 @@
     
     function goToSlide(n) {
      slides[currentSlide].className = 'slider__item';
+     controls[currentSlide].className = 'slider__control-item';
      currentSlide = (n + slides.length) % slides.length;
      slides[currentSlide].className = 'slider__item  slider__item--active';
+     controls[currentSlide].className = 'slider__control-item  slider__control--active';
     }
   </script>
 
