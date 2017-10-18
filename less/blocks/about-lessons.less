@@ -1,17 +1,17 @@
 .about-lessons {
-  margin-top: 2rem;
+  /*margin-top: 2rem;*/
   padding-bottom: 2rem;
-    
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%, 0 0);
-  background: linear-gradient(#fff, #b8f5fa); 
 
-  color: @text-color;  
+  clip-path: polygon(0 0, 100% 0, 100% 95%, 0% 100%, 0 0);
+  background: linear-gradient(#fff, #b8f5fa);
+
+  color: @text-color;
 }
 
 .about-lessons__title {
   padding-top: 2rem;
-  
-  text-align: center;  
+
+  text-align: center;
 }
 
 .about-lessons__item-title {
@@ -21,7 +21,7 @@
 .about-lessons__item {
   display: flex;
   flex-direction: column;
-  
+
   padding: 1rem;
 }
 
@@ -31,47 +31,64 @@
 
 
 @media @middle-tablets {
-  
+
   .about-lessons__item {
     display: flex;
-    flex-direction: row;    
-  }  
-  
+    flex-direction: row;
+  }
+
   .about-lessons__item-title {
     display: flex;
     flex-direction: column;
     align-self: center;
-        
+
     width: 30%;
-  
-    padding-right: 1rem;    
-    
+
+    padding-right: 1rem;
+
     text-align: right;
   }
-  
+
   .about-lessons__item-description {
     position: relative;
-    
+
     width: 60%;
     line-height: 1.5;
-    
+
     padding-left: 1rem;
-    
+
     text-align: left;
-    
+
     &::before {
       position: absolute;
       content: '';
-      
+
       top: 10%;
       left: 0;
       bottom: 10%;
-      
+
       width: 1px;
-      
+
       background-color: #5d82aa;
       opacity: 0.5;
     }
-  } 
-  
+  }
+
+}
+
+@media @desktops {
+
+  .about-lessons {
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%, 0 0);
+
+    padding-bottom: 3rem;
+  }
+
+  .about-lessons__wrapper {
+    max-width: @max-width;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
