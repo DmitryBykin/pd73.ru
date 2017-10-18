@@ -3,17 +3,18 @@
 .slider {
   position: relative;
 
-  margin-top: 1.5em;
+  margin-top: 1.5rem;
 
   margin-left: 20px;    // делаем небольшие отступы для слайдов
   margin-right: 20px;
 
-  overflow: hidden;
+  
 }
 .slider__items {
   position: relative;
   padding-top: @slideRatio;      // высота в блока в процентах от ширины
                                  // сами слайды сделаны абсолютами
+  overflow: hidden;
 }
 
 .slider__item {
@@ -175,16 +176,21 @@
   background-color: rgba(255,255,255,1);
 }
 
+
 @media @middle-tablets {
+  
   .slider {
     width: 70%;
 
     margin-left: auto;   // центрируем контейнер со
     margin-right: auto;  // слайдами
   }
+  
 }
 
+
 @media @desktops {
+  
   .slider {
     max-width: @max-width; // ограничиваем размер контейнера для слайдов
 
