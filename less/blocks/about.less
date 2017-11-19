@@ -1,10 +1,12 @@
 @media @mobiles {
   .about {
     //background-color: green;
-    color: @text-color;
+    color: white;
+    background-color: @menu-bg;
   }
   .about__wrapper {
     .set-wrap(20px, 20px);
+    text-align: center;
   }
   .about__title {
     //width: 100px;
@@ -12,11 +14,17 @@
     text-align: center;
   }
   .about__text {
-    //font-family: 'Open Sans';
-    //font-weight: bold;
-
     text-align: center;
     line-height: 24px;
+  }
+  .about__logo img {
+    width: 50%;
+    max-width: 300px;
+  }
+  .about__phone {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-weight: bold;
   }
 }
 
@@ -24,9 +32,18 @@
   .about {
     padding-top: 10px;
   }
+  .about__logo img {
+    width: 30%;
+  }
   .about__wrapper {
+    height: 100vh;
     max-width: @max-width;
-    margin: 0 auto;
+    
     padding: 0 100px;
+    margin: 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
