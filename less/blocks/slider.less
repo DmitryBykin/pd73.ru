@@ -8,8 +8,15 @@
   margin-left: 20px;    // делаем небольшие отступы для слайдов
   margin-right: 20px;
 
-  
+  &--hidden {
+    position: absolute;
+    clip: rect(0,0,0,0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+  }
 }
+
 .slider__items {
   position: relative;
   padding-top: @slideRatio;      // высота в блока в процентах от ширины
@@ -104,7 +111,7 @@
     width: 25px;
 
     margin-top: -4px;             // = height/2
-    
+
     background-color: white;
     z-index: 2;
     border-radius: 4px;
@@ -148,28 +155,28 @@
   }
 }
 .slider__control-items {
-  position: absolute;  
-  
+  position: absolute;
+
   bottom: 3%;
-  
+
   width: 100%;
-  
+
   text-align: center;
-  
+
   z-index: 2;
 }
 .slider__control-item {
   display: inline-block;
-  
+
   width: 10px;
   height: 10px;
-  
+
   margin: 1px;
-  
+
   border-radius: 50%;
-    
+
   transition: background-color @transitionTime;
-  
+
   background-color: rgba(255,255,255,0.2);
 }
 .slider__control--active {
@@ -178,19 +185,19 @@
 
 
 @media @middle-tablets {
-  
+
   .slider {
     width: 70%;
 
     margin-left: auto;   // центрируем контейнер со
     margin-right: auto;  // слайдами
   }
-  
+
 }
 
 
 @media @desktops {
-  
+
   .slider {
     max-width: @max-width; // ограничиваем размер контейнера для слайдов
 
