@@ -105,6 +105,32 @@
         </nav>
       </header>
 
+<div>
+  <iframe id='ds_schedule_frame' frameborder='0' scrolling='no' style='width:100%; border:0; margin-top: 100px;'>
+  </iframe>
+  <div id='ds_schedule_loading' align='center' style='color:gray;text-align:center'>загрузка расписания<br/><br/>
+    <img src='http://dance-soft.ru/images/loader.gif'/>
+  </div>
+    <script type="text/javascript">
+    var client = new XMLHttpRequest();
+    client.open('GET', 'https://dl.dropboxusercontent.com/s/ymf132fhu2612jv/Schedule.html', true);
+    client.onreadystatechange = function() { if (client.responseText) {
+      var doc = new DOMParser().parseFromString(client.responseText, 'text/html');
+       if (doc.firstChild.lastChild.firstChild.childElementCount < 5) return;
+       var loader = document.getElementById('ds_schedule_loading');
+       loader.style = 'display:none';
+       var iframe = document.getElementById('ds_schedule_frame');
+       iframe.contentWindow.document.open();
+       iframe.contentWindow.document.write(client.responseText);
+       iframe.contentWindow.document.close();
+       iframe.height = iframe.contentWindow.document.activeElement.firstChild.clientHeight;
+       window.addEventListener('message', function(event) { if (event.data.height) iframe.height = event.data.height; }); } };
+       client.send();
+  </script>
+
+</div>
+
+<!--
       <section class="schedule">
         <div class="schedule__wrapper">
           <h2 class="schedule__title" id="schedule">Расписание</h2>
@@ -115,6 +141,7 @@
           </div>
         </div>
       </section>
+-->
 
       <footer class="footer">
         <div class="footer__wrapper">
