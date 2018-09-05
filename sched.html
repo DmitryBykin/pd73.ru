@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PD73.ru - studio</title>
     <script type="text/javascript" src="//vk.com/js/api/openapi.js?139"></script>
-    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="css/style.min.css?v=2">
   </head>
   <body>
     <svg style="display:none">
@@ -111,7 +111,7 @@
   <div id='ds_schedule_loading' align='center' style='color:gray;text-align:center'>загрузка расписания<br/><br/>
     <img src='http://dance-soft.ru/images/loader.gif'/>
   </div>
-    <script type="text/javascript">
+    <script>
     var client = new XMLHttpRequest();
     client.open('GET', 'https://dl.dropboxusercontent.com/s/ymf132fhu2612jv/Schedule.html', true);
     client.onreadystatechange = function() { if (client.responseText) {
@@ -124,10 +124,12 @@
        iframe.contentWindow.document.write(client.responseText);
        iframe.contentWindow.document.close();
        iframe.height = iframe.contentWindow.document.activeElement.firstChild.clientHeight;
-       window.addEventListener('message', function(event) { if (event.data.height) iframe.height = event.data.height; }); } };
-       client.send();
+       window.addEventListener('message', function(event) { if (event.data.height) iframe.height = event.data.height; }); }
+       var footer = document.querySelector('.footer');   /*показываем footer только когда загрузится расписание*/
+       footer.classList.remove('footer--hidden');
+     };
+     client.send();
   </script>
-
 </div>
 
 <!--
@@ -143,7 +145,7 @@
       </section>
 -->
 
-      <footer class="footer">
+      <footer class="footer  footer--hidden" >
         <div class="footer__wrapper">
           <div class="footer__title">
             Мы в социальных сетях
@@ -191,7 +193,6 @@
       */
 
       $().UItoTop({ easingType: 'easeOutQuart' });
-
       });
     </script>
   </body>

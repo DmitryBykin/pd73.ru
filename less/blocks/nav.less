@@ -75,7 +75,7 @@
     &:hover::before,
     &:hover::after {
       //background-color: @menu-hover-color;
-      //opacity: 0.5;      
+      //opacity: 0.5;
     }
   }
   .nav__tel {
@@ -83,8 +83,8 @@
 
     top: 16px;
     right: 20px;
-    
-    .set-font('Open Sans', bold, 22px, @menu-color);    
+
+    .set-font('Open Sans', bold, 22px, @menu-color);
   }
   .nav__link {
     display: block;
@@ -109,10 +109,10 @@
     }
     &:active {
       padding-top: 21px;
-      padding-bottom: 19px;  
-    }    
+      padding-bottom: 19px;
+    }
   }
-  
+
   .nav__logo {
     //display: none;
     margin-right: 30px;
@@ -155,7 +155,7 @@
     //border-bottom: 1px solid #376fac;
   }
   #nav__feedback-vk {
-    display: none;
+    //display: none;
   }
 }
 
@@ -166,7 +166,7 @@
   }
   #nav__feedback-vk {
     display: block;
-        
+
     right: 10px;
     bottom: 10px;
   }
@@ -203,7 +203,7 @@
     display: block;
     margin-top: 0;
   }
-  
+
   .nav__menu {
     //border-bottom: none;
     display: none;
@@ -236,7 +236,7 @@
     display: none;
   }
   .nav__logo {
-    display: block;   
+    display: block;
     padding-bottom: 0;
   }
   .nav__menu-footer {
@@ -255,27 +255,27 @@
     &::after {
       position: absolute;
       content: "";
-      
+
       left: 0;
       bottom: 0;
       right: 0;
-      
+
       height: 3px;
       background-color: @menu-color;
-      
-      transform: scaleX(0);      
-    }  
-  }
-  .nav__link:hover::after {
-    animation: setBorder 500ms forwards;      
-  }
-  @keyframes setBorder {
-    to { 
-      transform: scaleX(1);      
+
+      transform: scaleX(0);
     }
   }
-  
-  
+  .nav__link:hover::after {
+    animation: setBorder 500ms forwards;
+  }
+  @keyframes setBorder {
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+
 
   .nav__feedback-item {
     text-align: right;
@@ -285,7 +285,7 @@
     cursor: pointer;
 
     border-bottom: 1px dashed @menu-desktop-color;
-    
+
     &:first-of-type {
       //margin-bottom: 10px;
     }
@@ -297,7 +297,7 @@
   }
   .nav__feedback--callme {
     border-bottom: 1px dashed @menu-color;
-    
+
     transition-property: opacity;
     transition-duration: 0.5s;
     &:hover {
@@ -310,7 +310,7 @@
     flex-direction: column;
     justify-content: space-around;
     //align-self: stretch;
-    align-self: center;    
+    align-self: center;
     text-align: right;
   }
 }
