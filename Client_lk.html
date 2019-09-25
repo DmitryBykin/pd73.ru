@@ -8,6 +8,10 @@
 .preloader .container { width:90px; margin:40vh auto 0 auto; text-align:center; transform:translate(-50%, -50%); }
 .preloader .container span { display:block; margin:-95px 0 0 30px; color:#efefef; text-transform:uppercase; font-size:1.6em; font-family:Lucida Console; -webkit-animation:pulse 4000ms linear infinite; -moz-animation:pulse 4000ms linear infinite; animation:pulse 4000ms linear infinite; }
 .preloader .container .circle { box-sizing:border-box; width:180px; height:180px; border-radius:100%; border:10px solid rgba(255, 255, 255, 0.2); border-top-color:#FFF; animation:spin 3s infinite linear; }
+.preloader2 { width:180px; height:180px; margin:27px 0 25px 27px }
+.preloader2 .container { width:90px; text-align:center }
+.preloader2 .container span { display:block; margin:-95px 0 0 30px; color:#bfbfbf; text-transform:uppercase; font-size:1.6em; font-family:Lucida Console; -webkit-animation:pulse 4000ms linear infinite; -moz-animation:pulse 4000ms linear infinite; animation:pulse 4000ms linear infinite }
+.preloader2 .container .circle { box-sizing:border-box; width:180px; height:180px; border-radius:100%; border:10px solid rgba(128, 128, 128, 0.2); border-top-color:#bfbfbf; animation:spin 3s infinite linear }
 @keyframes spin { 100% { transform:rotate(360deg); }}
 @-webkit-keyframes pulse { 0%, 100% {opacity:1; } 50% { opacity:0.25; }}
 @keyframes pulse { 0%, 100% { opacity:1; } 50% { opacity:0.25; }}
@@ -52,6 +56,12 @@ table { width:100%; border-spacing:0; border-collapse:collapse }
 .sum-td { white-space:nowrap }
 .right-align-td { text-align:right }
 .child-button { display:contents }
+.trim-text { white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+.trim-cell { width:130px }
+.trim-cell > span { display:block; position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-align:right }
+.unsubscribe-cell { width:100px }
+.unsubscribe-cell > span { width:100px; display:block; position:relative; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-align:right; cursor:hand }
+.unsubscribe-cell > span:hover { text-decoration:underline }
 #login-dialog { margin-top:10px }
 #login-dialog > div { padding:5px }
 #profile-dialog { margin-bottom:15px }
@@ -63,10 +73,13 @@ table { width:100%; border-spacing:0; border-collapse:collapse }
 #profile-tabs > ul > li { white-space:pre; background:transparent }
 #profile-tabs > ul > li img { display:block; margin:0 auto; opacity:0.9 }
 #profile-tabs > ul > li > a { color:black; outline:none; border-color:#cccccc; display:flex; flex-flow:column nowrap; align-items:center; justify-content:center }
+#profile-tabs table { table-layout:fixed; display:table }
 #profile-tabs table td { vertical-align:center; padding:5px }
 #res-img { margin:0 0 0 8px !important }
 #sale-tabs tr:nth-child(even) { background-color:#f2f2f2 }
-#client-foto { min-width:128px; max-width:128px; margin:15px; border-radius:50%; object-fit:cover }
+#visit-tabs tr:hover, #res-tabs tr:hover { background-color:#f2f2f2 }
+#client-foto { display:none; min-width:128px; max-width:128px; margin:15px; border-radius:50%; object-fit:cover }
+#client-foto-div { width:158px; height:158px }
 #header-div { display:flex; flex-flow:row nowrap }
 #right-header-div { display:flex; flex-flow:column nowrap }
 #top-line-div { display:flex; flex-flow:row nowrap }
@@ -75,7 +88,11 @@ table { width:100%; border-spacing:0; border-collapse:collapse }
 #exit-img { width:24px; height:24px; margin:18px 5px 0 5px; opacity:0.9; cursor:pointer }
 #balance-div { display:flex; flex-flow:row nowrap }
 #balance-sum { margin:0 3px }
+#bonus-div { display:none; flex-flow:row nowrap; margin-top:5px }
+#bonus-sum { margin:0 3px; color:green }
 #ds-div { position:absolute; right:5px; bottom:5px; color:white }
+#client-barcode { margin:20px 0 20px 350px; height:50px; max-width:300px; display:none }
+#client-barcode-div { height:200px; margin-bottom:100px }
 
 /* ПОРТРЕТНАЯ ОРИЕНТАЦИЯ */
 @media screen and (orientation: portrait) {
@@ -87,6 +104,7 @@ table { width:100%; border-spacing:0; border-collapse:collapse }
 #profile-dialog { padding:0 !important }
 #profile-tabs { padding:0; height:100vh !important }
 #profile-tabs > div { min-height:calc(100vh - 240px); max-height:calc(100vh - 240px); padding:20px 5px }
+#profile-tabs table { margin-bottom:120px }
 #profile-tabs .ui-tabs-nav .ui-tabs-anchor { padding: .5em 0.6em !important }
 #profile-tabs .ui-helper-reset { font-size:0.75em }
 #profile-tabs > ul { display:flex; flex-flow:row nowrap; align-items:center; justify-content:center }
@@ -94,6 +112,7 @@ table { width:100%; border-spacing:0; border-collapse:collapse }
 #tabs-1 { padding:20px 0 }
 #tabs-2 { padding:20px 10px }
 #ds-div { display:none }
+#client-barcode { height:100px; margin-left:auto; margin-right:auto }
 }
 </style>
 
@@ -103,6 +122,8 @@ table { width:100%; border-spacing:0; border-collapse:collapse }
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 <script async src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/es6-promise/4.1.1/es6-promise.auto.min.js"></script>
+<script async src="https://unpkg.com/unfetch/polyfill"></script>
 </head>
 <body>
 
@@ -114,6 +135,7 @@ table { width:100%; border-spacing:0; border-collapse:collapse }
 </div>
 
 <div id='msg-dialog' title='Внимание' style='display:none'></div>
+<div id='preloader-dialog' title='Пожалуйста, подождите...' style='display:none; overflow:hidden'><div class='preloader2'><div class='container'><div class='circle'></div><span>загрузка</span></div></div></div>
 
 <div id='login-dialog' title='Личный кабинет клиента' style='display:none'>
 <div>
@@ -131,12 +153,16 @@ table { width:100%; border-spacing:0; border-collapse:collapse }
 <div id='profile-dialog' title='Личный кабинет клиента' style='display:none'>
 <div id='profile-grid'>
 <div id='header-div'>
-<image id='client-foto' width="128px" height="128px"/>
+<div id='client-foto-div'><img id='client-foto' width="128px" height="128px"/></div>
 <div id='right-header-div'>
 <div id='top-line-div'><h3 id='fio-header'></h3><img id="exit-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAiklEQVRIie2VsQ2AIBBF3wS4gg5kiGPqFHY6hiW4hDbSWBwnF0PDT37F8V/4gQBNHzUBEbgKfQJeAljCk6MESEOlyu6vChiAFej/AszP2iFATA04YMtArBXjgF2AqCvS+g2pD8ipw1iRJVwFkAaWTLgZ0PPzQ9OoPuBEvpYaBwngsf0JARg/nLgJbhCYnKxYzCFsAAAAAElFTkSuQmCC" onclick='exit()' alt="Выйти из личного кабинета" title="Выйти из личного кабинета"/></div>
 <div id='balance-div'>
 <span class="gray">Баланс: </span>
 <span id='balance-sum'></span>
+</div>
+<div id='bonus-div'>
+<span class="gray">Начислено баллов: </span>
+<span id='bonus-sum'></span>
 </div>
 <div id='children-div' class="gray"></div>
 </div>
@@ -164,570 +190,105 @@ table { width:100%; border-spacing:0; border-collapse:collapse }
 <div id='ds-div'><button style='color:white' class='clickable_text' onclick='goDS()'>by DanceStudio</button></div>
 
 
-<script type='text/javascript'>
-var d = document;
-var dbPath = '/Clients';
-var dbFilesPath = '/Clients/Files';
-var dbx = null;
-var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}};
-var msgWin = $('#msg-dialog');
-var loginWin = $('#login-dialog');
-var profileWin = $('#profile-dialog');
-var ie = d.all && !window.opera;
-var groupsPath = '/Groups.xml';
-var groups = [];
-var summaryPath = '/Res/summary.txt';
-var summary = '';
-var clientXml = '';
-var today = new Date();
-var token = 'AEtUwOCdkAAAAAAAAAAAp7OuBDKlP4HpTrkyodV9uIkJLVGbqVVi-yVfP6ZRZyeZ';
-var passwordCommon = 'MTIzNA==';
-var passwordType = 3;
-var usePassword = true;
-var mask = '8 (###) ### ####';
-
-
-var isMobileMode = {
-Android: function () {
-return navigator.userAgent.match(/Android/i);
-},
-BlackBerry: function () {
-return navigator.userAgent.match(/BlackBerry/i);
-},
-iOS: function () {
-return navigator.userAgent.match(/iPhone|iPod/i);
-},
-Opera: function () {
-return navigator.userAgent.match(/Opera Mini/i);
-},
-Windows: function () {
-return navigator.userAgent.match(/IEMobile/i);
-},
-any: function () {
-var winWidth = ie ? ietruebody().clientWidth : window.innerWidth;
-if (winWidth >= 1024)
-return false;
-return (isMobileMode.Android() || isMobileMode.BlackBerry() || isMobileMode.iOS() || isMobileMode.Opera() || isMobileMode.Windows());
-}
-};
-var isMobile = isMobileMode.any();
-
-window.onload = function () {
-if (!usePassword)
-$('#login-pas-div').hide();
-
-/// Инициализация сегодняшней даты
-today.setHours(0, 0, 0, 0);
-
-/// Установим маску ввода телефона
-$.mask = { definitions: { '#': '[0-9]', a: '[A-Za-z]', '*': '[A-Za-z0-9]' }, autoclear: !0, dataName: 'rawMaskFn', placeholder: '_' };
-$('#login-phone').mask(mask);
-
-/// Показываем окно логина
-loginWin.dialog({
-dialogClass: 'no-close',
-title: loginWin.title,
-width: '280px',
-autoOpen: false,
-position: { my: 'center', at: isMobile ? 'center top+30%' : 'center top+40%', of: window },
-show: { effect: 'fade', duration: 500 },
-hide: { effect: 'fade', duration: 300 },
-maxHeight: window.innerHeight,
-maxWidth: window.innerWidth,
-modal: false,
-buttons: [{
-text: 'Войти',
-click: function () {
-login();
-}
-}]
-});
-
-/// Проверяем входили ли ранее
-var phone = $.cookie('phone');
-if (phone) {
-$('#login-phone').val(phone);
-if (usePassword)
-$('#login-pas').val($.cookie('password'));
-login();
-return;
-}
-
-loginWin.dialog('open');
-};
-
-function exit() {
-$.removeCookie('phone');
-$('#login-phone').val(null);
-if (usePassword) {
-$.removeCookie('password');
-$('#login-pas').val(null);
-}
-profileWin.dialog('close');
-loginWin.dialog('open');
-}
-
-function goDS() {
-window.open('http://www.dance-soft.ru/?utm_source=client_lk', '_blank');
-}
-
-function goChild(xmlPath, fotoPath) {
-profileWin.dialog('close');
-$('.preloader').fadeIn('slow');
-loadProfile(null, xmlPath, fotoPath, true);
-}
-
-function showMsg(title, msg) {
-var preloader = $('.preloader');
-if (preloader.is(":visible")) {
-/// Скрываем окно загрузки
-preloader.fadeOut('fast');
-loginWin.dialog('open');
-}
-
-/// Наполнение окна сообщения
-msgWin.html("<div style='margin:20px 0 0 5px'>" + msg + "</div>");
-
-/// Показываем окно сообщения
-msgWin.dialog({
-title: title,
-width: '260px',
-maxHeight: window.innerHeight,
-maxWidth: window.innerWidth,
-position: { my: 'center', at: 'center top+40%', of: window },
-modal: true,
-buttons: [{
-text: 'ОК',
-click: function () {
-msgWin.dialog('close');
-}
-}]
-});
-}
-
-function login() {
-var phone = $('#login-phone').val();
-if (!phone || phone.length < 3) {
-showMsg('Внимание', 'Укажите телефон.');
-return false;
-}
-
-var password = $('#login-pas').val();
-if (usePassword && (!password || password.length < 1)) {
-showMsg('Внимание', 'Укажите пароль.');
-return false;
-}
-
-/// Проверка пароля
-if (usePassword && passwordType === 2 && password != Base64.decode(passwordCommon)) {
-if (!loginWin.is(":visible"))
-loginWin.dialog('open');
-showMsg('Внимание', 'Неверный пароль.');
-return false;
-}
-
-if (dbx == null) {
-dbx = new Dropbox.Dropbox({accessToken: token});
-}
-
-phone = phone.replace(/[^0-9]/g,'');
-loginWin.dialog('close');
-$('.preloader').fadeIn('slow');
-
-var phoneBase64 = Base64.encode(phone);
-loadProfile(phone, dbPath + '/' + phoneBase64, dbFilesPath + '/' + phoneBase64);
-}
-
-function findProfile(phone) {
-if (!phone)
-return;
-
-dbx.filesListFolder({path: dbPath})
-.then(function(response) {
-/// Второй раз ищем без первого символа телефона
-for (var ii = 0; ii < response.entries.length; ++ii) {
-var file = response.entries[ii];
-var name = Base64.decode(file.name);
-var min = Math.min(name.length, phone.length);
-if (min < 5)
-continue;
-if (name.slice(-min) == phone.slice(-min)) {
-loadProfile(null, file.path_display, dbFilesPath + '/' + file.name);
-return;
-}
-}
-showMsg('Внимание', 'Клиент с таким телефом не найден.');
-})
-.catch(function(error) {
-console.log('Ошибка при скачивании списка клиентов. ' + error);
-});
-}
-
-function readGroups() {
-dbx.filesDownload({ path: groupsPath })
-.then(function(response) {
-var reader = new FileReader();
-reader.onload = function() {
-var xDoc = $.parseXML(reader.result);
-/// Формируем список групп
-$(xDoc).find('Item').each(function(i, child) {
-groups.push($(child));
-});
-/// Обновим закладку абонементов
-updateAccountsPanel(clientXml);
-};
-reader.readAsText(response.fileBlob);
-})
-.catch(function(error) {
-console.log('Ошибка при загрузке списка групп. ' + error);
-});
-}
-
-function getGroupById(id) {
-/// Найдем группу по идентификатору
-for (var ii = 0; ii < groups.length; ++ii) {
-var item = groups[ii];
-if (item.find('ID').text() === id)
-return item;
-}
-return null;
-}
-
-function loadProfile(phone, xmlPath, fotoPath, isChild) {
-/// Считываем список групп
-readGroups();
-
-/// Загружаем xml клиента
-dbx.filesDownload({ path: xmlPath })
-.then(function(response) {
-var reader = new FileReader();
-reader.onload = function() {
-var xDoc = $.parseXML(Base64.decode(reader.result));
-clientXml = $(xDoc);
-fillProfileWin(clientXml, isChild);
-updateChildren(phone);
-};
-reader.readAsText(response.fileBlob);
-})
-.catch(function(error) {
-console.log('Ошибка при загрузке профиля клиента. ' + error);
-findProfile(phone);
-});
-
-/// Загружаем фото клиента
-dbx.filesDownload({ path: fotoPath })
-.then(function(response) {
-var reader = new FileReader();
-reader.onload = function() {
-$('#client-foto').attr("src", reader.result);
-};
-reader.readAsDataURL(response.fileBlob);
-})
-.catch(function(error) {
-console.log('Ошибка при загрузке фото клиента. ' + error);
-});
-}
-
-function toDate(dateStr) {
-var parts = dateStr.split(".");
-return new Date(parts[2], parts[1] - 1, parts[0]);
-}
-
-function diffDays(d1, d2) {
-var ndays = (d2.valueOf() - d1.valueOf()) / 1000 / 86400;
-ndays = Math.round(ndays + 0.5);
-return ndays;
-}
-
-function formatDate(dt) {
-if (typeof dt === 'string')
-dt = toDate(dt);
-return dt.toLocaleString('ru', { month: 'long', day: 'numeric' });
-}
-
-function updateChildren(phone) {
-var childrenDiv = $('#children-div');
-childrenDiv.html(null);
-
-if (!phone)
-return;
-
-dbx.filesListFolder({path: dbPath})
-.then(function(response) {
-var children = [];
-/// Ищем детей текущего клиента
-for (var ii = 0; ii < response.entries.length; ++ii) {
-var file = response.entries[ii];
-var name = Base64.decode(file.name);
-var min = Math.min(name.length, phone.length);
-if (min < 5 || name.substr(0, 3) != 'par')
-continue;
-if (name.slice(-min) == phone.slice(-min))
-children.push({ xmlPath: file.path_display, fotoPath: dbFilesPath + '/' + file.name });
-}
-/// Детей не найдено
-if (children.length == 0)
-return;
-childrenDiv.html('Дети: ');
-var index = 0;
-/// Пройдем по найденным детям
-for (var ii = 0; ii < children.length; ++ii) {
-var child = children[ii];
-/// Загружаем xml ребенка
-dbx.filesDownload({ path: children[ii].xmlPath })
-.then(function(response) {
-var reader = new FileReader();
-reader.onload = function() {
-var xDoc = $.parseXML(Base64.decode(reader.result));
-childXml = $(xDoc);
-if (index > 0)
-childrenDiv.append(', ');
-var child = children[children.length - 1 - index++];
-childrenDiv.append('<button class="child-button clickable_text gray" onclick="goChild(&apos;' + child.xmlPath + '&apos;, &apos;' + child.fotoPath + '&apos;)">' + childXml.find('FIO').text() + '</button>');
-};
-reader.readAsText(response.fileBlob);
-})
-.catch(function(error) {
-console.log('Ошибка при загрузке ребенка. ' + error);
-});
-}
-})
-.catch(function(error) {
-console.log('Ошибка при скачивании списка клиентов. ' + error);
-});
-}
-
-function updateAccountsPanel(xml) {
-$('#tabs-1').html('<div class="left-margin gray">Нет абонементов</div>');
-
-if (!xml)
-return;
-
-var xAccounts = xml.find('LastAccounts').children();
-if (xAccounts.length == 0) {
-return;
-}
-
-var aPanel = '';
-xAccounts.each(function(i, child) {
-var xAcc = $(child);
-var beginDt = toDate(xAcc.find('BeginDate').text());
-var endDt = toDate(xAcc.find('EndDate').text());
-var isUnlimited = xAcc.find('IsUnlimited').text() === 'true';
-var isPerpetual = xAcc.find('IsPerpetual').text() === 'true';
-var accountPeriod = isPerpetual ? 'Срок действия неограничен' : 'Действует с ' + formatDate(beginDt) + ' по ' + formatDate(endDt);
-var remainDaysFrom = isPerpetual ? '' : '<div class="account-count-right gray"> из ' + xAcc.find('DaysCount').text() + '</div>';
-var remainTrainingsFrom = isUnlimited ? '' : '<div class="account-count-right gray"> из ' + xAcc.find('TrainingCount').text() + '</div>';
-
-var remainDays = Math.max(0, diffDays(Math.max(today, beginDt), endDt));
-if (remainDays == 0)
-remainDays = '<span class="red">' + remainDays + '</span>';
-if (isPerpetual)
-remainDays = '∞';
-
-var remainTrainings = xAcc.find('RemainTrainingCount').text();
-if (remainTrainings == 0)
-remainTrainings = '<span class="red">' + remainTrainings + '</span>';
-if (isUnlimited)
-remainTrainings = '∞';
-
-var xGroups = xAcc.find('Groups');
-var target = xGroups.children().length > 0 ? '' : xAcc.find('Target').text();
-xGroups.children().each(function(j, group) {
-var xGroup = getGroupById($(group).attr('ID'));
-if (xGroup != null) {
-var add = j > 0 ? ' class="account-period-div"' : '';
-var schedule = xGroup.find('SchedulePreview').text();
-var gPreview = xGroup.find('ShortPreview').text();
-target += '<div' + add + '>' + gPreview + ' ' + schedule + '</div>';
-}
-});
-
-aPanel += '<div class="account-div">';
-aPanel += '<div class="account-header-div">';
-aPanel += '<div>Абонемент "' + xAcc.find('Type').text() + '"</div>';
-aPanel += '<div class="gray account-period-div">' + accountPeriod + '</div>';
-aPanel += '<div class="gray account-period-div">' + target + '</div>';
-aPanel += '</div>';
-aPanel += '<div class="row-wrap-div">';
-aPanel += '<div class="account-count">';
-aPanel += '<div class="row-wrap-div">';
-aPanel += '<div class="account-count-left">' + remainTrainings + '</div>' + remainTrainingsFrom;
-aPanel += '</div>';
-aPanel += '<div class="gray">занятий</div>';
-aPanel += '<div class="gray">осталось</div>';
-aPanel += '</div>';
-aPanel += '<div class="account-count">';
-aPanel += '<div class="row-wrap-div">';
-aPanel += '<div class="account-count-left">' + remainDays + '</div>' + remainDaysFrom;
-aPanel += '</div>';
-aPanel += '<div class="gray">дней</div>';
-aPanel += '<div class="gray">осталось</div>';
-aPanel += '</div>';
-aPanel += '</div></div>';
-});
-
-$('#tabs-1').html(aPanel);
-}
-
-function updateResPanel(xml, xReservations) {
-/// Формируем список пред. записей
-var res = [];
-xml.find('Reservation').children().each(function(i, child) {
-var xVisit = $(child);
-if (today <= toDate(xVisit.attr('Date'))) {
-res.push({
-'date': xVisit.attr('Date'),
-'time': xVisit.attr('Time'),
-'target': xVisit.attr('Target')
-});
-}
-});
-
-/// Заполняем также из сводки
-if (xReservations != null) {
-for (var jj = 0; jj < xReservations.length; ++jj) {
-var xRes = xReservations[jj];
-var timeStr = xRes.find('Time').text();
-var date = timeStr.substring(0, 10);
-var time = timeStr.substring(11, 17);
-if (today > date)
-continue;
-res.push({
-'date': date,
-'time': time,
-'target': getGroupById(xRes.find('ID_Group').text()).find('ShortPreview').text()
-});
-}
-}
-
-/// Сортируем пред. записи по дате
-res.sort(function(a, b){
-var keyA = toDate(a.date), keyB = new toDate(b.date);
-if(keyA < keyB)
-return 1;
-if(keyA > keyB)
-return -1;
-return a.time < b.time;
-});
-
-/// Обновляем панель пред. записи
-var rPanel = '<table>';
-for (var ii = 0; ii < res.length; ++ii) {
-var r = res[ii];
-rPanel += '<tr class="item-row"><td class="date-td">' + formatDate(r.date) + ' ' + r.time;
-rPanel += '<span class="left-margin-min gray"> ' + r.target + '</span></td></tr>';
-}
-
-if (res.length == 0)
-$('#tabs-4').html('<div class="left-margin gray">Нет записей на занятия</div>');
-else
-$('#tabs-4').html(rPanel + '</table>');
-}
-
-function fillProfileWin(xml, isChild) {
-var phone = $('#login-phone').val();
-var password = $('#login-pas').val();
-
-/// Проверка пароля
-if (usePassword && passwordType > 2 && !isChild) {
-var agreementNumber = xml.find('AgreementNumber').text();
-var barcode = xml.find('Barcode').text();
-var badPas = false;
-if (passwordType === 3 && password != agreementNumber)
-badPas = true;
-if (passwordType === 4 && password != barcode.substr(barcode.length - 4))
-badPas = true;
-if (badPas) {
-showMsg('Внимание', 'Неверный пароль.');
-return false;
-}
-}
-
-/// Запоминаем данные входа
-$.cookie('phone', phone, { expires: 30 });
-if (usePassword)
-$.cookie('password', password, { expires: 30 });
-
-$("#profile-tabs").tabs();
-
-var clientID = xml.find('ID').text();
-var currency = ' ' + xml.find('Currency').text();
-var balance = xml.find('Balance').text();
-$('#fio-header').text(xml.find('FIO').text());
-$('#balance-sum').text(balance + currency);
-if (balance != 0)
-$('#balance-sum').css('color', balance < 0 ? 'red' : 'green');
-
-/// Формируем закладку абонементов
-updateAccountsPanel(xml);
-
-/// Формируем закладку посещений
-var vPanel = '<table>';
-var xVisits = xml.find('Visits').children();
-xVisits.each(function(i, child) {
-var xVisit = $(child);
-vPanel += '<tr class="item-row"><td class="date-td">' + formatDate(xVisit.attr('Date'));
-vPanel += '<span class="left-margin-min gray"> ' + xVisit.attr('Target') + '</span></td></tr>';
-});
-if (xVisits.length == 0)
-$('#tabs-2').html('<div class="left-margin gray">Нет посещений</div>');
-else
-$('#tabs-2').html(vPanel + '</table>');
-
-/// Формируем закладку покупок
-var sPanel = '<table id="sale-tabs">';
-var xDeposit = xml.find('Deposit').children();
-xDeposit.each(function(i, child) {
-var xSale = $(child);
-sPanel += '<tr class="item-row"><td class="date-td">' + formatDate(xSale.attr('Date')) + '</td>';
-sPanel += '<td class="left-padding target-td">' + xSale.attr('Target') + '</td>';
-sPanel += '<td class="left-padding sum-td right-align-td">' + xSale.attr('Sum') + currency + '</td></tr>';
-});
-if (xDeposit.length == 0)
-$('#tabs-3').html('<div class="left-margin gray">Нет покупок</div>');
-else
-$('#tabs-3').html(sPanel + '</table>');
-
-/// Формируем панель пред. записи
-updateResPanel(xml, null);
-
-/// Считываем сводку записей
-dbx.filesDownload({ path: summaryPath })
-.then(function(response) {
-var reader = new FileReader();
-reader.onload = function() {
-var lines = reader.result.split('\n');
-var xReservations = [];
-for (var ii = 0; ii < lines.length; ++ii) {
-var xRes = $($.parseXML('<Item>' + lines[ii] + '</Item>'));
-if (xRes.find('ID_Client').text() === clientID)
-xReservations.push(xRes);
-}
-updateResPanel(xml, xReservations);
-};
-reader.readAsText(response.fileBlob);
-})
-.catch(function(error) {
-console.log('Ошибка при загрузке списка групп. ' + error);
-});
-
-/// Скрываем окно загрузки
-$('.preloader').fadeOut('slow');
-
-/// Показываем окно профиля
-profileWin.dialog({
-dialogClass: "no-titlebar",
-width: '100%',
-show: { effect: 'fade', duration: 500 },
-hide: { effect: 'fade', duration: 300 },
-maxHeight: window.innerHeight,
-modal: false,
-create: function(event, ui) {
-$(this).parent().css("maxWidth", "600px");
-}
-});
-}
-</script>
+<script type='text/javascript'>var d=document;var dbPath='/Clients';var dbFilesPath='/Clients/Files';var dbBarcodesPath='/Clients/Barcodes';var dbResPath='/Res';var dbx=null;var dbxLk=null;var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}};var msgWin=$('#msg-dialog');var loginWin=$('#login-dialog');var profileWin=$('#profile-dialog');var preloader=$('.preloader');var preloaderWin=$('#preloader-dialog');var ie=d.all&&!window.opera;var groupsPath='/Groups.xml';var groups=[];var summaryPath='/Res/summary.txt';var summary='';var clientXml='';var barcodeBody='';var today=new Date();var token='QUV0VXdPQ2RrQUFBQUFBQUFBQUFwN091QkRLbFA0SHBUcmt5b2RWOXVJa0pMVkdicVZWaS15VmZQNlpSWnllWg==';var tokenLk='QUV0VXdPQ2RrQUFBQUFBQUFBQUFwN091QkRLbFA0SHBUcmt5b2RWOXVJa0pMVkdicVZWaS15VmZQNlpSWnllWg==';var passwordCommon='MTIzNA==';var passwordType=3;var usePassword=true;var useBarcode=true;var isQR=false;var mask='8 (###) ### ####';var hideEmptyAccountPeriod=false;var unsubscribe=false;var unsubscribeMinutes=30;var showBall=true;var showBallType=0;var isMobileMode={Android:function(){return navigator.userAgent.match(/Android/i);},BlackBerry:function(){return navigator.userAgent.match(/BlackBerry/i);},iOS:function(){return navigator.userAgent.match(/iPhone|iPod/i);},Opera:function(){return navigator.userAgent.match(/Opera Mini/i);},Windows:function(){return navigator.userAgent.match(/IEMobile/i);},any:function(){var winWidth=ie?ietruebody().clientWidth:window.innerWidth;if(winWidth>=1024)
+return false;return(isMobileMode.Android()||isMobileMode.BlackBerry()||isMobileMode.iOS()||isMobileMode.Opera()||isMobileMode.Windows());}};var isMobile=isMobileMode.any();window.onload=function(){if(!usePassword)
+$('#login-pas-div').hide();today.setHours(0,0,0,0);$.mask={definitions:{'#':'[0-9]',a:'[A-Za-z]','*':'[A-Za-z0-9]'},autoclear:!0,dataName:'rawMaskFn',placeholder:'_'};$('#login-phone').mask(mask);loginWin.dialog({dialogClass:'no-close',title:loginWin.title,width:'280px',autoOpen:false,position:{my:'center',at:isMobile?'center top+30%':'center top+40%',of:window},show:{effect:'fade',duration:500},hide:{effect:'fade',duration:300},maxHeight:window.innerHeight,maxWidth:window.innerWidth,modal:false,buttons:[{text:'Войти',click:function(){login();}}]});var phone=$.cookie('phone');if(phone){$('#login-phone').val(phone);if(usePassword)
+$('#login-pas').val($.cookie('password'));login();return;}
+loginWin.dialog('open');};function exit(){$.removeCookie('phone');$('#login-phone').val(null);if(usePassword){$.removeCookie('password');$('#login-pas').val(null);}
+profileWin.dialog('close');loginWin.dialog('open');}
+function goDS(){window.open('http://www.dance-soft.ru/?utm_source=client_lk','_blank');}
+function goChild(xmlPath,fotoPath){profileWin.dialog('close');preloader.fadeIn('slow');loadProfile(null,xmlPath,fotoPath,true);}
+function showMsg(title,msg){if(preloader.is(":visible")){preloader.fadeOut('fast');loginWin.dialog('open');}
+msgWin.html("<div style='margin:20px 0 0 5px'>"+msg+"</div>");msgWin.dialog({title:title,width:'260px',maxHeight:window.innerHeight,maxWidth:window.innerWidth,position:{my:'center',at:'center top+40%',of:window},modal:true,buttons:[{text:'ОК',click:function(){msgWin.dialog('close');}}]});}
+function showQuestion(title,msg,successfunc,successFuncParam){msgWin.html("<div style='margin:20px 0 0 5px'>"+msg+"</div>");msgWin.dialog({title:title,width:'260px',maxHeight:window.innerHeight,maxWidth:window.innerWidth,position:{my:'center',at:'center top+40%',of:window},modal:true,buttons:[{text:'Да',click:function(){msgWin.dialog('close');successfunc(successFuncParam);}},{text:'Нет',click:function(){msgWin.dialog('close');}}]});}
+function showPreloader(offset){if(!preloaderWin.dialog)
+return;preloaderWin.dialog({width:'250px',position:{my:'center',at:'center top+40%',of:window},closeOnEscape:false,modal:true,open:function(event,ui){$(this).parent().children().children('.ui-dialog-titlebar-close').hide();}});}
+var showResSuccessMsg=function(){setTimeout(function(){closePreloader();showMsg('Отмена записи','Запись на занятие отменена.');},500);}
+var showResErrMsg=function(error){var erStr=error.message==='Failed to fetch'?'интернет не доступен.':error.message;var str='<div style="color:red">Не удалось отменить запись, попробуйте позже.<br/><br/>Ошибка: '+erStr+'</div>';closePreloader();showMsg('Отмена записи',str,resOffset+100);}
+function closePreloader(){if(preloaderWin.dialog&&preloaderWin.is(':visible'))
+preloaderWin.dialog('close');}
+function runUnsubscribe(res){var d=new Date();var dtStr=res.date.split('.');var timeBeginStr=res.time.split('-')[0].split(':');var dt=new Date(dtStr[2],dtStr[1]-1,dtStr[0]);var dtWithTime=new Date(dt.getTime()+60000*(60*parseInt(timeBeginStr[0])+parseInt(timeBeginStr[1])));var delta=dtWithTime-d;var diffMins=Math.floor(delta/1000/60);if(diffMins<unsubscribeMinutes){showMsg('Отпись от занятия','Вы не можете отписаться от занятия, т.к. до начала занятия <span style="color:red">осталось меньше '+unsubscribeMinutes+' минут</span>.');return;}
+var clientTag='<ID_Client>'+clientXml.find('ID').text()+'</ID_Client>';var fileName=dbResPath+'/'+Date.now()+'.xml';var targetTag='<Time>'+res.date+' '+res.time.slice(0,5)+'</Time><ID_Group>'+res.targetID+'</ID_Group>';var unsubscribeTag='<Unsubscribe>True</Unsubscribe>';var xml='<?xml version="1.0" encoding="utf-8"?><Item>'+targetTag+clientTag+unsubscribeTag+'</Item>';showPreloader();dbx.filesUpload({path:fileName,contents:xml}).then(function(response){var items=$.cookie('ds_undesc_lk_items');if(items){var newItems='';var today=new Date();today.setHours(0,0,0,0);items=items.split('|');for(var ii=0;ii<items.length;++ii){var dtStr=items[ii].substr(0,10).split('.');var dt=new Date(dtStr[2],dtStr[1]-1,dtStr[0]);if(dt>=today)
+newItems+=items[ii]+'|';}
+items=newItems;}
+else{items='';}
+items+=res.date+res.time+res.targetID;$.cookie('ds_undesc_lk_items',items,{expires:30,path:'/'});console.log('Онлайн-отпись '+fileName+' сохранена.');saveSummary(dbx,targetTag+clientTag+unsubscribeTag);if(dbxLk!=null)
+saveSummary(dbxLk,targetTag+clientTag+unsubscribeTag);$("#res-tabs tr[index="+res.index+"]").remove();var tab=$("#res-tabs");if(tab.children().length==0||tab.children()[0].childElementCount==0)
+$('#tabs-4').html('<div class="left-margin gray">Нет записей на занятия</div>');showResSuccessMsg();}).catch(function(error){showResErrMsg(error);console.log('Ошибка при сохранении онлайн отписи '+fileName);});}
+var saveSummary=function(dbxObj,line){dbxObj.filesDownload({path:summaryPath}).then(function(response){var reader=new FileReader();reader.onload=function(){summary=reader.result+'\n'+line;saveSummaryText(dbxObj,summary);};reader.readAsText(response.fileBlob);}).catch(function(error){saveSummaryText(dbxObj,line);updateResPanel(clientXml,[$($.parseXML('<Item>'+line+'</Item>'))]);});}
+var saveSummaryText=function(dbxObj,text){dbxObj.filesUpload({path:summaryPath,contents:text,mode:'overwrite'}).then(function(response){console.log('Сводка успешно сохранена.');}).catch(function(error){console.log('Ошибка при сохранении сводки.');});}
+function login(){var phone=$('#login-phone').val();if(!phone||phone.length<3){showMsg('Внимание','Укажите телефон.');return false;}
+var password=$('#login-pas').val();if(usePassword&&(!password||password.length<1)){showMsg('Внимание','Укажите пароль.');return false;}
+if(usePassword&&passwordType===2&&password!=Base64.decode(passwordCommon)){if(!loginWin.is(":visible"))
+loginWin.dialog('open');showMsg('Внимание','Неверный пароль.');return false;}
+if(dbx==null){dbx=new Dropbox.Dropbox({accessToken:Base64.decode(token),fetch:fetch});}
+if(dbxLk==null&&tokenLk.length>0&&tokenLk!=token){dbxLk=new Dropbox.Dropbox({accessToken:Base64.decode(tokenLk),fetch:fetch});}
+var withPlus=phone[0]==='+';phone=phone.replace(/[^0-9]/g,'');if(withPlus)
+phone='+'+phone;loginWin.dialog('close');preloader.fadeIn('slow');var phoneBase64=Base64.encode(phone);loadProfile(phone,dbPath+'/'+phoneBase64,dbFilesPath+'/'+phoneBase64);}
+function findProfile(phone){if(!phone)
+return;var mainDbx=dbxLk==null?dbx:dbxLk;mainDbx.filesListFolder({path:dbPath}).then(function(response){for(var ii=0;ii<response.entries.length;++ii){var file=response.entries[ii];var name=Base64.decode(file.name);var min=Math.min(name.length,phone.length);if(min<5)
+continue;if(name.slice(-min)==phone.slice(-min)){loadProfile(null,file.path_display,dbFilesPath+'/'+file.name);return;}}
+showMsg('Внимание','Клиент с таким телефом не найден.');}).catch(function(error){console.log('Ошибка при скачивании списка клиентов. '+error);showMsg('Внимание','Не найден пользователь.');});}
+function readGroups(){var mainDbx=dbxLk==null?dbx:dbxLk;mainDbx.filesDownload({path:groupsPath}).then(function(response){var reader=new FileReader();reader.onload=function(){var xDoc=$.parseXML(reader.result);$(xDoc).find('Item').each(function(i,child){groups.push($(child));});updateAccountsPanel(clientXml);};reader.readAsText(response.fileBlob);}).catch(function(error){console.log('Ошибка при загрузке списка групп. '+error);});}
+function getGroupById(id){for(var ii=0;ii<groups.length;++ii){var item=groups[ii];if(item.find('ID').text()===id)
+return item;}
+return null;}
+function loadProfile(phone,xmlPath,fotoPath,isChild){readGroups();var mainDbx=dbxLk==null?dbx:dbxLk;mainDbx.filesDownload({path:xmlPath}).then(function(response){var reader=new FileReader();reader.onload=function(){var xDoc=$.parseXML(Base64.decode(reader.result));clientXml=$(xDoc);fillProfileWin(clientXml,isChild);updateChildren(phone);};reader.readAsText(response.fileBlob);}).catch(function(error){console.log('Ошибка при загрузке профиля клиента. '+error);findProfile(phone);});mainDbx.filesDownload({path:fotoPath}).then(function(response){var reader=new FileReader();reader.onload=function(){$('#client-foto').attr("src",reader.result).fadeIn('slow');};reader.readAsDataURL(response.fileBlob);}).catch(function(error){console.log('Ошибка при загрузке фото клиента. '+error);});if(useBarcode){var barcodePath=fotoPath.replace(dbFilesPath,dbBarcodesPath);mainDbx.filesDownload({path:barcodePath}).then(function(response){var reader=new FileReader();reader.onload=function(){barcodeBody=reader.result;updateAccountsPanel(clientXml);};reader.readAsDataURL(response.fileBlob);}).catch(function(error){console.log('Ошибка при загрузке штрихкода клиента. '+error);});}}
+function toDate(dateStr){var parts=dateStr.split(".");return new Date(parts[2],parts[1]-1,parts[0]);}
+function diffDays(d1,d2){var ndays=(d2.valueOf()-d1.valueOf())/1000/86400;ndays=Math.round(ndays+0.5);return ndays;}
+function formatDate(dt,withYear){if(typeof dt==='string')
+dt=toDate(dt);var opt={month:'long',day:'numeric'};if(withYear===true)
+opt={month:'numeric',day:'numeric',year:'numeric'};return dt.toLocaleString('ru',opt);}
+function updateChildren(phone){var childrenDiv=$('#children-div');childrenDiv.html(null);if(!phone)
+return;var mainDbx=dbxLk==null?dbx:dbxLk;mainDbx.filesListFolder({path:dbPath}).then(function(response){var children=[];for(var ii=0;ii<response.entries.length;++ii){var file=response.entries[ii];var name=Base64.decode(file.name);var min=Math.min(name.length,phone.length);if(min<5||name.substr(0,3)!='par')
+continue;if(name.slice(-min)==phone.slice(-min))
+children.push({name:name,xmlPath:file.path_display,fotoPath:dbFilesPath+'/'+file.name});}
+if(children.length==0)
+return;childrenDiv.html('Дети: ');var index=0;for(var ii=0;ii<children.length;++ii){mainDbx.filesDownload({path:children[ii].xmlPath}).then(function(response){var reader=new FileReader();reader.onload=function(){var xDoc=$.parseXML(Base64.decode(reader.result));childXml=$(xDoc);if(index>0)
+childrenDiv.append(', ');var number=childXml.find('AgreementNumber').text();var fio=childXml.find('FIO').text();for(var jj=0;jj<children.length;++jj){var child=children[jj];if(child.name.indexOf('par'+number)===0){childrenDiv.append('<button class="child-button clickable_text gray" onclick="goChild(&apos;'+child.xmlPath+'&apos;, &apos;'+child.fotoPath+'&apos;)">'+fio+'</button>');index++;break;}}};reader.readAsText(response.fileBlob);}).catch(function(error){console.log('Ошибка при загрузке ребенка. '+error);});}}).catch(function(error){console.log('Ошибка при скачивании списка клиентов. '+error);});}
+function updateBarcode(){if(!isMobile)
+return;var aTab=$('#tabs-1');aTab.html(aTab.html()+'<div id="client-barcode-div"><img id="client-barcode" src="'+barcodeBody+'"/></div>');var cbImg=$('#client-barcode');if(isQR)
+cbImg.css("height","150px");if(!useBarcode||barcodeBody.length==0)
+cbImg.css("display","none");else
+cbImg.css("display","block").fadeIn('slow');}
+function updateAccountsPanel(xml){$('#tabs-1').html('<div class="left-margin gray">Нет абонементов</div>');if(!xml)
+return;var xAccounts=xml.find('LastAccounts').children();if(xAccounts.length==0){updateBarcode();return;}
+var aPanel='';xAccounts.each(function(i,child){var xAcc=$(child);var beginDt=toDate(xAcc.find('BeginDate').text());var endDt=toDate(xAcc.find('EndDate').text());var isUnlimited=xAcc.find('IsUnlimited').text()==='true';var isPerpetual=xAcc.find('IsPerpetual').text()==='true';var showPeriod=!hideEmptyAccountPeriod||xAcc.find('AccountVisits').children().length>0;var withYear=beginDt.getYear()!=endDt.getYear();var beginDtStr=formatDate(beginDt,withYear);var endDtStr=formatDate(endDt,withYear);var accountPeriod=isPerpetual?'Срок действия неограничен':'Действует с '+beginDtStr+' по '+endDtStr;var remainDaysFrom=isPerpetual?'':'<div class="account-count-right gray"> из '+xAcc.find('DaysCount').text()+'</div>';var remainTrainingsFrom=isUnlimited?'':'<div class="account-count-right gray"> из '+xAcc.find('TrainingCount').text()+'</div>';var remainDays=Math.max(0,diffDays(Math.max(today,beginDt),endDt));if(remainDays==0)
+remainDays='<span class="red">'+remainDays+'</span>';if(isPerpetual)
+remainDays='∞';var remainTrainings=xAcc.find('RemainTrainingCount').text();if(remainTrainings==0)
+remainTrainings='<span class="red">'+remainTrainings+'</span>';if(isUnlimited)
+remainTrainings='∞';var xGroups=xAcc.find('Groups');var target=xGroups.children().length>0?'':xAcc.find('Target').text();xGroups.children().each(function(j,group){var xGroup=getGroupById($(group).attr('ID'));if(xGroup!=null){var add=j>0?' class="account-period-div"':'';var schedule=xGroup.find('SchedulePreview').text();var gPreview=xGroup.find('ShortPreview').text();target+='<div'+add+'>'+gPreview+' '+schedule+'</div>';}});aPanel+='<div class="account-div">';aPanel+='<div class="account-header-div">';aPanel+='<div>Абонемент "'+xAcc.find('Type').text()+'"</div>';if(showPeriod)
+aPanel+='<div class="gray account-period-div">'+accountPeriod+'</div>';aPanel+='<div class="gray account-period-div">'+target+'</div>';aPanel+='</div>';aPanel+='<div class="row-wrap-div">';aPanel+='<div class="account-count">';aPanel+='<div class="row-wrap-div">';aPanel+='<div class="account-count-left">'+remainTrainings+'</div>'+remainTrainingsFrom;aPanel+='</div>';aPanel+='<div class="gray">занятий</div>';aPanel+='<div class="gray">осталось</div>';aPanel+='</div>';if(showPeriod){aPanel+='<div class="account-count">';aPanel+='<div class="row-wrap-div">';aPanel+='<div class="account-count-left">'+remainDays+'</div>'+remainDaysFrom;aPanel+='</div>';aPanel+='<div class="gray">дней</div>';aPanel+='<div class="gray">осталось</div>';aPanel+='</div>';}
+aPanel+='</div></div>';});$('#tabs-1').html(aPanel);updateBarcode();}
+function updateResPanel(xml,xReservations,resPrev){var res=[];if(resPrev==null){xml.find('Reservation').children().each(function(i,child){var xVisit=$(child);if(today<=toDate(xVisit.attr('Date'))){res.push({'date':xVisit.attr('Date'),'time':xVisit.attr('Time'),'targetID':xVisit.attr('TargetID'),'target':xVisit.attr('Target')});}});}
+else{res=resPrev;}
+if(xReservations!=null){for(var jj=0;jj<xReservations.length;++jj){var xRes=xReservations[jj];var timeStr=xRes.find('Time').text();var date=timeStr.substring(0,10);var time=timeStr.substring(11,17);var targetID=xRes.find('ID_Group').text();var target=getGroupById(targetID).find('ShortPreview').text();if(today>date)
+continue;if(xRes.find('Unsubscribe').text()==='True'){for(var kk=res.length-1;kk>=0;--kk){var rk=res[kk];if(rk.date==date&&rk.time==time&&rk.targetID==targetID){res.splice(kk,1);break;}}}
+else{res.push({'date':date,'time':time,'targetID':targetID,'target':target});}}}
+res.sort(function(a,b){var keyA=toDate(a.date),keyB=new toDate(b.date);if(keyA<keyB)
+return 1;if(keyA>keyB)
+return-1;return a.time<b.time;});var rPanel='<table id="res-tabs">';for(var ii=0;ii<res.length;++ii){var r=res[ii];var dt=formatDate(r.date)+' '+r.time;r.index=ii;rPanel+='<tr class="item-row" index="'+ii+'"><td class="date-td trim-text">'+dt;rPanel+='<span class="left-margin-min gray"> '+r.target+'</span>';if(unsubscribe){var str=dt+' '+r.target+'<br/><br/>Отписаться от занятия?';var fParams=JSON.stringify(r).replace(new RegExp('"','g'),'\'');rPanel+='</td><td class="unsubscribe-cell gray"><span onclick="showQuestion(\'Отпись от занятия\', \''+str+'\', runUnsubscribe, '+fParams+')">Отписаться »</span>';}
+rPanel+='</td></tr>';}
+if(res.length==0)
+$('#tabs-4').html('<div class="left-margin gray">Нет записей на занятия</div>');else
+$('#tabs-4').html(rPanel+'</table>');return res;}
+function refreshReservations(){var clientID=clientXml.find('ID').text();updateResPanel(clientXml,null);dbx.filesDownload({path:summaryPath}).then(function(response){var reader=new FileReader();reader.onload=function(){var lines=reader.result.split('\n');var xReservations=[];for(var ii=0;ii<lines.length;++ii){var xRes=$($.parseXML('<Item>'+lines[ii]+'</Item>'));if(xRes.find('ID_Client').text()===clientID)
+xReservations.push(xRes);}
+var res=updateResPanel(clientXml,xReservations);if(dbxLk!=null){dbxLk.filesDownload({path:summaryPath}).then(function(response2){var reader2=new FileReader();reader2.onload=function(){var lines2=reader2.result.split('\n');var xReservations2=[];for(var jj=0;jj<lines2.length;++jj){var xRes2=$($.parseXML('<Item>'+lines2[jj]+'</Item>'));if(xRes2.find('ID_Client').text()===clientID)
+xReservations2.push(xRes2);}
+updateResPanel(null,xReservations2,res);};reader2.readAsText(response2.fileBlob);}).catch(function(error){console.log('Ошибка при загрузке сводки записей с другого приложения. '+error);});}};reader.readAsText(response.fileBlob);}).catch(function(error){console.log('Ошибка при загрузке сводки записей. '+error);});}
+function fillProfileWin(xml,isChild){var phone=$('#login-phone').val();var password=$('#login-pas').val();if(usePassword&&passwordType>2&&!isChild){var agreementNumber=xml.find('AgreementNumber').text();var barcode=xml.find('Barcode').text();var badPas=false;if(passwordType===3&&password!=agreementNumber)
+badPas=true;if(passwordType===4&&password!=barcode.substr(barcode.length-4))
+badPas=true;if(badPas){showMsg('Внимание','Неверный пароль.');return false;}}
+$.cookie('phone',phone,{expires:30});if(usePassword)
+$.cookie('password',password,{expires:30});$("#profile-tabs").tabs();var clientID=xml.find('ID').text();var currency=' '+xml.find('Currency').text();var balance=xml.find('Balance').text();if(showBall){var bonus=xml.find('Bonus').text();if(bonus.length>0&&bonus!=0){if(showBallType===1){balance=parseFloat(balance)+parseFloat(bonus);}else{$('#bonus-sum').text(bonus);$('#bonus-div').css("display","flex");}}}
+$('#fio-header').text(xml.find('FIO').text());$('#balance-sum').text(balance+currency);if(balance!=0)
+$('#balance-sum').css('color',balance<0?'red':'green');updateAccountsPanel(xml);var vPanel='<table id="visit-tabs">';var xVisits=xml.find('Visits').children();var xSkips=xml.find('Skips').children();if(xSkips.length>0){xVisits=$.merge(xVisits,xSkips).sort(function(a,b){return toDate($(b).attr('Date'))-toDate($(a).attr('Date'));});}
+xVisits.each(function(i,child){var xVisit=$(child);if(xVisit.attr('IsSkip')==='true'){vPanel+='<tr class="item-row"><td class="date-td trim-text red">'+formatDate(xVisit.attr('Date'));vPanel+='<span class="left-margin-min red"> '+xVisit.attr('Target')+'</span></td>';vPanel+='<td class="trim-cell red"><span>пропуск</span></td></tr>';}
+else{var accText=xVisit.attr('Account')==='true'?'по абонементу':(xVisit.attr('IsFree')==='true'?'пробное занятие':'разовое занятие');vPanel+='<tr class="item-row"><td class="date-td trim-text">'+formatDate(xVisit.attr('Date'));vPanel+='<span class="left-margin-min gray"> '+xVisit.attr('Target')+'</span></td>';vPanel+='<td class="trim-cell gray"><span>'+accText+'</span></td></tr>';}});if(xVisits.length==0)
+$('#tabs-2').html('<div class="left-margin gray">Нет посещений</div>');else
+$('#tabs-2').html(vPanel+'</table>');var sPanel='<table id="sale-tabs">';var xDeposit=xml.find('Deposit').children();xDeposit.each(function(i,child){var xSale=$(child);sPanel+='<tr class="item-row"><td class="date-td">'+formatDate(xSale.attr('Date'))+'</td>';sPanel+='<td class="left-padding target-td">'+xSale.attr('Target')+'</td>';sPanel+='<td class="left-padding sum-td right-align-td">'+xSale.attr('Sum')+currency+'</td></tr>';});if(xDeposit.length==0)
+$('#tabs-3').html('<div class="left-margin gray">Нет покупок</div>');else
+$('#tabs-3').html(sPanel+'</table>');refreshReservations();preloader.fadeOut('slow');profileWin.dialog({dialogClass:"no-titlebar",width:'100%',show:{effect:'fade',duration:500},hide:{effect:'fade',duration:300},maxHeight:window.innerHeight,modal:false,create:function(event,ui){$(this).parent().css("maxWidth","600px");}});}</script>
 
 </body>

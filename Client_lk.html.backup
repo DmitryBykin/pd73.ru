@@ -1,0 +1,733 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Личный кабинет клиента</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type='text/css'>
+.preloader { display:none; overflow:hidden; position:fixed; z-index:100000; width:100%; height:100%; }
+.preloader .container { width:90px; margin:40vh auto 0 auto; text-align:center; transform:translate(-50%, -50%); }
+.preloader .container span { display:block; margin:-95px 0 0 30px; color:#efefef; text-transform:uppercase; font-size:1.6em; font-family:Lucida Console; -webkit-animation:pulse 4000ms linear infinite; -moz-animation:pulse 4000ms linear infinite; animation:pulse 4000ms linear infinite; }
+.preloader .container .circle { box-sizing:border-box; width:180px; height:180px; border-radius:100%; border:10px solid rgba(255, 255, 255, 0.2); border-top-color:#FFF; animation:spin 3s infinite linear; }
+@keyframes spin { 100% { transform:rotate(360deg); }}
+@-webkit-keyframes pulse { 0%, 100% {opacity:1; } 50% { opacity:0.25; }}
+@keyframes pulse { 0%, 100% { opacity:1; } 50% { opacity:0.25; }}
+
+body { margin: 0;padding: 0; background:#2d8ed0; }
+table { width:100%; border-spacing:0; border-collapse:collapse }
+.ui-dialog { position:fixed !important; padding:0 !important }
+.ui-dialog .ui-dialog-content { padding:0 7px !important; overflow:hidden !important }
+.ui-dialog .ui-dialog-buttonpane { text-align:center !important; border-width:0 !important }
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float:none !important; border-width:0 !important }
+.ui-dialog-buttonpane { padding:0 !important }
+.ui-tab-content, .ui-tabs-panel{ overflow:auto }
+.ui-tabs .ui-tabs-nav { background:none; border-style:solid; border-width: 0 0 1px }
+.ui-tabs { border:0px !important }
+.ui-dialog-titlebar { background:none !important; border-width:0 0 1px 0 !important }
+.ui-widget-header { font-weight:normal !important }
+.ui-widget-overlay { opacity: 0 !important }
+.ui-state-focus:focus { outline:none !important }
+.no-close .ui-dialog-titlebar-close { display: none }
+.no-close .ui-dialog-title { text-align:left; width: 100%; text-indent:30px }
+.no-titlebar .ui-dialog-titlebar { display:none }
+.login-input-div { width:100%; margin:10px 0; position: relative }
+.login-input { border:0; outline-color:rgb(255, 214, 51); margin:5px 0 0 0; padding:10px 15px; border:1px solid #ccc; position:relative; background:transparent; font-size:15px; color:#333; width:100%; box-sizing:border-box; letter-spacing:1px }
+.gray { color:gray }
+.red { color:red }
+.row-wrap-div { display:flex; flex-flow:row wrap }
+.clickable_text { background:none; border:none; cursor:pointer; color:gray; font-family:Roboto Condensed,sans-serif }
+.clickable_text:hover { text-decoration:underline }
+.clickable_text:disabled { color:lightgray; text-decoration:none; cursor:default }
+.account-div { display:flex; flex-flow:row wrap; align-items:center }
+.account-header-div { display:flex; flex-flow:column nowrap; width:300px; margin-top:0px }
+.account-period-div { margin:5px 0 0 0 }
+.account-count { display:flex; flex-flow:column nowrap; align-items:center; width:120px }
+.account-count-left { font-size:3.0em }
+.account-count-right { display:flex; justify-content:flex-end; align-items:flex-end; margin:0 0 8px 5px }
+.item-row { height:22px }
+.left-margin-min { margin-left:5px }
+.left-margin { margin-left:10px }
+.left-padding { padding-left:10px }
+.date-td { white-space:nowrap }
+.target-td { max-width:300px }
+.sum-td { white-space:nowrap }
+.right-align-td { text-align:right }
+.child-button { display:contents }
+#login-dialog { margin-top:10px }
+#login-dialog > div { padding:5px }
+#profile-dialog { margin-bottom:15px }
+#profile-grid { display:flex; flex-flow:column nowrap }
+#profile-tabs .ui-state-active { border-color:#cccccc }
+#profile-tabs .ui-state-active a { background: #ededed }
+#profile-tabs > div { overflow-y:auto; min-height:calc(80vh - 240px); max-height:calc(80vh - 240px); padding:20px 10px }
+#profile-tabs > ul { border-radius:0 !important}
+#profile-tabs > ul > li { white-space:pre; background:transparent }
+#profile-tabs > ul > li img { display:block; margin:0 auto; opacity:0.9 }
+#profile-tabs > ul > li > a { color:black; outline:none; border-color:#cccccc; display:flex; flex-flow:column nowrap; align-items:center; justify-content:center }
+#profile-tabs table td { vertical-align:center; padding:5px }
+#res-img { margin:0 0 0 8px !important }
+#sale-tabs tr:nth-child(even) { background-color:#f2f2f2 }
+#client-foto { min-width:128px; max-width:128px; margin:15px; border-radius:50%; object-fit:cover }
+#header-div { display:flex; flex-flow:row nowrap }
+#right-header-div { display:flex; flex-flow:column nowrap }
+#top-line-div { display:flex; flex-flow:row nowrap }
+#fio-header { margin-bottom:10px }
+#children-div { display:flex; flex-flow:row wrap; margin-top:10px }
+#exit-img { width:24px; height:24px; margin:18px 5px 0 5px; opacity:0.9; cursor:pointer }
+#balance-div { display:flex; flex-flow:row nowrap }
+#balance-sum { margin:0 3px }
+#ds-div { position:absolute; right:5px; bottom:5px; color:white }
+
+/* ПОРТРЕТНАЯ ОРИЕНТАЦИЯ */
+@media screen and (orientation: portrait) {
+.preloader .container { width:100px; }
+.preloader .container span { font-size:1.8em; margin:-110px 0 0 30px; }
+.preloader .container .circle { width:200px; height:200px; }
+.account-div { align-items:center; justify-content:center }
+.account-header-div { text-align:center; width:100vw; margin:10px 0 }
+#profile-dialog { padding:0 !important }
+#profile-tabs { padding:0; height:100vh !important }
+#profile-tabs > div { min-height:calc(100vh - 240px); max-height:calc(100vh - 240px); padding:20px 5px }
+#profile-tabs .ui-tabs-nav .ui-tabs-anchor { padding: .5em 0.6em !important }
+#profile-tabs .ui-helper-reset { font-size:0.75em }
+#profile-tabs > ul { display:flex; flex-flow:row nowrap; align-items:center; justify-content:center }
+#profile-tabs > ul > li > a { width:19vw }
+#tabs-1 { padding:20px 0 }
+#tabs-2 { padding:20px 10px }
+#ds-div { display:none }
+}
+</style>
+
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script async src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script async src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
+</head>
+<body>
+
+<div class="preloader">
+<div class="container">
+<div class="circle"></div>
+<span>загрузка</span>
+</div>
+</div>
+
+<div id='msg-dialog' title='Внимание' style='display:none'></div>
+
+<div id='login-dialog' title='Личный кабинет клиента' style='display:none'>
+<div>
+<div id='login-phone-div' class='login-input-div'>
+<label for='login-phone'>Телефон:</label>
+<input id='login-phone' class='login-input' type='text'>
+</div>
+<div id='login-pas-div' class='login-input-div'>
+<label for='login-pas'>Пароль:</label>
+<input id='login-pas' class='login-input' type='password'>
+</div>
+</div>
+</div>
+
+<div id='profile-dialog' title='Личный кабинет клиента' style='display:none'>
+<div id='profile-grid'>
+<div id='header-div'>
+<image id='client-foto' width="128px" height="128px"/>
+<div id='right-header-div'>
+<div id='top-line-div'><h3 id='fio-header'></h3><img id="exit-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAiklEQVRIie2VsQ2AIBBF3wS4gg5kiGPqFHY6hiW4hDbSWBwnF0PDT37F8V/4gQBNHzUBEbgKfQJeAljCk6MESEOlyu6vChiAFej/AszP2iFATA04YMtArBXjgF2AqCvS+g2pD8ipw1iRJVwFkAaWTLgZ0PPzQ9OoPuBEvpYaBwngsf0JARg/nLgJbhCYnKxYzCFsAAAAAElFTkSuQmCC" onclick='exit()' alt="Выйти из личного кабинета" title="Выйти из личного кабинета"/></div>
+<div id='balance-div'>
+<span class="gray">Баланс: </span>
+<span id='balance-sum'></span>
+</div>
+<div id='children-div' class="gray"></div>
+</div>
+</div>
+<div id="profile-tabs">
+<ul>
+<!-- Иконки 48х48 -->
+<li><a href="#tabs-1"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAACP0lEQVRoge3YvUtXURwG8I/VUENItUSWNrS0VYZ7hEINUThUBNFQEhhU4GAF0QsOQlhLhNo/IERLU7QKDf4DbUINRVDRC72YLw3nmvLz+vPce3/+/An3gWc73+c8z7n3vFKiRIkSJUos4CDuYBhPl2FX0nZHlTZZuS3R7KrSZgT30Z5mfBNGMRfBvqRmb2T7GO5ONPsi248mnv/jYUTRG9xCR1LTjH48L2D8WaKxNdHswM2kr5Vqh+bNt2A6oqBTOjbgSw7zn9G0jGZnRP1f7IJzkR0OJ2F3VrAbszkCzOBkil6L8L/HaJyFqzk6bxT2wrUGMJKXV8oA6zHAK2GzG8DEegrw3cIuvBiXhBUlRuN3Aab1kSnAhRTz8xiMqD9apT4GrfiVN8AnbKwi3hKhcbxggH3Cl8gVYCKigx8ROtMFWGgOvFvBfLN8u3FdJ/GRKgF618B85gCTaEsxfxhfI+o/YrwAJ4sGmBNOnQM4hhN4jD+RtftTwmfBFnzLG+CncO7vF9b9iwl7cBsvheNtNY0bOFCApy3dC1YMMItH2B4xQm0YixiMus2BKZyKMF6J640SoCeH+Xk8WOsA4wXMw2a8rdB8LfyOefkiS4DuggEIl/PFmq0F9ZosvXunBpi18EpQBIcqdMdwuQCHRH6B9zUwTxiEusyBykv9DD7UiKsdoBfO16Gj1eIZ2CPuYavROCW8IyEsU2ttKCsHLUKWx91G4BPL3BDbcU942qvV03mtOIK7wsGuRIkSJUqUAP8ArPVoUge2BmkAAAAASUVORK5CYII="/>Абонемент</a></li>
+<li><a href="#tabs-2"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAADBUlEQVRoge3X34tVVRQH8M/MqKEQM2hUiIYPJT3k5BDmBEGggpgkkVISSfgi9JIFakFqDQmBjz2oD4FJT0LkhOWD9Q/0EIQ/sqLol2klEaUmM2rTwz4De45nzt3n3HuHHs4XFtx7ztrf9V37nLX2OjRo0KBBgwYN/v+Yh+dxCIexC/d0kH8JXsW7OIgtmNsp8pX4GRM5G8PLbXL34BVcL+D/ASva5LcUfxeQx/ZCG/zbW3D/hXvb4HesRYAJIcH+GtzzcTWB//264ucpfrRF9kwN/ucSucfVrIf7EgNMCAVYFXsq8Nd6je6sECBfB0swgg8xir1YnPN5sQL/HXUSgLOJAe6P1mwTOlTe5xq2Rn7LErlP1RUPmxMCHI38Nyb4PxH5jyb4b2ongR68VUL+GQYy3z78mCDoW/Rma+bj8xLffe2Ij/E4PsU/uIkz2IHbIp8VCeIn7cFo3VyhCZzNuK/iJNZ2Snxv9Lsns0nMjn4/VSGB+DXqK+GPY1fCLGEemdz11QU+A8KIcU6YjR6rkMAjwq6fw/e4vYB/bRb7E+HMmJUqfjgjjgP+5NbT9kh0fxx3C0d/K/F/YCFuRNfeyXEP4Hxu3Zd4uJX4zZmYosBHIr8NBfd3CYNZqwRewu6C6+sj/vemWTuGp6cTv0br0eFJLMCvBfcu4wFhN6dbfwDLFc9AF4Su1KqWrmNVXnw/Libs3u/4qOT+RWH83oAT2f8LOC50spX4rWT98SxGKx2/yNXNSMKiMjsvjAvLlE+m/RjEG1li7cTcM0na2wbZGF7DIryJ77JrgwXih4T6+iZLYCFeN33NpWxaD+GdrENwSehY29z60fOFqWfEHJzO+fwpfKY+KnSmOhoGSZ/LY7ucJf52iU88BpSNI/vxEK7U0PEsobhGK9pG4dUpI78h9O1hU3t+ke0UhraqOtapiaEEURP4Cl8n+I0LLXjG8HGCqKr2wUyJX4R/u5DATdw1Ewls7YL4KUXZbezvYgId+4ApwxZh3umGzcgTaNCgQYMGDRp0Cv8Bb02w4b90sPAAAAAASUVORK5CYII="/>Посещения</a></li>
+<li><a href="#tabs-3"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABuUlEQVRoge3YO2sVQRiH8d9BCF4gSECbNIIfQEjQIoE0FooELPwEImhjYWNhhBTe0OQT2IiCCCaIphMUKwtbUVAIYgKBeAEVNCAkXordcE6RxN11Z/YkzAMvLLvvDP+H3Z1ZlkQikUh0KS0MYyg/3nRM4E9eVxrOUolFbYH5hrOUpoX32gKzNtljdBkfcBFj+IjxRhOV4DS+Y6Dj3CB+4GQjiUowip84usa1Y/m1I1ETleAglnBqg5617k5XsB+fcKlA71XZ+7EvZKAy7JGtMrcVW2lauIu36AsXqxg78QJP0FNiXA+e4Tl2BMhViG2YwUv0Vhi/G6/xIJ+rdk7IbvPCOvUNK7Idd72ef9ViPsfXDXre4HgVgS/aO2nT9bmKwFwXBF+td1UEBjCNxw3XfRyoItDJDTyKXNf+N3Qnt8R/bG7WKXC2AYEzdQoMNyBwqE6BXfgVMfwyttcpQLapxRJ4VXd4uBdR4E4IgfMRBc6FEDgcUWAkhEBfpPC/Vfu6LcRcBIHZUOHhYQSBqZAC4xEELoQUGI0gEPS3S38Egb0hBch+E4YKvxA6PEziaaC6HkMgkUgkEluHv1cuVXpONBTHAAAAAElFTkSuQmCC"/>Покупки</a></li>
+<li><a href="#tabs-4"><img id="res-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAB3ElEQVRoge2YPUvDQByHH5ciKPiK2nYTF50c3JxEHJzUyU3d3ESXjr6CDlp0cfEFHPwGbjoLriLV1i9gP4IOWockNE2TtHe59q9wP/hNud49Dw2XS8DGxsbGpjbLwBEwKg2ik22g4vYDGJfFUcsOVXivZf6JxAL18H6JCTm0xukGOoBr4iUGpADjsgu8ASM0lphTnbwPyAGnwJmh5l1YD96D80tchcC/A10q8CmgEDJRkn4DayHwXotA2pW4DMBnVeABZlsAv+rOvRczLihRAjKq8ACLhuFXmoAPk+jXgQ8TOAYmNTumAO/1Thc8SmAz4Xwq8CWcfyBRTArs0zy8d/skjikBEXgwIyAGD8kFVOFHcJ49xpJE4CAGNljvCZwGbsygO9EV0IUvAk/m8PUEVOBfXfgMzrZZkRbQgYfa85aYQNzLSBj8sO+3n9ICnThnlgsN+D8h8Ej1HB8nUQiBB2GBLLW7SZREFDwIC8z7rkdJFIChmHVEBXKBMUGJRvAgLHBL/e3il+htYh1RgefAmDLwAKwrrCMqcA5sADPAoOY64tto0liBqAQF8sBUC/rVLoF21KiA6Q9bzfTepEAKeGkj/A+wZFIAoAfYwvmoddLCHgLTpuFtbGxs2pNf5y0yakIJqSUAAAAASUVORK5CYII="/>Запись</a></li>
+</ul>
+<div id="tabs-1">
+</div>
+<div id="tabs-2">
+</div>
+<div id="tabs-3">
+</div>
+<div id="tabs-4">
+</div>
+</div>
+</div>
+</div>
+
+<div id='ds-div'><button style='color:white' class='clickable_text' onclick='goDS()'>by DanceStudio</button></div>
+
+
+<script type='text/javascript'>
+var d = document;
+var dbPath = '/Clients';
+var dbFilesPath = '/Clients/Files';
+var dbx = null;
+var Base64={_keyStr:"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",encode:function(e){var t="";var n,r,i,s,o,u,a;var f=0;e=Base64._utf8_encode(e);while(f<e.length){n=e.charCodeAt(f++);r=e.charCodeAt(f++);i=e.charCodeAt(f++);s=n>>2;o=(n&3)<<4|r>>4;u=(r&15)<<2|i>>6;a=i&63;if(isNaN(r)){u=a=64}else if(isNaN(i)){a=64}t=t+this._keyStr.charAt(s)+this._keyStr.charAt(o)+this._keyStr.charAt(u)+this._keyStr.charAt(a)}return t},decode:function(e){var t="";var n,r,i;var s,o,u,a;var f=0;e=e.replace(/[^A-Za-z0-9\+\/\=]/g,"");while(f<e.length){s=this._keyStr.indexOf(e.charAt(f++));o=this._keyStr.indexOf(e.charAt(f++));u=this._keyStr.indexOf(e.charAt(f++));a=this._keyStr.indexOf(e.charAt(f++));n=s<<2|o>>4;r=(o&15)<<4|u>>2;i=(u&3)<<6|a;t=t+String.fromCharCode(n);if(u!=64){t=t+String.fromCharCode(r)}if(a!=64){t=t+String.fromCharCode(i)}}t=Base64._utf8_decode(t);return t},_utf8_encode:function(e){e=e.replace(/\r\n/g,"\n");var t="";for(var n=0;n<e.length;n++){var r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r)}else if(r>127&&r<2048){t+=String.fromCharCode(r>>6|192);t+=String.fromCharCode(r&63|128)}else{t+=String.fromCharCode(r>>12|224);t+=String.fromCharCode(r>>6&63|128);t+=String.fromCharCode(r&63|128)}}return t},_utf8_decode:function(e){var t="";var n=0;var r=c1=c2=0;while(n<e.length){r=e.charCodeAt(n);if(r<128){t+=String.fromCharCode(r);n++}else if(r>191&&r<224){c2=e.charCodeAt(n+1);t+=String.fromCharCode((r&31)<<6|c2&63);n+=2}else{c2=e.charCodeAt(n+1);c3=e.charCodeAt(n+2);t+=String.fromCharCode((r&15)<<12|(c2&63)<<6|c3&63);n+=3}}return t}};
+var msgWin = $('#msg-dialog');
+var loginWin = $('#login-dialog');
+var profileWin = $('#profile-dialog');
+var ie = d.all && !window.opera;
+var groupsPath = '/Groups.xml';
+var groups = [];
+var summaryPath = '/Res/summary.txt';
+var summary = '';
+var clientXml = '';
+var today = new Date();
+var token = 'AEtUwOCdkAAAAAAAAAAAp7OuBDKlP4HpTrkyodV9uIkJLVGbqVVi-yVfP6ZRZyeZ';
+var passwordCommon = 'MTIzNA==';
+var passwordType = 3;
+var usePassword = true;
+var mask = '8 (###) ### ####';
+
+
+var isMobileMode = {
+Android: function () {
+return navigator.userAgent.match(/Android/i);
+},
+BlackBerry: function () {
+return navigator.userAgent.match(/BlackBerry/i);
+},
+iOS: function () {
+return navigator.userAgent.match(/iPhone|iPod/i);
+},
+Opera: function () {
+return navigator.userAgent.match(/Opera Mini/i);
+},
+Windows: function () {
+return navigator.userAgent.match(/IEMobile/i);
+},
+any: function () {
+var winWidth = ie ? ietruebody().clientWidth : window.innerWidth;
+if (winWidth >= 1024)
+return false;
+return (isMobileMode.Android() || isMobileMode.BlackBerry() || isMobileMode.iOS() || isMobileMode.Opera() || isMobileMode.Windows());
+}
+};
+var isMobile = isMobileMode.any();
+
+window.onload = function () {
+if (!usePassword)
+$('#login-pas-div').hide();
+
+/// Инициализация сегодняшней даты
+today.setHours(0, 0, 0, 0);
+
+/// Установим маску ввода телефона
+$.mask = { definitions: { '#': '[0-9]', a: '[A-Za-z]', '*': '[A-Za-z0-9]' }, autoclear: !0, dataName: 'rawMaskFn', placeholder: '_' };
+$('#login-phone').mask(mask);
+
+/// Показываем окно логина
+loginWin.dialog({
+dialogClass: 'no-close',
+title: loginWin.title,
+width: '280px',
+autoOpen: false,
+position: { my: 'center', at: isMobile ? 'center top+30%' : 'center top+40%', of: window },
+show: { effect: 'fade', duration: 500 },
+hide: { effect: 'fade', duration: 300 },
+maxHeight: window.innerHeight,
+maxWidth: window.innerWidth,
+modal: false,
+buttons: [{
+text: 'Войти',
+click: function () {
+login();
+}
+}]
+});
+
+/// Проверяем входили ли ранее
+var phone = $.cookie('phone');
+if (phone) {
+$('#login-phone').val(phone);
+if (usePassword)
+$('#login-pas').val($.cookie('password'));
+login();
+return;
+}
+
+loginWin.dialog('open');
+};
+
+function exit() {
+$.removeCookie('phone');
+$('#login-phone').val(null);
+if (usePassword) {
+$.removeCookie('password');
+$('#login-pas').val(null);
+}
+profileWin.dialog('close');
+loginWin.dialog('open');
+}
+
+function goDS() {
+window.open('http://www.dance-soft.ru/?utm_source=client_lk', '_blank');
+}
+
+function goChild(xmlPath, fotoPath) {
+profileWin.dialog('close');
+$('.preloader').fadeIn('slow');
+loadProfile(null, xmlPath, fotoPath, true);
+}
+
+function showMsg(title, msg) {
+var preloader = $('.preloader');
+if (preloader.is(":visible")) {
+/// Скрываем окно загрузки
+preloader.fadeOut('fast');
+loginWin.dialog('open');
+}
+
+/// Наполнение окна сообщения
+msgWin.html("<div style='margin:20px 0 0 5px'>" + msg + "</div>");
+
+/// Показываем окно сообщения
+msgWin.dialog({
+title: title,
+width: '260px',
+maxHeight: window.innerHeight,
+maxWidth: window.innerWidth,
+position: { my: 'center', at: 'center top+40%', of: window },
+modal: true,
+buttons: [{
+text: 'ОК',
+click: function () {
+msgWin.dialog('close');
+}
+}]
+});
+}
+
+function login() {
+var phone = $('#login-phone').val();
+if (!phone || phone.length < 3) {
+showMsg('Внимание', 'Укажите телефон.');
+return false;
+}
+
+var password = $('#login-pas').val();
+if (usePassword && (!password || password.length < 1)) {
+showMsg('Внимание', 'Укажите пароль.');
+return false;
+}
+
+/// Проверка пароля
+if (usePassword && passwordType === 2 && password != Base64.decode(passwordCommon)) {
+if (!loginWin.is(":visible"))
+loginWin.dialog('open');
+showMsg('Внимание', 'Неверный пароль.');
+return false;
+}
+
+if (dbx == null) {
+dbx = new Dropbox.Dropbox({accessToken: token});
+}
+
+phone = phone.replace(/[^0-9]/g,'');
+loginWin.dialog('close');
+$('.preloader').fadeIn('slow');
+
+var phoneBase64 = Base64.encode(phone);
+loadProfile(phone, dbPath + '/' + phoneBase64, dbFilesPath + '/' + phoneBase64);
+}
+
+function findProfile(phone) {
+if (!phone)
+return;
+
+dbx.filesListFolder({path: dbPath})
+.then(function(response) {
+/// Второй раз ищем без первого символа телефона
+for (var ii = 0; ii < response.entries.length; ++ii) {
+var file = response.entries[ii];
+var name = Base64.decode(file.name);
+var min = Math.min(name.length, phone.length);
+if (min < 5)
+continue;
+if (name.slice(-min) == phone.slice(-min)) {
+loadProfile(null, file.path_display, dbFilesPath + '/' + file.name);
+return;
+}
+}
+showMsg('Внимание', 'Клиент с таким телефом не найден.');
+})
+.catch(function(error) {
+console.log('Ошибка при скачивании списка клиентов. ' + error);
+});
+}
+
+function readGroups() {
+dbx.filesDownload({ path: groupsPath })
+.then(function(response) {
+var reader = new FileReader();
+reader.onload = function() {
+var xDoc = $.parseXML(reader.result);
+/// Формируем список групп
+$(xDoc).find('Item').each(function(i, child) {
+groups.push($(child));
+});
+/// Обновим закладку абонементов
+updateAccountsPanel(clientXml);
+};
+reader.readAsText(response.fileBlob);
+})
+.catch(function(error) {
+console.log('Ошибка при загрузке списка групп. ' + error);
+});
+}
+
+function getGroupById(id) {
+/// Найдем группу по идентификатору
+for (var ii = 0; ii < groups.length; ++ii) {
+var item = groups[ii];
+if (item.find('ID').text() === id)
+return item;
+}
+return null;
+}
+
+function loadProfile(phone, xmlPath, fotoPath, isChild) {
+/// Считываем список групп
+readGroups();
+
+/// Загружаем xml клиента
+dbx.filesDownload({ path: xmlPath })
+.then(function(response) {
+var reader = new FileReader();
+reader.onload = function() {
+var xDoc = $.parseXML(Base64.decode(reader.result));
+clientXml = $(xDoc);
+fillProfileWin(clientXml, isChild);
+updateChildren(phone);
+};
+reader.readAsText(response.fileBlob);
+})
+.catch(function(error) {
+console.log('Ошибка при загрузке профиля клиента. ' + error);
+findProfile(phone);
+});
+
+/// Загружаем фото клиента
+dbx.filesDownload({ path: fotoPath })
+.then(function(response) {
+var reader = new FileReader();
+reader.onload = function() {
+$('#client-foto').attr("src", reader.result);
+};
+reader.readAsDataURL(response.fileBlob);
+})
+.catch(function(error) {
+console.log('Ошибка при загрузке фото клиента. ' + error);
+});
+}
+
+function toDate(dateStr) {
+var parts = dateStr.split(".");
+return new Date(parts[2], parts[1] - 1, parts[0]);
+}
+
+function diffDays(d1, d2) {
+var ndays = (d2.valueOf() - d1.valueOf()) / 1000 / 86400;
+ndays = Math.round(ndays + 0.5);
+return ndays;
+}
+
+function formatDate(dt) {
+if (typeof dt === 'string')
+dt = toDate(dt);
+return dt.toLocaleString('ru', { month: 'long', day: 'numeric' });
+}
+
+function updateChildren(phone) {
+var childrenDiv = $('#children-div');
+childrenDiv.html(null);
+
+if (!phone)
+return;
+
+dbx.filesListFolder({path: dbPath})
+.then(function(response) {
+var children = [];
+/// Ищем детей текущего клиента
+for (var ii = 0; ii < response.entries.length; ++ii) {
+var file = response.entries[ii];
+var name = Base64.decode(file.name);
+var min = Math.min(name.length, phone.length);
+if (min < 5 || name.substr(0, 3) != 'par')
+continue;
+if (name.slice(-min) == phone.slice(-min))
+children.push({ xmlPath: file.path_display, fotoPath: dbFilesPath + '/' + file.name });
+}
+/// Детей не найдено
+if (children.length == 0)
+return;
+childrenDiv.html('Дети: ');
+var index = 0;
+/// Пройдем по найденным детям
+for (var ii = 0; ii < children.length; ++ii) {
+var child = children[ii];
+/// Загружаем xml ребенка
+dbx.filesDownload({ path: children[ii].xmlPath })
+.then(function(response) {
+var reader = new FileReader();
+reader.onload = function() {
+var xDoc = $.parseXML(Base64.decode(reader.result));
+childXml = $(xDoc);
+if (index > 0)
+childrenDiv.append(', ');
+var child = children[children.length - 1 - index++];
+childrenDiv.append('<button class="child-button clickable_text gray" onclick="goChild(&apos;' + child.xmlPath + '&apos;, &apos;' + child.fotoPath + '&apos;)">' + childXml.find('FIO').text() + '</button>');
+};
+reader.readAsText(response.fileBlob);
+})
+.catch(function(error) {
+console.log('Ошибка при загрузке ребенка. ' + error);
+});
+}
+})
+.catch(function(error) {
+console.log('Ошибка при скачивании списка клиентов. ' + error);
+});
+}
+
+function updateAccountsPanel(xml) {
+$('#tabs-1').html('<div class="left-margin gray">Нет абонементов</div>');
+
+if (!xml)
+return;
+
+var xAccounts = xml.find('LastAccounts').children();
+if (xAccounts.length == 0) {
+return;
+}
+
+var aPanel = '';
+xAccounts.each(function(i, child) {
+var xAcc = $(child);
+var beginDt = toDate(xAcc.find('BeginDate').text());
+var endDt = toDate(xAcc.find('EndDate').text());
+var isUnlimited = xAcc.find('IsUnlimited').text() === 'true';
+var isPerpetual = xAcc.find('IsPerpetual').text() === 'true';
+var accountPeriod = isPerpetual ? 'Срок действия неограничен' : 'Действует с ' + formatDate(beginDt) + ' по ' + formatDate(endDt);
+var remainDaysFrom = isPerpetual ? '' : '<div class="account-count-right gray"> из ' + xAcc.find('DaysCount').text() + '</div>';
+var remainTrainingsFrom = isUnlimited ? '' : '<div class="account-count-right gray"> из ' + xAcc.find('TrainingCount').text() + '</div>';
+
+var remainDays = Math.max(0, diffDays(Math.max(today, beginDt), endDt));
+if (remainDays == 0)
+remainDays = '<span class="red">' + remainDays + '</span>';
+if (isPerpetual)
+remainDays = '∞';
+
+var remainTrainings = xAcc.find('RemainTrainingCount').text();
+if (remainTrainings == 0)
+remainTrainings = '<span class="red">' + remainTrainings + '</span>';
+if (isUnlimited)
+remainTrainings = '∞';
+
+var xGroups = xAcc.find('Groups');
+var target = xGroups.children().length > 0 ? '' : xAcc.find('Target').text();
+xGroups.children().each(function(j, group) {
+var xGroup = getGroupById($(group).attr('ID'));
+if (xGroup != null) {
+var add = j > 0 ? ' class="account-period-div"' : '';
+var schedule = xGroup.find('SchedulePreview').text();
+var gPreview = xGroup.find('ShortPreview').text();
+target += '<div' + add + '>' + gPreview + ' ' + schedule + '</div>';
+}
+});
+
+aPanel += '<div class="account-div">';
+aPanel += '<div class="account-header-div">';
+aPanel += '<div>Абонемент "' + xAcc.find('Type').text() + '"</div>';
+aPanel += '<div class="gray account-period-div">' + accountPeriod + '</div>';
+aPanel += '<div class="gray account-period-div">' + target + '</div>';
+aPanel += '</div>';
+aPanel += '<div class="row-wrap-div">';
+aPanel += '<div class="account-count">';
+aPanel += '<div class="row-wrap-div">';
+aPanel += '<div class="account-count-left">' + remainTrainings + '</div>' + remainTrainingsFrom;
+aPanel += '</div>';
+aPanel += '<div class="gray">занятий</div>';
+aPanel += '<div class="gray">осталось</div>';
+aPanel += '</div>';
+aPanel += '<div class="account-count">';
+aPanel += '<div class="row-wrap-div">';
+aPanel += '<div class="account-count-left">' + remainDays + '</div>' + remainDaysFrom;
+aPanel += '</div>';
+aPanel += '<div class="gray">дней</div>';
+aPanel += '<div class="gray">осталось</div>';
+aPanel += '</div>';
+aPanel += '</div></div>';
+});
+
+$('#tabs-1').html(aPanel);
+}
+
+function updateResPanel(xml, xReservations) {
+/// Формируем список пред. записей
+var res = [];
+xml.find('Reservation').children().each(function(i, child) {
+var xVisit = $(child);
+if (today <= toDate(xVisit.attr('Date'))) {
+res.push({
+'date': xVisit.attr('Date'),
+'time': xVisit.attr('Time'),
+'target': xVisit.attr('Target')
+});
+}
+});
+
+/// Заполняем также из сводки
+if (xReservations != null) {
+for (var jj = 0; jj < xReservations.length; ++jj) {
+var xRes = xReservations[jj];
+var timeStr = xRes.find('Time').text();
+var date = timeStr.substring(0, 10);
+var time = timeStr.substring(11, 17);
+if (today > date)
+continue;
+res.push({
+'date': date,
+'time': time,
+'target': getGroupById(xRes.find('ID_Group').text()).find('ShortPreview').text()
+});
+}
+}
+
+/// Сортируем пред. записи по дате
+res.sort(function(a, b){
+var keyA = toDate(a.date), keyB = new toDate(b.date);
+if(keyA < keyB)
+return 1;
+if(keyA > keyB)
+return -1;
+return a.time < b.time;
+});
+
+/// Обновляем панель пред. записи
+var rPanel = '<table>';
+for (var ii = 0; ii < res.length; ++ii) {
+var r = res[ii];
+rPanel += '<tr class="item-row"><td class="date-td">' + formatDate(r.date) + ' ' + r.time;
+rPanel += '<span class="left-margin-min gray"> ' + r.target + '</span></td></tr>';
+}
+
+if (res.length == 0)
+$('#tabs-4').html('<div class="left-margin gray">Нет записей на занятия</div>');
+else
+$('#tabs-4').html(rPanel + '</table>');
+}
+
+function fillProfileWin(xml, isChild) {
+var phone = $('#login-phone').val();
+var password = $('#login-pas').val();
+
+/// Проверка пароля
+if (usePassword && passwordType > 2 && !isChild) {
+var agreementNumber = xml.find('AgreementNumber').text();
+var barcode = xml.find('Barcode').text();
+var badPas = false;
+if (passwordType === 3 && password != agreementNumber)
+badPas = true;
+if (passwordType === 4 && password != barcode.substr(barcode.length - 4))
+badPas = true;
+if (badPas) {
+showMsg('Внимание', 'Неверный пароль.');
+return false;
+}
+}
+
+/// Запоминаем данные входа
+$.cookie('phone', phone, { expires: 30 });
+if (usePassword)
+$.cookie('password', password, { expires: 30 });
+
+$("#profile-tabs").tabs();
+
+var clientID = xml.find('ID').text();
+var currency = ' ' + xml.find('Currency').text();
+var balance = xml.find('Balance').text();
+$('#fio-header').text(xml.find('FIO').text());
+$('#balance-sum').text(balance + currency);
+if (balance != 0)
+$('#balance-sum').css('color', balance < 0 ? 'red' : 'green');
+
+/// Формируем закладку абонементов
+updateAccountsPanel(xml);
+
+/// Формируем закладку посещений
+var vPanel = '<table>';
+var xVisits = xml.find('Visits').children();
+xVisits.each(function(i, child) {
+var xVisit = $(child);
+vPanel += '<tr class="item-row"><td class="date-td">' + formatDate(xVisit.attr('Date'));
+vPanel += '<span class="left-margin-min gray"> ' + xVisit.attr('Target') + '</span></td></tr>';
+});
+if (xVisits.length == 0)
+$('#tabs-2').html('<div class="left-margin gray">Нет посещений</div>');
+else
+$('#tabs-2').html(vPanel + '</table>');
+
+/// Формируем закладку покупок
+var sPanel = '<table id="sale-tabs">';
+var xDeposit = xml.find('Deposit').children();
+xDeposit.each(function(i, child) {
+var xSale = $(child);
+sPanel += '<tr class="item-row"><td class="date-td">' + formatDate(xSale.attr('Date')) + '</td>';
+sPanel += '<td class="left-padding target-td">' + xSale.attr('Target') + '</td>';
+sPanel += '<td class="left-padding sum-td right-align-td">' + xSale.attr('Sum') + currency + '</td></tr>';
+});
+if (xDeposit.length == 0)
+$('#tabs-3').html('<div class="left-margin gray">Нет покупок</div>');
+else
+$('#tabs-3').html(sPanel + '</table>');
+
+/// Формируем панель пред. записи
+updateResPanel(xml, null);
+
+/// Считываем сводку записей
+dbx.filesDownload({ path: summaryPath })
+.then(function(response) {
+var reader = new FileReader();
+reader.onload = function() {
+var lines = reader.result.split('\n');
+var xReservations = [];
+for (var ii = 0; ii < lines.length; ++ii) {
+var xRes = $($.parseXML('<Item>' + lines[ii] + '</Item>'));
+if (xRes.find('ID_Client').text() === clientID)
+xReservations.push(xRes);
+}
+updateResPanel(xml, xReservations);
+};
+reader.readAsText(response.fileBlob);
+})
+.catch(function(error) {
+console.log('Ошибка при загрузке списка групп. ' + error);
+});
+
+/// Скрываем окно загрузки
+$('.preloader').fadeOut('slow');
+
+/// Показываем окно профиля
+profileWin.dialog({
+dialogClass: "no-titlebar",
+width: '100%',
+show: { effect: 'fade', duration: 500 },
+hide: { effect: 'fade', duration: 300 },
+maxHeight: window.innerHeight,
+modal: false,
+create: function(event, ui) {
+$(this).parent().css("maxWidth", "600px");
+}
+});
+}
+</script>
+
+</body>
